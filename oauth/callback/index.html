@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>로그인 완료</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body style="font-family: -apple-system, sans-serif; padding: 24px;">
+  <h1>테슬라 로그인 코드 수신</h1>
+  <p>앱으로 돌아가는 중이면 이 창을 닫아도 됩니다.</p>
+  <pre id="q"></pre>
+  <script>
+    document.getElementById('q').textContent = location.search || '(query 없음)';
+  </script>
+</body>
+</html>
