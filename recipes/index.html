@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🍚 오늘 저녁 뭐 먹지?</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+      background: linear-gradient(135deg, #FFE5D9 0%, #FFC9B9 50%, #FFB4A2 100%);
+      min-height: 100vh;
+      padding: 16px;
+      color: #2d2d2d;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 480px; margin: 0 auto; }
+    header { text-align: center; padding: 20px 0 16px; }
+    h1 { font-size: 28px; font-weight: 800; margin-bottom: 6px; }
+    .sub { font-size: 13px; opacity: 0.7; }
+    .date { font-size: 12px; opacity: 0.6; margin-top: 4px; }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 12px 0;
+      scrollbar-width: none;
+    }
+    .filters::-webkit-scrollbar { display: none; }
+    .chip {
+      flex-shrink: 0;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.6);
+      border: 1.5px solid transparent;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .chip.active {
+      background: #2d2d2d;
+      color: #fff;
+      border-color: #2d2d2d;
+    }
+
+    .cards { display: flex; flex-direction: column; gap: 14px; margin: 16px 0; }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #FFB4A2;
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .card-name {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .card-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .card-meta span { display: inline-flex; align-items: center; gap: 3px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+    .tag {
+      background: #FFE5D9;
+      color: #B85C3C;
+      padding: 3px 9px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .card-ingredients {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.5;
+      padding-top: 10px;
+      border-top: 1px dashed #eee;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      position: sticky;
+      bottom: 16px;
+    }
+    .btn {
+      flex: 1;
+      padding: 16px;
+      border: none;
+      border-radius: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .btn-primary { background: #2d2d2d; color: #fff; }
+    .btn-secondary { background: #fff; color: #2d2d2d; }
+    .btn:active { transform: scale(0.97); }
+
+    .history {
+      margin-top: 32px;
+      padding: 16px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 16px;
+    }
+    .history h3 { font-size: 14px; margin-bottom: 10px; }
+    .history-item {
+      font-size: 13px;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+    }
+    .history-item:last-child { border-bottom: none; }
+    .empty { font-size: 12px; opacity: 0.5; text-align: center; padding: 10px; }
+
+    /* Modal */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 100;
+    }
+    .modal-bg.show { display: flex; }
+    .modal {
+      background: #fff;
+      border-radius: 24px 24px 0 0;
+      padding: 24px 20px 32px;
+      max-height: 90vh;
+      overflow-y: auto;
+      width: 100%;
+      max-width: 480px;
+      animation: slideUp 0.25s;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+    .modal h2 { font-size: 22px; line-height: 1.3; }
+    .close {
+      background: #f0f0f0;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .section { margin: 16px 0; }
+    .section h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #666;
+    }
+    .section ul { padding-left: 18px; }
+    .section li { font-size: 14px; line-height: 1.7; }
+    .step-num {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      background: #FFB4A2;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 22px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+    .steps li { list-style: none; margin: 10px 0; display: flex; }
+    .url-btn {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      background: #FFF0E8;
+      color: #B85C3C;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2d2d2d;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      opacity: 0;
+      transition: opacity 0.25s;
+      z-index: 200;
+    }
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🍚 오늘 저녁 뭐 먹지?</h1>
+      <div class="sub">만개의레시피 큐레이션 · 공주님 집밥 자동화</div>
+      <div class="date" id="todayDate"></div>
+    </header>
+
+    <div class="filters" id="filters">
+      <div class="chip active" data-filter="all">전체</div>
+      <div class="chip" data-filter="혼밥">🧘 혼밥</div>
+      <div class="chip" data-filter="쌀쌀한날">🌧 쌀쌀한날</div>
+      <div class="chip" data-filter="손님맞이">👥 손님맞이</div>
+      <div class="chip" data-filter="밥도둑">🍚 밥도둑</div>
+      <div class="chip" data-filter="quick">⚡ 20분이내</div>
+    </div>
+
+    <div class="cards" id="cards"></div>
+
+    <div class="buttons">
+      <button class="btn btn-secondary" onclick="reshuffle()">🎲 다시 뽑기</button>
+      <button class="btn btn-primary" onclick="pickRandom()">🎯 랜덤 1개</button>
+    </div>
+
+    <div class="history">
+      <h3>📅 최근 선택 기록</h3>
+      <div id="historyList"></div>
+    </div>
+  </div>
+
+  <div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal" id="modalContent"></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const RECIPES_URL = 'data/recipes.json';
+    let allRecipes = [];
+    let currentPicks = [];
+    let currentFilter = 'all';
+
+    const today = new Date();
+    const weekdays = ['일', '월', '화', '수', '목', '금', '토'];
+    document.getElementById('todayDate').textContent =
+      `${today.getFullYear()}.${String(today.getMonth()+1).padStart(2,'0')}.${String(today.getDate()).padStart(2,'0')} (${weekdays[today.getDay()]})`;
+
+    async function loadRecipes() {
+      try {
+        const res = await fetch(RECIPES_URL);
+        const data = await res.json();
+        allRecipes = data.recipes;
+        reshuffle();
+      } catch(e) {
+        document.getElementById('cards').innerHTML = `<div class="empty">레시피 로딩 실패: ${e.message}</div>`;
+      }
+    }
+
+    function filterRecipes() {
+      if (currentFilter === 'all') return [...allRecipes];
+      if (currentFilter === 'quick') return allRecipes.filter(r => r.cook_time_min <= 20);
+      return allRecipes.filter(r =>
+        (r.mood_tags || []).includes(currentFilter) ||
+        (r.weather_tags || []).includes(currentFilter) ||
+        (r.tags || []).includes(currentFilter)
+      );
+    }
+
+    function reshuffle() {
+      const pool = filterRecipes();
+      if (pool.length === 0) {
+        document.getElementById('cards').innerHTML =
+          `<div class="empty">이 필터에는 레시피가 없어요 🥲</div>`;
+        return;
+      }
+      const shuffled = [...pool].sort(() => Math.random() - 0.5);
+      currentPicks = shuffled.slice(0, Math.min(3, shuffled.length));
+      renderCards();
+    }
+
+    function renderCards() {
+      const html = currentPicks.map((r, i) => `
+        <div class="card" onclick="openRecipe('${r.id}')">
+          <div class="card-badge">선택지 ${i+1}</div>
+          <div class="card-name">${r.name}</div>
+          <div class="card-meta">
+            <span>⏱ ${r.cook_time_min}분</span>
+            <span>👥 ${r.servings}인분</span>
+            <span>${'★'.repeat(r.difficulty_level)}${'☆'.repeat(5-r.difficulty_level)}</span>
+            <span>💰 ₩${(r.cost_per_serving_krw || r.cost_krw).toLocaleString()}/인</span>
+          </div>
+          <div class="card-tags">
+            ${(r.tags || []).slice(0,4).map(t => `<span class="tag">#${t}</span>`).join('')}
+          </div>
+          <div class="card-ingredients">
+            🥘 ${(r.main_ingredients || []).join(', ')}
+          </div>
+        </div>
+      `).join('');
+      document.getElementById('cards').innerHTML = html;
+    }
+
+    function pickRandom() {
+      const pool = filterRecipes();
+      if (pool.length === 0) return;
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      selectRecipe(pick.id, true);
+    }
+
+    function openRecipe(id) {
+      const r = allRecipes.find(x => x.id === id);
+      if (!r) return;
+      const modal = document.getElementById('modalContent');
+      modal.innerHTML = `
+        <div class="modal-header">
+          <h2>${r.name}</h2>
+          <button class="close" onclick="closeModal()">✕</button>
+        </div>
+        <div class="card-meta">
+          <span>⏱ ${r.cook_time_min}분</span>
+          <span>👥 ${r.servings}인분</span>
+          <span>${'★'.repeat(r.difficulty_level)}${'☆'.repeat(5-r.difficulty_level)}</span>
+        </div>
+        <div class="section">
+          <h4>📝 재료</h4>
+          <ul>
+            ${r.ingredients.map(ing => `<li>${ing.name} ${ing.amount}${ing.unit}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="section">
+          <h4>🍳 조리순서</h4>
+          <ul class="steps">
+            ${r.steps.map((s,i) => `<li><span class="step-num">${i+1}</span>${s}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="section">
+          <h4>💡 꿀팁</h4>
+          <ul>
+            ${(r.tips||[]).map(t => `<li>${t}</li>`).join('')}
+          </ul>
+        </div>
+        <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="selectRecipe('${r.id}')">✅ 오늘 저녁은 이걸로!</button>
+        <a class="url-btn" href="${r.url}" target="_blank">🔗 만개의레시피 원문 보기</a>
+      `;
+      document.getElementById('modal').classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('show');
+    }
+
+    function selectRecipe(id, skipClose) {
+      const r = allRecipes.find(x => x.id === id);
+      if (!r) return;
+      saveHistory(r);
+      if (!skipClose) closeModal();
+      showToast(`✅ 오늘 저녁: ${r.name}`);
+      renderHistory();
+    }
+
+    function saveHistory(r) {
+      let hist = [];
+      try {
+        hist = JSON.parse(localStorage.getItem('dinner-history') || '[]');
+      } catch(e) {}
+      const today = new Date().toISOString().slice(0,10);
+      hist.unshift({ date: today, id: r.id, name: r.name });
+      hist = hist.slice(0, 14);
+      try { localStorage.setItem('dinner-history', JSON.stringify(hist)); } catch(e) {}
+    }
+
+    function renderHistory() {
+      let hist = [];
+      try {
+        hist = JSON.parse(localStorage.getItem('dinner-history') || '[]');
+      } catch(e) {}
+      const el = document.getElementById('historyList');
+      if (hist.length === 0) {
+        el.innerHTML = '<div class="empty">아직 선택한 메뉴가 없어요</div>';
+        return;
+      }
+      el.innerHTML = hist.slice(0,7).map(h =>
+        `<div class="history-item"><span>${h.date}</span><span>${h.name}</span></div>`
+      ).join('');
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2000);
+    }
+
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        currentFilter = chip.dataset.filter;
+        reshuffle();
+      });
+    });
+
+    loadRecipes();
+    renderHistory();
+  </script>
+</body>
+</html>
