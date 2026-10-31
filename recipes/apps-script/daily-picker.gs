@@ -169,12 +169,14 @@ function sendMainMessage_(picks) {
     const tags = (r.tags || []).slice(0, 4).map(t => `\`#${t}\``).join(' ');
     const mainIngredients = (r.main_ingredients || []).join(', ');
 
+    const kcal = r.kcal_per_serving || '?';
+    const kcalEmoji = kcal === '?' ? '🔥' : (kcal < 200 ? '🟢' : kcal < 400 ? '🟡' : kcal < 600 ? '🟠' : '🔴');
     // 레시피 상세 섹션
     blocks.push({
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `${emojis[i]} *${r.name}*\n⏱ ${r.cook_time_min}분 · 👥 ${r.servings}인분 · ${stars} · 💰 ₩${cost}/인\n🥘 _${mainIngredients}_\n${tags}`
+        text: `${emojis[i]} *${r.name}*\n⏱ ${r.cook_time_min}분 · 👥 ${r.servings}인분 · ${stars}\n${kcalEmoji} *${kcal}kcal*/인 · 💰 ₩${cost}/인\n🥘 _${mainIngredients}_\n${tags}`
       }
     });
 

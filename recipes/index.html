@@ -363,6 +363,7 @@
             <span>⏱ ${r.cook_time_min}분</span>
             <span>👥 ${r.servings}인분</span>
             <span>${'★'.repeat(r.difficulty_level)}${'☆'.repeat(5-r.difficulty_level)}</span>
+            <span>🔥 ${r.kcal_per_serving || '?'}kcal</span>
             <span>💰 ₩${(r.cost_per_serving_krw || r.cost_krw).toLocaleString()}/인</span>
           </div>
           <div class="card-tags">
@@ -396,6 +397,8 @@
           <span>⏱ ${r.cook_time_min}분</span>
           <span>👥 ${r.servings}인분</span>
           <span>${'★'.repeat(r.difficulty_level)}${'☆'.repeat(5-r.difficulty_level)}</span>
+          <span>🔥 ${r.kcal_per_serving || '?'}kcal/인</span>
+          <span>💰 ₩${(r.cost_per_serving_krw || r.cost_krw || 0).toLocaleString()}</span>
         </div>
         <div class="section">
           <h4>📝 재료</h4>

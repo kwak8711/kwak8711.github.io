@@ -137,7 +137,9 @@
       ],
       "cost_krw": 4000,
       "rating": 4.5,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 720,
+      "kcal_grade": "고칼로리"
     },
     {
       "id": "6838094",
@@ -236,7 +238,9 @@
       "cost_per_serving_krw": 1500,
       "storage": "냉장 1주 / 냉동 1개월",
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 180,
+      "kcal_grade": "저칼로리"
     },
     {
       "id": "6922749",
@@ -368,7 +372,9 @@
       "cost_krw": 12000,
       "cost_per_serving_krw": 6000,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 320,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "6864727",
@@ -490,7 +496,9 @@
       "cost_krw": 15000,
       "cost_per_serving_krw": 7500,
       "rating": 4.8,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 780,
+      "kcal_grade": "고칼로리"
     },
     {
       "id": "6909693",
@@ -597,7 +605,9 @@
       "cost_krw": 10000,
       "cost_per_serving_krw": 3300,
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 380,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "6949756",
@@ -738,7 +748,9 @@
       "cost_krw": 15000,
       "cost_per_serving_krw": 2500,
       "rating": 4.8,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 450,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "6871770",
@@ -862,7 +874,9 @@
       "cost_krw": 3000,
       "cost_per_serving_krw": 3000,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 450,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "7058912",
@@ -995,7 +1009,9 @@
       "cost_krw": 3500,
       "cost_per_serving_krw": 3500,
       "rating": 4.8,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 420,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "6832709",
@@ -1119,7 +1135,9 @@
       "cost_krw": 18000,
       "cost_per_serving_krw": 6000,
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 550,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "7080886",
@@ -1267,7 +1285,9 @@
       "cost_krw": 20000,
       "cost_per_serving_krw": 6700,
       "rating": 4.8,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 520,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "6895094",
@@ -1348,7 +1368,9 @@
       "cost_krw": 4000,
       "cost_per_serving_krw": 4000,
       "rating": 4.5,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 350,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "7061121",
@@ -1433,7 +1455,9 @@
       "cost_krw": 3500,
       "cost_per_serving_krw": 3500,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 550,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "6877746",
@@ -1564,7 +1588,9 @@
       "cost_krw": 6000,
       "cost_per_serving_krw": 2000,
       "rating": 4.9,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 280,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "6902283",
@@ -1657,7 +1683,9 @@
       "cost_krw": 7000,
       "cost_per_serving_krw": 3500,
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 180,
+      "kcal_grade": "저칼로리"
     },
     {
       "id": "6976198",
@@ -1743,7 +1771,9 @@
       "cost_krw": 1500,
       "cost_per_serving_krw": 1500,
       "rating": 4.4,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 450,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "7024430",
@@ -1850,7 +1880,9 @@
       "cost_per_serving_krw": 800,
       "storage": "냉장 5-7일 (2-3일 내 최상)",
       "rating": 4.9,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 95,
+      "kcal_grade": "저칼로리"
     },
     {
       "id": "6630284",
@@ -1969,7 +2001,9 @@
       "cost_krw": 5000,
       "cost_per_serving_krw": 5000,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 580,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "7038533",
@@ -2085,7 +2119,9 @@
       "cost_krw": 12000,
       "cost_per_serving_krw": 6000,
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 520,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "7042497",
@@ -2192,7 +2228,9 @@
       "cost_krw": 15000,
       "cost_per_serving_krw": 2500,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 720,
+      "kcal_grade": "고칼로리"
     },
     {
       "id": "6835110",
@@ -2296,7 +2334,9 @@
       "cost_per_serving_krw": 750,
       "storage": "냉장 3-4일",
       "rating": 4.5,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 160,
+      "kcal_grade": "저칼로리"
     },
     {
       "id": "6882316",
@@ -2386,7 +2426,9 @@
       "cost_krw": 4000,
       "cost_per_serving_krw": 1300,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 95,
+      "kcal_grade": "저칼로리"
     },
     {
       "id": "7049309",
@@ -2489,7 +2531,9 @@
       "cost_krw": 10000,
       "cost_per_serving_krw": 5000,
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 620,
+      "kcal_grade": "고칼로리"
     },
     {
       "id": "6900978",
@@ -2614,7 +2658,9 @@
       "cost_krw": 5000,
       "cost_per_serving_krw": 5000,
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 650,
+      "kcal_grade": "고칼로리"
     },
     {
       "id": "6843857",
@@ -2695,7 +2741,9 @@
       "cost_krw": 2000,
       "cost_per_serving_krw": 1000,
       "rating": 4.8,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 180,
+      "kcal_grade": "저칼로리"
     },
     {
       "id": "6843268",
@@ -2799,7 +2847,9 @@
       "cost_per_serving_krw": 500,
       "storage": "냉장 2주",
       "rating": 4.8,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 110,
+      "kcal_grade": "저칼로리"
     },
     {
       "id": "6851356",
@@ -2889,7 +2939,9 @@
       "cost_krw": 2500,
       "cost_per_serving_krw": 2500,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 580,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "6888000",
@@ -2982,7 +3034,9 @@
       "cost_per_serving_krw": 2000,
       "storage": "냉장 4일",
       "rating": 4.9,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 230,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "6888001",
@@ -3071,7 +3125,9 @@
       "cost_krw": 2500,
       "cost_per_serving_krw": 800,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 40,
+      "kcal_grade": "저칼로리"
     },
     {
       "id": "6888002",
@@ -3164,7 +3220,9 @@
       "cost_krw": 2500,
       "cost_per_serving_krw": 830,
       "rating": 4.8,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 50,
+      "kcal_grade": "저칼로리"
     },
     {
       "id": "7018854",
@@ -3279,7 +3337,9 @@
       "cost_krw": 6000,
       "cost_per_serving_krw": 1500,
       "rating": 4.5,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 200,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "6888003",
@@ -3377,7 +3437,9 @@
       "cost_krw": 2000,
       "cost_per_serving_krw": 2000,
       "rating": 4.8,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 480,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "6888004",
@@ -3483,7 +3545,9 @@
       "cost_krw": 6000,
       "cost_per_serving_krw": 3000,
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 380,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "6888005",
@@ -3578,7 +3642,9 @@
       "cost_krw": 2000,
       "cost_per_serving_krw": 1000,
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 220,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "6888006",
@@ -3688,7 +3754,9 @@
       "cost_krw": 5000,
       "cost_per_serving_krw": 1700,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 150,
+      "kcal_grade": "저칼로리"
     },
     {
       "id": "6888007",
@@ -3803,7 +3871,9 @@
       "cost_krw": 4000,
       "cost_per_serving_krw": 2000,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 560,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "6888008",
@@ -3899,7 +3969,9 @@
       "cost_krw": 4000,
       "cost_per_serving_krw": 2000,
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 380,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "6957866",
@@ -3997,7 +4069,9 @@
       "cost_krw": 8000,
       "cost_per_serving_krw": 2000,
       "rating": 4.6,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 260,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "7051754",
@@ -4104,7 +4178,9 @@
       "cost_krw": 7000,
       "cost_per_serving_krw": 3500,
       "rating": 4.8,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 340,
+      "kcal_grade": "중저칼로리"
     },
     {
       "id": "7045515",
@@ -4205,7 +4281,9 @@
       "cost_krw": 12000,
       "cost_per_serving_krw": 6000,
       "rating": 4.9,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 480,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "7063484",
@@ -4306,7 +4384,9 @@
       "cost_krw": 5000,
       "cost_per_serving_krw": 5000,
       "rating": 4.7,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 420,
+      "kcal_grade": "중칼로리"
     },
     {
       "id": "6957000",
@@ -4403,7 +4483,9 @@
       "cost_krw": 7000,
       "cost_per_serving_krw": 7000,
       "rating": 4.8,
-      "added_date": "2026-10-31"
+      "added_date": "2026-10-31",
+      "kcal_per_serving": 410,
+      "kcal_grade": "중칼로리"
     }
   ]
 }
