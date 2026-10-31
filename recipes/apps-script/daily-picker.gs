@@ -59,7 +59,7 @@ function sendDailyPicks() {
   }
 
   const picks = pickRecipes_(recipes, 3);
-  const result = sendMainMessage_(picks);
+  const result = sendMainMessage_(picks, recipes.length);
 
   if (result.ok) {
     logPicks_(picks, result.ts);
@@ -144,9 +144,10 @@ function getWeatherTag_() {
 // ============================================================
 // 메인 메시지 (액션 버튼 + 블록킷)
 // ============================================================
-function sendMainMessage_(picks) {
+function sendMainMessage_(picks, totalRecipeCount) {
   const today = Utilities.formatDate(new Date(), 'Asia/Seoul', 'yyyy.MM.dd (E)');
   const emojis = ['1️⃣', '2️⃣', '3️⃣'];
+  const totalCount = totalRecipeCount || picks.length;
 
   const blocks = [
     {
@@ -242,7 +243,7 @@ function sendMainMessage_(picks) {
     type: 'context',
     elements: [{
       type: 'mrkdwn',
-      text: `✨ Claude 자동화 봇 · 36개 레시피 · 💬 스레드에 댓글 환영`
+      text: `✨ Claude 자동화 봇 · ${totalCount}개 레시피 · 💬 스레드에 댓글 환영`
     }]
   });
 
