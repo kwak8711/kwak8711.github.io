@@ -3900,6 +3900,510 @@
       "cost_per_serving_krw": 2000,
       "rating": 4.7,
       "added_date": "2026-10-31"
+    },
+    {
+      "id": "6957866",
+      "name": "닭가슴살볼 샐러드",
+      "name_en": "Chicken Ball Salad",
+      "url": "https://www.10000recipe.com/recipe/6957866",
+      "author": "스마일로즈의건강밥상",
+      "category": "건강식",
+      "cuisine": "퓨전",
+      "servings": 4,
+      "cook_time_min": 15,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "건강식",
+        "닭가슴살",
+        "샐러드",
+        "다이어트",
+        "고단백",
+        "저칼로리",
+        "비타민C"
+      ],
+      "mood_tags": [
+        "건강한거",
+        "다이어트",
+        "간편한거",
+        "브런치",
+        "도시락"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "닭가슴살볼",
+        "미니파프리카",
+        "방울토마토",
+        "쌈채소"
+      ],
+      "ingredients": [
+        {
+          "name": "닭가슴살볼",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "미니파프리카",
+          "amount": 5,
+          "unit": "개"
+        },
+        {
+          "name": "방울토마토",
+          "amount": 8,
+          "unit": "개"
+        },
+        {
+          "name": "쌈채소",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "올리브유",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "발사믹 식초 (드레싱)",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "올리브유 (드레싱)",
+          "amount": 1,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "미니파프리카 링으로 썰고, 방울토마토 반으로 자르기",
+        "팬에 올리브유 1T 두르고 닭가슴살 볼 볶기",
+        "파프리카+방울토마토 넣고 함께 볶기",
+        "후추로 간하기",
+        "접시에 쌈채소 깔고 볶은 재료 올리기",
+        "발사믹 드레싱 뿌려 완성"
+      ],
+      "tips": [
+        "닭가슴살볼 사용하면 조리시간 단축",
+        "참나물·쌈채소는 뜯어 바로 올리기",
+        "드레싱은 올리브유:발사믹 1:1",
+        "식전에 샐러드부터 → 포만감 UP"
+      ],
+      "cost_krw": 8000,
+      "cost_per_serving_krw": 2000,
+      "rating": 4.6,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "7051754",
+      "name": "아보카도 계란 샐러드",
+      "name_en": "Avocado Egg Salad",
+      "url": "https://www.10000recipe.com/recipe/7051754",
+      "author": "lemontree",
+      "category": "건강식",
+      "cuisine": "양식",
+      "servings": 2,
+      "cook_time_min": 15,
+      "difficulty": "초급",
+      "difficulty_level": 2,
+      "tags": [
+        "건강식",
+        "아보카도",
+        "계란",
+        "샐러드",
+        "그릭요거트",
+        "브런치",
+        "지중해식"
+      ],
+      "mood_tags": [
+        "건강한거",
+        "브런치",
+        "아침",
+        "다이어트"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "아보카도",
+        "달걀",
+        "그릭요거트",
+        "양파"
+      ],
+      "ingredients": [
+        {
+          "name": "아보카도",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "달걀",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "양파 (다진 것)",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "이탈리안 파슬리",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "그릭요거트",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "레몬즙",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "화이트 발사믹식초",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "디종 머스터드",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "아보카도 씨·껍질 제거",
+        "달걀 반숙 또는 완숙으로 삶기",
+        "볼에 아보카도+달걀 담고 가볍게 으깨기",
+        "다진 양파·파슬리 추가",
+        "그릭요거트+레몬즙+발사믹+머스터드+소금+후추 섞기",
+        "빵 위에 올려도 OK, 그대로 샐러드로도"
+      ],
+      "tips": [
+        "그릭요거트가 마요네즈 대체 (칼로리 다운)",
+        "지중해식 식단 (심혈관 건강)",
+        "포만감 오래 유지",
+        "브런치·오픈샌드위치 모두 가능"
+      ],
+      "cost_krw": 7000,
+      "cost_per_serving_krw": 3500,
+      "rating": 4.8,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "7045515",
+      "name": "아보카도 새우 오픈 샌드위치",
+      "name_en": "Avocado Shrimp Open Sandwich",
+      "url": "https://www.10000recipe.com/recipe/7045515",
+      "author": "예꿈이댁",
+      "category": "건강식",
+      "cuisine": "양식",
+      "servings": 2,
+      "cook_time_min": 20,
+      "difficulty": "초급",
+      "difficulty_level": 2,
+      "tags": [
+        "건강식",
+        "아보카도",
+        "새우",
+        "샌드위치",
+        "브런치",
+        "오픈샌드위치",
+        "고급브런치"
+      ],
+      "mood_tags": [
+        "브런치",
+        "건강한거",
+        "손님맞이",
+        "주말"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "아보카도",
+        "새우",
+        "식빵",
+        "치커리"
+      ],
+      "ingredients": [
+        {
+          "name": "식빵",
+          "amount": 2,
+          "unit": "장"
+        },
+        {
+          "name": "아보카도",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "새우",
+          "amount": 10,
+          "unit": "마리"
+        },
+        {
+          "name": "치커리",
+          "amount": 0.5,
+          "unit": "줌"
+        },
+        {
+          "name": "마요네즈",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "레몬즙",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "올리브유",
+          "amount": 1,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "아보카도 작게 썰거나 으깨기",
+        "아보카도+마요네즈+레몬즙+소금 섞어 샐러드 만들기",
+        "새우 올리브유 두른 팬에 소금·후추 뿌려 굽기",
+        "식빵 바삭하게 토스트",
+        "식빵 → 치커리 → 아보카도 샐러드 → 새우 순으로 올리기"
+      ],
+      "tips": [
+        "아보카도는 불포화지방산 (올리브유보다 多)",
+        "식이섬유 풍부 → 포만감 UP",
+        "짭조름한 새우 + 고소한 아보카도 환상 조합",
+        "손님맞이 호텔급 브런치"
+      ],
+      "cost_krw": 12000,
+      "cost_per_serving_krw": 6000,
+      "rating": 4.9,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "7063484",
+      "name": "다이어트 아보카도 계란 토스트",
+      "name_en": "Diet Avocado Egg Toast",
+      "url": "https://www.10000recipe.com/recipe/7063484",
+      "author": "뿡씨스터즈",
+      "category": "건강식",
+      "cuisine": "양식",
+      "servings": 1,
+      "cook_time_min": 15,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "건강식",
+        "다이어트",
+        "아보카도",
+        "토스트",
+        "아침",
+        "브런치",
+        "냉동아보카도"
+      ],
+      "mood_tags": [
+        "다이어트",
+        "아침",
+        "브런치",
+        "간편한거"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "아보카도",
+        "달걀",
+        "식빵",
+        "마요네즈"
+      ],
+      "ingredients": [
+        {
+          "name": "냉동 아보카도",
+          "amount": 1.5,
+          "unit": "개 분량"
+        },
+        {
+          "name": "삶은 달걀",
+          "amount": 3,
+          "unit": "개"
+        },
+        {
+          "name": "마요네즈",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "홀그레인 머스터드",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "밤식빵",
+          "amount": 2,
+          "unit": "장"
+        },
+        {
+          "name": "아가베시럽",
+          "amount": "적당량",
+          "unit": ""
+        },
+        {
+          "name": "파슬리 가루",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "아보카도와 삶은 달걀 먼저 으깨기",
+        "마요네즈·머스터드·소금·후추 넣고 섞어 스프레드 완성",
+        "밤식빵 바삭하게 굽기",
+        "밤식빵 위에 아보카도 계란 스프레드 듬뿍",
+        "아가베시럽·파슬리 가루로 마무리"
+      ],
+      "tips": [
+        "냉동 아보카도 사용 (한국에서 익히기 어려움 해결)",
+        "밤식빵이 포인트 (일반 식빵도 OK)",
+        "아가베시럽 1t 포인트 (단맛 조절)",
+        "캐나다 유행 레시피"
+      ],
+      "cost_krw": 5000,
+      "cost_per_serving_krw": 5000,
+      "rating": 4.7,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6957000",
+      "name": "닭가슴살 양배추 아보카도 스테이크",
+      "name_en": "Chicken Avocado Cabbage Steak",
+      "url": "https://www.10000recipe.com/recipe/6957000",
+      "author": "지니어트",
+      "category": "건강식",
+      "cuisine": "퓨전",
+      "servings": 1,
+      "cook_time_min": 20,
+      "difficulty": "초급",
+      "difficulty_level": 2,
+      "tags": [
+        "건강식",
+        "닭가슴살",
+        "아보카도",
+        "양배추",
+        "저탄수화물",
+        "고단백",
+        "식이섬유"
+      ],
+      "mood_tags": [
+        "다이어트",
+        "건강한거",
+        "저탄수화물",
+        "운동후"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "닭가슴살",
+        "아보카도",
+        "양배추",
+        "올리브유"
+      ],
+      "ingredients": [
+        {
+          "name": "닭가슴살",
+          "amount": 150,
+          "unit": "g"
+        },
+        {
+          "name": "양배추 (큰 조각)",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "아보카도",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "올리브유",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "레몬즙",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "발사믹 글레이즈",
+          "amount": 1,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "닭가슴살 소금·후추 밑간 (10분)",
+        "양배추 큰 조각으로 썰기 (스테이크 느낌)",
+        "팬에 올리브유 두르고 양배추 노릇하게 굽기",
+        "꺼내고 같은 팬에 닭가슴살 양면 노릇하게",
+        "아보카도 반 썰어 접시에 올리기",
+        "구운 양배추+닭가슴살 올리고 레몬즙·발사믹 글레이즈"
+      ],
+      "tips": [
+        "저탄수 고단백 완전체",
+        "아보카도의 건강한 지방 + 닭 단백질 + 양배추 식이섬유",
+        "운동 후 식사로 최적",
+        "굽는 순서: 양배추 → 닭 (기름 재활용)"
+      ],
+      "cost_krw": 7000,
+      "cost_per_serving_krw": 7000,
+      "rating": 4.8,
+      "added_date": "2026-10-31"
     }
   ]
 }
