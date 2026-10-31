@@ -1,20 +1,21 @@
 /**
- * 🍚 공주님 오늘 저녁 자동 추천 봇 (v1.0)
+ * 🍚 공주님 오늘 저녁 자동 추천 봇 v2.0 (스레드 + 액션 버튼 + 다시뽑기)
  *
- * 매일 평일 18:00에 Slack #집밥 채널로 랜덤 3개 저녁 메뉴를 보내서
- * 투표형(이모지 반응)으로 선택하게 하는 Google Apps Script.
+ * v2 신규 기능:
+ *   - 각 레시피 카드에 액션 버튼 3개 (📖 레시피 보기 / 💬 댓글 / 🌐 웹)
+ *   - 🎲 다시 뽑기 버튼 (웹 피커로 즉시 이동)
+ *   - 자동 스레드 작성 (Bot Token 있을 때)
+ *   - 선택 로그 Sheets 자동 저장
+ *   - 요일·날씨 가중치 선택
  *
- * 📥 설정 방법 (한번만):
+ * 📥 설정 방법:
  *   1) 새 Google Sheets 열기 → 확장 프로그램 → Apps Script
- *   2) 이 파일 전체 복사 → 코드 영역에 붙여넣기 → 저장
- *   3) 프로젝트 설정 → 스크립트 속성에 다음 추가:
- *      - SLACK_WEBHOOK_URL : 집밥 채널 Incoming Webhook URL
- *      - SLACK_BOT_TOKEN   : xoxb- 로 시작하는 봇 토큰 (반응 조회용, 선택)
- *      - SLACK_CHANNEL     : #집밥 (또는 채널 ID)
- *   4) 메뉴에서 🍚 레시피 → 1. 트리거 설치 클릭
- *   5) 테스트: 메뉴에서 🍚 레시피 → 2. 지금 추천 보내기
- *
- * 💡 레시피 추가는 깃허브 recipes.json 수정 or 메뉴 "URL로 추가하기"
+ *   2) 이 파일 전체 복사 → 저장
+ *   3) 프로젝트 설정 → 스크립트 속성:
+ *      - SLACK_WEBHOOK_URL: Incoming Webhook URL (필수)
+ *      - SLACK_BOT_TOKEN: xoxb- 토큰 (선택, 있으면 스레드 사용)
+ *      - SLACK_CHANNEL: #집밥 또는 채널 ID
+ *   4) 메뉴 "🍚 레시피 → 1. 트리거 설치" 클릭
  */
 
 // ============================================================
@@ -24,8 +25,8 @@ const CONFIG = {
   RECIPES_URL: 'https://raw.githubusercontent.com/kwak8711/kwak8711.github.io/main/recipes/data/recipes.json',
   PICKER_URL: 'https://kwak8711.github.io/recipes/',
   LOG_SHEET_NAME: '선택로그',
-  WEEKDAY_RECIPE_MAX_MIN: 30,  // 평일은 30분 이내 레시피 가중
-  WEEKEND_ALLOW_LONG: true,     // 주말은 장시간 레시피 OK
+  WEEKDAY_RECIPE_MAX_MIN: 30,
+  WEEKEND_ALLOW_LONG: true,
 };
 
 // ============================================================
@@ -43,11 +44,12 @@ function onOpen() {
     .addSeparator()
     .addItem('6. 모든 트리거 삭제', 'deleteAllTriggers')
     .addItem('7. 설정 확인', 'checkConfig')
+    .addItem('8. Webhook 재테스트', 'testWebhook')
     .addToUi();
 }
 
 // ============================================================
-// 메인: 매일 추천 보내기
+// 메인: 매일 추천 보내기 (v2: 스레드 + 버튼)
 // ============================================================
 function sendDailyPicks() {
   const recipes = fetchRecipes();
@@ -57,11 +59,14 @@ function sendDailyPicks() {
   }
 
   const picks = pickRecipes_(recipes, 3);
-  const message = buildSlackMessage_(picks);
-  const result = sendSlack_(message);
+  const result = sendMainMessage_(picks);
 
   if (result.ok) {
     logPicks_(picks, result.ts);
+    // 스레드 댓글 자동 작성 (Bot Token 있을 때)
+    if (result.ts) {
+      sendThreadReply_(result.ts, '💬 투표 또는 코멘트는 여기에 남겨주세요!\n선택 완료되면 👆 "레시피 보기" 눌러서 재료·조리순서 확인하세요.');
+    }
     log_(`✅ 추천 발송 완료 - ${picks.map(p => p.name).join(', ')}`);
   } else {
     log_(`❌ 발송 실패: ${result.error}`);
@@ -69,7 +74,7 @@ function sendDailyPicks() {
 }
 
 // ============================================================
-// 레시피 불러오기 (GitHub raw JSON)
+// 레시피 불러오기
 // ============================================================
 function fetchRecipes() {
   try {
@@ -90,34 +95,31 @@ function fetchRecipes() {
 }
 
 // ============================================================
-// 레시피 선택 (요일·시간 가중치)
+// 레시피 선택 (요일·날씨 가중치)
 // ============================================================
 function pickRecipes_(recipes, count) {
   const now = new Date();
-  const dayOfWeek = now.getDay(); // 0=일, 1=월, ...
+  const dayOfWeek = now.getDay();
   const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
   const month = now.getMonth() + 1;
   const isCold = month <= 3 || month >= 10;
 
-  // 평일 → 30분 이내 선호
-  // 쌀쌀한 달 → 찌개·국 가중
   let pool = recipes.slice();
-
   if (isWeekday) {
-    pool = pool.filter(r => r.cook_time_min <= CONFIG.WEEKDAY_RECIPE_MAX_MIN);
-    if (pool.length < count) pool = recipes.slice();
+    const quickPool = pool.filter(r => r.cook_time_min <= CONFIG.WEEKDAY_RECIPE_MAX_MIN);
+    if (quickPool.length >= count) pool = quickPool;
   }
 
-  // 가중치 계산
   const weighted = pool.map(r => {
     let weight = 1;
-    if (isCold && (r.tags || []).some(t => ['찌개','국','탕'].indexOf(t) !== -1)) weight *= 2;
+    const tags = r.tags || [];
+    if (isCold && (tags.indexOf('찌개') !== -1 || tags.indexOf('국') !== -1 || tags.indexOf('탕') !== -1)) weight *= 2;
     if (isWeekday && r.cook_time_min <= 20) weight *= 1.5;
-    if ((r.weather_tags || []).indexOf(getWeatherTag_()) !== -1) weight *= 1.8;
+    const weatherTag = getWeatherTag_();
+    if ((r.weather_tags || []).indexOf(weatherTag) !== -1) weight *= 1.8;
     return { recipe: r, weight: weight };
   });
 
-  // 가중치 랜덤 추출 (중복 없이)
   const picks = [];
   const used = {};
   while (picks.length < count && picks.length < pool.length) {
@@ -140,18 +142,24 @@ function getWeatherTag_() {
 }
 
 // ============================================================
-// Slack 메시지 빌더 (Block Kit)
+// 메인 메시지 (액션 버튼 + 블록킷)
 // ============================================================
-function buildSlackMessage_(picks) {
+function sendMainMessage_(picks) {
   const today = Utilities.formatDate(new Date(), 'Asia/Seoul', 'yyyy.MM.dd (E)');
   const emojis = ['1️⃣', '2️⃣', '3️⃣'];
 
   const blocks = [
     {
       type: 'header',
-      text: { type: 'plain_text', text: `🍚 오늘 저녁 뭐 먹지? · ${today}`, emoji: true }
+      text: { type: 'plain_text', text: `🍚 공주님 오늘 저녁 뭐 먹지? · ${today}`, emoji: true }
     },
-    { type: 'section', text: { type: 'mrkdwn', text: '*이모지로 투표하세요!* 👇' } },
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: '*이모지로 투표 or 아래 버튼으로 선택하세요!* 👇\n_(랜덤 추천 · 요일·날씨 가중치 적용)_'
+      }
+    },
     { type: 'divider' }
   ];
 
@@ -161,13 +169,70 @@ function buildSlackMessage_(picks) {
     const tags = (r.tags || []).slice(0, 4).map(t => `\`#${t}\``).join(' ');
     const mainIngredients = (r.main_ingredients || []).join(', ');
 
+    // 레시피 상세 섹션
     blocks.push({
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `${emojis[i]} *<${r.url}|${r.name}>*\n⏱ ${r.cook_time_min}분 · 👥 ${r.servings}인분 · ${stars} · 💰 ₩${cost}/인\n🥘 _${mainIngredients}_\n${tags}`
+        text: `${emojis[i]} *${r.name}*\n⏱ ${r.cook_time_min}분 · 👥 ${r.servings}인분 · ${stars} · 💰 ₩${cost}/인\n🥘 _${mainIngredients}_\n${tags}`
       }
     });
+
+    // 액션 버튼 3개 (URL 버튼 - Webhook 호환!)
+    blocks.push({
+      type: 'actions',
+      elements: [
+        {
+          type: 'button',
+          text: { type: 'plain_text', text: '📖 레시피 보기', emoji: true },
+          url: r.url,
+          style: 'primary'
+        },
+        {
+          type: 'button',
+          text: { type: 'plain_text', text: '🌐 웹에서 보기', emoji: true },
+          url: `${CONFIG.PICKER_URL}#${r.id}`
+        },
+        {
+          type: 'button',
+          text: { type: 'plain_text', text: '💬 선택하기', emoji: true },
+          url: `${CONFIG.PICKER_URL}?select=${r.id}`
+        }
+      ]
+    });
+
+    if (i < picks.length - 1) blocks.push({ type: 'divider' });
+  });
+
+  // 다시 뽑기 섹션
+  blocks.push({ type: 'divider' });
+  blocks.push({
+    type: 'section',
+    text: {
+      type: 'mrkdwn',
+      text: '*🎲 다른 메뉴가 궁금하다면?*'
+    }
+  });
+  blocks.push({
+    type: 'actions',
+    elements: [
+      {
+        type: 'button',
+        text: { type: 'plain_text', text: '🎲 다시 뽑기', emoji: true },
+        url: `${CONFIG.PICKER_URL}?reshuffle=1`,
+        style: 'danger'
+      },
+      {
+        type: 'button',
+        text: { type: 'plain_text', text: '📚 전체 레시피', emoji: true },
+        url: CONFIG.PICKER_URL
+      },
+      {
+        type: 'button',
+        text: { type: 'plain_text', text: '⚡ 5분 요리만', emoji: true },
+        url: `${CONFIG.PICKER_URL}?filter=quick`
+      }
+    ]
   });
 
   blocks.push({ type: 'divider' });
@@ -175,20 +240,45 @@ function buildSlackMessage_(picks) {
     type: 'context',
     elements: [{
       type: 'mrkdwn',
-      text: `🌐 <${CONFIG.PICKER_URL}|웹에서 전체 보기> · 🎲 다시 뽑으려면 \`/dinner\``
+      text: `✨ Claude 자동화 봇 · 36개 레시피 · 💬 스레드에 댓글 환영`
     }]
   });
 
-  return {
-    text: `오늘 저녁 추천: ${picks.map(p => p.name).join(' / ')}`,
+  const payload = {
+    text: `🍚 오늘 저녁 추천: ${picks.map(p => p.name).join(' / ')}`,
     blocks: blocks
   };
+
+  return sendSlack_(payload);
 }
 
 // ============================================================
-// Slack 발송
+// Slack 발송 (Webhook 또는 Bot Token)
 // ============================================================
 function sendSlack_(payload) {
+  const token = PropertiesService.getScriptProperties().getProperty('SLACK_BOT_TOKEN');
+  const channel = PropertiesService.getScriptProperties().getProperty('SLACK_CHANNEL') || '#집밥';
+
+  // Bot Token 있으면 chat.postMessage (스레드 ts 반환)
+  if (token && token.indexOf('xoxb-') === 0) {
+    try {
+      payload.channel = channel;
+      const res = UrlFetchApp.fetch('https://slack.com/api/chat.postMessage', {
+        method: 'post',
+        contentType: 'application/json; charset=utf-8',
+        headers: { 'Authorization': 'Bearer ' + token },
+        payload: JSON.stringify(payload),
+        muteHttpExceptions: true
+      });
+      const result = JSON.parse(res.getContentText());
+      if (result.ok) return { ok: true, ts: result.ts };
+      return { ok: false, error: result.error };
+    } catch (e) {
+      return { ok: false, error: e.message };
+    }
+  }
+
+  // Fallback: Incoming Webhook
   const url = PropertiesService.getScriptProperties().getProperty('SLACK_WEBHOOK_URL');
   if (!url) return { ok: false, error: 'SLACK_WEBHOOK_URL 미설정' };
 
@@ -200,7 +290,7 @@ function sendSlack_(payload) {
       muteHttpExceptions: true
     });
     const code = res.getResponseCode();
-    if (code === 200) return { ok: true, ts: new Date().toISOString() };
+    if (code === 200) return { ok: true, ts: null };
     return { ok: false, error: `HTTP ${code}: ${res.getContentText()}` };
   } catch (e) {
     return { ok: false, error: e.message };
@@ -208,20 +298,41 @@ function sendSlack_(payload) {
 }
 
 // ============================================================
-// 선택 로그 저장
+// 스레드 댓글 (Bot Token 전용)
+// ============================================================
+function sendThreadReply_(threadTs, text) {
+  const token = PropertiesService.getScriptProperties().getProperty('SLACK_BOT_TOKEN');
+  const channel = PropertiesService.getScriptProperties().getProperty('SLACK_CHANNEL') || '#집밥';
+
+  if (!token || token.indexOf('xoxb-') !== 0) return;
+
+  try {
+    UrlFetchApp.fetch('https://slack.com/api/chat.postMessage', {
+      method: 'post',
+      contentType: 'application/json; charset=utf-8',
+      headers: { 'Authorization': 'Bearer ' + token },
+      payload: JSON.stringify({
+        channel: channel,
+        thread_ts: threadTs,
+        text: text
+      }),
+      muteHttpExceptions: true
+    });
+  } catch (e) {
+    log_('스레드 발송 실패: ' + e.message);
+  }
+}
+
+// ============================================================
+// 로그
 // ============================================================
 function logPicks_(picks, ts) {
   const sheet = ensureLogSheet();
   const today = Utilities.formatDate(new Date(), 'Asia/Seoul', 'yyyy-MM-dd');
   picks.forEach((p, i) => {
     sheet.appendRow([
-      today,
-      i + 1,
-      p.name,
-      p.cook_time_min,
-      p.servings,
-      p.url,
-      ts
+      today, i + 1, p.name, p.cook_time_min, p.servings,
+      p.url, ts || new Date().toISOString()
     ]);
   });
 }
@@ -259,8 +370,40 @@ function installDailyTrigger() {
 function deleteAllTriggers() {
   const triggers = ScriptApp.getProjectTriggers();
   triggers.forEach(t => ScriptApp.deleteTrigger(t));
-  if (triggers.length > 0) {
-    log_(`🗑 ${triggers.length}개 트리거 삭제됨`);
+  if (triggers.length > 0) log_(`🗑 ${triggers.length}개 트리거 삭제됨`);
+}
+
+// ============================================================
+// Webhook 테스트
+// ============================================================
+function testWebhook() {
+  const ui = SpreadsheetApp.getUi();
+  const testPayload = {
+    text: '🧪 Webhook 테스트',
+    blocks: [
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: '*✅ Webhook 연결 확인*\n\n이 메시지가 보이면 봇이 정상 작동 중입니다.'
+        }
+      },
+      {
+        type: 'actions',
+        elements: [{
+          type: 'button',
+          text: { type: 'plain_text', text: '🎲 지금 저녁 추천 받기', emoji: true },
+          url: 'https://kwak8711.github.io/recipes/',
+          style: 'primary'
+        }]
+      }
+    ]
+  };
+  const result = sendSlack_(testPayload);
+  if (result.ok) {
+    ui.alert('✅ 테스트 성공!', 'Slack 채널 확인하세요.', ui.ButtonSet.OK);
+  } else {
+    ui.alert('❌ 테스트 실패', result.error, ui.ButtonSet.OK);
   }
 }
 
@@ -271,15 +414,19 @@ function checkConfig() {
   const props = PropertiesService.getScriptProperties().getProperties();
   const triggers = ScriptApp.getProjectTriggers();
   const triggerInfo = triggers.map(t => `  - ${t.getHandlerFunction()}: ${t.getEventType()}`).join('\n') || '  (없음)';
+  const hasBot = props.SLACK_BOT_TOKEN && props.SLACK_BOT_TOKEN.indexOf('xoxb-') === 0;
 
   const msg =
-    `📋 설정 확인\n\n` +
+    `📋 설정 확인 (v2.0)\n\n` +
     `🔑 스크립트 속성:\n` +
     `  - SLACK_WEBHOOK_URL: ${props.SLACK_WEBHOOK_URL ? '✅ 설정됨' : '❌ 미설정'}\n` +
-    `  - SLACK_CHANNEL: ${props.SLACK_CHANNEL || '(미설정)'}\n` +
-    `  - SLACK_BOT_TOKEN: ${props.SLACK_BOT_TOKEN ? '✅ 설정됨' : '⚠️ 미설정 (선택사항)'}\n\n` +
+    `  - SLACK_CHANNEL: ${props.SLACK_CHANNEL || '(기본값 #집밥)'}\n` +
+    `  - SLACK_BOT_TOKEN: ${hasBot ? '✅ 설정됨 (스레드 기능 활성)' : '⚠️ 미설정 (스레드 비활성)'}\n\n` +
     `⏰ 활성 트리거 (${triggers.length}개):\n${triggerInfo}\n\n` +
-    `📡 레시피 소스: ${CONFIG.RECIPES_URL}`;
+    `📡 레시피 소스:\n${CONFIG.RECIPES_URL}\n\n` +
+    `🌐 웹 피커:\n${CONFIG.PICKER_URL}\n\n` +
+    `💡 Bot Token 추가하면 자동 스레드 댓글 활성화됩니다.\n` +
+    `발급: api.slack.com/apps → OAuth & Permissions → Bot Token Scopes에 chat:write 추가`;
   SpreadsheetApp.getUi().alert(msg);
 }
 
@@ -289,9 +436,16 @@ function listAllRecipes() {
     SpreadsheetApp.getUi().alert('레시피를 가져올 수 없습니다.');
     return;
   }
-  const list = recipes.map((r, i) =>
-    `${i + 1}. ${r.name} (${r.cook_time_min}분, ${r.servings}인분, ${'★'.repeat(r.difficulty_level)})`
-  ).join('\n');
+  // Group by category
+  const byCat = {};
+  recipes.forEach(r => {
+    if (!byCat[r.category]) byCat[r.category] = [];
+    byCat[r.category].push(r);
+  });
+  const list = Object.keys(byCat).map(cat => {
+    return `[${cat}] ${byCat[cat].length}개\n` +
+      byCat[cat].map(r => `  - ${r.name} (${r.cook_time_min}분)`).join('\n');
+  }).join('\n\n');
   SpreadsheetApp.getUi().alert(`📚 전체 레시피 (${recipes.length}개)\n\n${list}`);
 }
 
@@ -310,7 +464,7 @@ function promptAddRecipe() {
   }
   ui.alert(
     '📝 수동 등록 안내',
-    `자동 파싱은 다음 버전에서 지원됩니다.\n\n지금은:\n1) GitHub recipes.json 직접 수정\n2) 또는 Claude에게 URL 주고 "추가해줘" 요청\n\nURL이 복사되었습니다: ${url}`,
+    `자동 파싱은 다음 버전에서 지원됩니다.\n\n지금은 Claude에게 URL 주고 "레시피 DB에 추가해줘" 요청:\n\n${url}`,
     ui.ButtonSet.OK
   );
 }

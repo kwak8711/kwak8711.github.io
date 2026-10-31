@@ -290,7 +290,40 @@
         const res = await fetch(RECIPES_URL);
         const data = await res.json();
         allRecipes = data.recipes;
+
+        // URL 파라미터 처리 (Slack 봇 연동)
+        const params = new URLSearchParams(window.location.search);
+        const hash = window.location.hash.slice(1);
+
+        // ?filter=quick 처리
+        const urlFilter = params.get('filter');
+        if (urlFilter) {
+          currentFilter = urlFilter;
+          document.querySelectorAll('.chip').forEach(c => {
+            c.classList.toggle('active', c.dataset.filter === urlFilter);
+          });
+        }
+
         reshuffle();
+
+        // ?select=ID → 특정 레시피 자동 선택
+        const selectId = params.get('select');
+        if (selectId) {
+          setTimeout(() => {
+            const r = allRecipes.find(x => x.id === selectId);
+            if (r) { openRecipe(selectId); showToast(`✨ Slack에서 선택: ${r.name}`); }
+          }, 400);
+        }
+
+        // #ID → 특정 레시피 모달 열기
+        if (hash && allRecipes.find(x => x.id === hash)) {
+          setTimeout(() => openRecipe(hash), 400);
+        }
+
+        // ?reshuffle=1 → 바로 다시 뽑기 toast
+        if (params.get('reshuffle') === '1') {
+          setTimeout(() => showToast('🎲 Slack에서 다시 뽑기!'), 300);
+        }
       } catch(e) {
         document.getElementById('cards').innerHTML = `<div class="empty">레시피 로딩 실패: ${e.message}</div>`;
       }
