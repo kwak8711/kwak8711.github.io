@@ -162,15 +162,25 @@
       background: rgba(255,255,255,0.5);
       border-radius: 16px;
     }
-    .history h3 { font-size: 14px; margin-bottom: 10px; }
+    .history h3 { font-size: 14px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .history-clear { font-size: 11px; color: #999; background: none; border: none; cursor: pointer; padding: 4px 8px; }
     .history-item {
       font-size: 13px;
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 10px 12px;
+      margin: 4px 0;
+      background: rgba(255,255,255,0.7);
+      border-radius: 10px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.15s;
     }
-    .history-item:last-child { border-bottom: none; }
+    .history-item:active { transform: scale(0.98); background: #FFF0E8; }
+    .history-date { font-size: 11px; color: #999; min-width: 70px; }
+    .history-name { font-size: 13px; font-weight: 500; flex: 1; }
+    .history-go { font-size: 11px; color: #B85C3C; font-weight: 700; white-space: nowrap; }
     .empty { font-size: 12px; opacity: 0.5; text-align: center; padding: 10px; }
 
     /* Modal */
@@ -295,7 +305,10 @@
     </div>
 
     <div class="history">
-      <h3>📅 최근 선택 기록</h3>
+      <h3>
+        <span>📅 최근 선택 기록</span>
+        <button class="history-clear" onclick="clearHistory()">🗑 비우기</button>
+      </h3>
       <div id="historyList"></div>
     </div>
   </div>
@@ -482,9 +495,25 @@
         hist = JSON.parse(localStorage.getItem('dinner-history') || '[]');
       } catch(e) {}
       const today = new Date().toISOString().slice(0,10);
-      hist.unshift({ date: today, id: r.id, name: r.name });
+      // id와 url도 같이 저장 (바로가기 기능용)
+      hist.unshift({ date: today, id: r.id, name: r.name, url: r.url });
       hist = hist.slice(0, 14);
       try { localStorage.setItem('dinner-history', JSON.stringify(hist)); } catch(e) {}
+    }
+
+    function openHistoryRecipe(id, url) {
+      // id로 레시피 찾아서 url 열기 (레거시 기록은 id로 조회)
+      const r = allRecipes.find(x => x.id === id);
+      const targetUrl = (r && r.url) || url || `https://www.10000recipe.com/recipe/${id}`;
+      window.open(targetUrl, '_blank');
+      showToast(`📖 ${(r && r.name) || '레시피'}로 이동`);
+    }
+
+    function clearHistory() {
+      if (!confirm('최근 선택 기록을 모두 지울까요?')) return;
+      try { localStorage.removeItem('dinner-history'); } catch(e) {}
+      renderHistory();
+      showToast('🗑 기록 삭제됨');
     }
 
     function renderHistory() {
@@ -498,7 +527,11 @@
         return;
       }
       el.innerHTML = hist.slice(0,7).map(h =>
-        `<div class="history-item"><span>${h.date}</span><span>${h.name}</span></div>`
+        `<div class="history-item" onclick="openHistoryRecipe('${h.id}', '${h.url || ''}')">
+          <span class="history-date">${h.date}</span>
+          <span class="history-name">${h.name}</span>
+          <span class="history-go">📖 바로가기 →</span>
+        </div>`
       ).join('');
     }
 
