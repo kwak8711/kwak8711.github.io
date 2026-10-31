@@ -5328,6 +5328,468 @@
       "rating": 4.9,
       "added_date": "2026-10-31",
       "from_pantry": true
+    },
+    {
+      "id": "6900700",
+      "name": "알리오올리오 파스타 (초간단)",
+      "name_en": "Aglio e Olio",
+      "url": "https://www.10000recipe.com/recipe/6900700",
+      "author": "공주님 특선",
+      "category": "면요리",
+      "cuisine": "양식",
+      "servings": 2,
+      "cook_time_min": 15,
+      "difficulty": "쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "파스타",
+        "알리오올리오",
+        "오일파스타",
+        "간단",
+        "자취생",
+        "브런치"
+      ],
+      "mood_tags": [
+        "브런치",
+        "간편한거",
+        "자취생",
+        "데이트"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "스파게티",
+        "알리오올리오 소스",
+        "마늘",
+        "올리브오일",
+        "베이컨"
+      ],
+      "ingredients": [
+        {
+          "name": "스파게티 면",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "알리오올리오 스파게티 소스",
+          "amount": 250,
+          "unit": "g"
+        },
+        {
+          "name": "쫄깃한 베이컨",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "올리브오일",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "페페론치노 (선택)",
+          "amount": 5,
+          "unit": "개"
+        },
+        {
+          "name": "파마산치즈",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "파슬리",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "소금",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "면수",
+          "amount": 4,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "끓는 물 2L + 소금 1T → 스파게티 7-8분",
+        "면 삶는 동안 베이컨 1cm 폭으로",
+        "팬에 올리브오일 3T + 다진마늘 → 중약불로 노릇하게 (타지 않게)",
+        "베이컨 투입하고 바삭하게",
+        "페페론치노 (매콤)",
+        "소스통 투입 + 면수 4T → 5초 섞기",
+        "건진 면 바로 넣고 센불에서 1분 토스",
+        "파마산 + 파슬리 → 완성!"
+      ],
+      "tips": [
+        "마늘 색이 날 때 소스 투입 (타기 전!)",
+        "면수가 크림 역할 (버리지 말기)",
+        "공주님 pantry 100% 매칭: 알리오올리오소스·베이컨·올리브오일 ✅",
+        "레몬즙 1t 추가하면 상큼함 UP"
+      ],
+      "cost_krw": 5500,
+      "cost_per_serving_krw": 2750,
+      "kcal_per_serving": 520,
+      "kcal_grade": "중칼로리",
+      "rating": 4.9,
+      "added_date": "2026-10-31",
+      "from_pantry": true
+    },
+    {
+      "id": "6900800",
+      "name": "클래식 토마토 파스타",
+      "name_en": "Classic Tomato Pasta",
+      "url": "https://www.10000recipe.com/recipe/6900800",
+      "author": "공주님 특선",
+      "category": "면요리",
+      "cuisine": "양식",
+      "servings": 2,
+      "cook_time_min": 20,
+      "difficulty": "쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "파스타",
+        "토마토",
+        "베이컨",
+        "클래식",
+        "아이들",
+        "손님맞이"
+      ],
+      "mood_tags": [
+        "손님맞이",
+        "아이들",
+        "브런치",
+        "데이트"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "스파게티",
+        "토마토 소스",
+        "베이컨",
+        "양파",
+        "올리브오일"
+      ],
+      "ingredients": [
+        {
+          "name": "스파게티 면",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "토마토 스파게티 소스",
+          "amount": 400,
+          "unit": "g"
+        },
+        {
+          "name": "쫄깃한 베이컨",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "양파",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "올리브오일",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "파마산치즈",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "바질 (선택)",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "소금 넣은 끓는 물에 스파게티 7-8분",
+        "양파 다지고 베이컨 1cm 폭",
+        "팬에 올리브오일 2T + 다진마늘 → 베이컨 → 양파 순서로",
+        "양파 투명해지면 토마토 소스 통째로",
+        "설탕 0.5T (산미 중화)",
+        "중불로 5분 끓이기",
+        "건진 면 투입 + 1분 토스",
+        "파마산·바질·후추로 마무리"
+      ],
+      "tips": [
+        "설탕 소량이 토마토 산미 잡음",
+        "발사믹 1t 추가하면 깊은맛",
+        "공주님 pantry 100% 매칭: 토마토소스·베이컨·양파·올리브오일 ✅"
+      ],
+      "cost_krw": 8000,
+      "cost_per_serving_krw": 4000,
+      "kcal_per_serving": 580,
+      "kcal_grade": "중칼로리",
+      "rating": 4.8,
+      "added_date": "2026-10-31",
+      "from_pantry": true
+    },
+    {
+      "id": "6900900",
+      "name": "로제 파스타 (매콤 크리미)",
+      "name_en": "Rose Pasta",
+      "url": "https://www.10000recipe.com/recipe/6900900",
+      "author": "공주님 특선",
+      "category": "면요리",
+      "cuisine": "양식",
+      "servings": 2,
+      "cook_time_min": 20,
+      "difficulty": "쉬움",
+      "difficulty_level": 2,
+      "tags": [
+        "파스타",
+        "로제",
+        "크림",
+        "매콤",
+        "분위기",
+        "데이트"
+      ],
+      "mood_tags": [
+        "데이트",
+        "분위기",
+        "손님맞이",
+        "특별한날"
+      ],
+      "weather_tags": [
+        "쌀쌀한날",
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "스파게티",
+        "로제 소스",
+        "베이컨",
+        "양파",
+        "우유"
+      ],
+      "ingredients": [
+        {
+          "name": "스파게티 면",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "로제 스파게티 소스",
+          "amount": 400,
+          "unit": "g"
+        },
+        {
+          "name": "쫄깃한 베이컨",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "우유",
+          "amount": 50,
+          "unit": "ml"
+        },
+        {
+          "name": "올리브오일",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "파마산치즈",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "페페론치노",
+          "amount": 3,
+          "unit": "개"
+        },
+        {
+          "name": "소금",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "소금 1T + 끓는 물에 스파게티 7-8분",
+        "양파 채썰고 베이컨 1cm 폭",
+        "팬에 올리브오일 + 마늘 → 베이컨 → 양파 순서",
+        "양파 투명해지면 로제 소스 투입",
+        "우유 50ml 추가 (더 크리미하게)",
+        "페페론치노 (매콤)",
+        "건진 면 + 면수 3T 넣고 토스",
+        "파마산 듬뿍 + 후추"
+      ],
+      "tips": [
+        "우유 추가로 더 부드럽게",
+        "치즈 많이 넣으면 리조또 느낌",
+        "공주님 pantry 100% 매칭: 로제소스·베이컨·양파·올리브오일 ✅"
+      ],
+      "cost_krw": 8500,
+      "cost_per_serving_krw": 4250,
+      "kcal_per_serving": 620,
+      "kcal_grade": "고칼로리",
+      "rating": 4.9,
+      "added_date": "2026-10-31",
+      "from_pantry": true
+    },
+    {
+      "id": "6901000",
+      "name": "베이컨 크림 파스타",
+      "name_en": "Bacon Cream Pasta",
+      "url": "https://www.10000recipe.com/recipe/6901000",
+      "author": "공주님 특선",
+      "category": "면요리",
+      "cuisine": "양식",
+      "servings": 2,
+      "cook_time_min": 15,
+      "difficulty": "쉬움",
+      "difficulty_level": 2,
+      "tags": [
+        "파스타",
+        "크림",
+        "베이컨",
+        "까르보나라",
+        "호텔맛",
+        "브런치"
+      ],
+      "mood_tags": [
+        "브런치",
+        "데이트",
+        "분위기",
+        "손님맞이"
+      ],
+      "weather_tags": [
+        "쌀쌀한날",
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "스파게티",
+        "크림 소스",
+        "베이컨",
+        "계란",
+        "파마산"
+      ],
+      "ingredients": [
+        {
+          "name": "스파게티 면",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "크림 스파게티 소스",
+          "amount": 400,
+          "unit": "g"
+        },
+        {
+          "name": "쫄깃한 베이컨",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "계란 노른자",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "올리브오일",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "버터",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "파마산치즈",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "파슬리",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "끓는 물에 소금 넣고 스파게티 7-8분",
+        "양파 채썰고 베이컨 1cm 폭",
+        "팬에 올리브오일+버터+마늘 → 베이컨+양파 볶기",
+        "크림 소스 투입 → 중약불 3분",
+        "건진 면 투입 + 면수 2T 넣고 토스",
+        "불 끄고 노른자 2개 올리기 (잔열로 크리미하게)",
+        "파마산 듬뿍 + 후추 + 파슬리"
+      ],
+      "tips": [
+        "노른자는 불 끄고! (익으면 지단됨)",
+        "베이컨 기름 안 걷기 (고소함)",
+        "공주님 pantry 100% 매칭: 크림소스·베이컨·계란·양파·버터·올리브오일 ✅ (6/6!)",
+        "후추는 바로 갈기 (향 폭발)"
+      ],
+      "cost_krw": 8500,
+      "cost_per_serving_krw": 4250,
+      "kcal_per_serving": 680,
+      "kcal_grade": "고칼로리",
+      "rating": 5.0,
+      "added_date": "2026-10-31",
+      "from_pantry": true
     }
   ]
 }
