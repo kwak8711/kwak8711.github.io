@@ -4486,6 +4486,848 @@
       "added_date": "2026-10-31",
       "kcal_per_serving": 410,
       "kcal_grade": "중칼로리"
+    },
+    {
+      "id": "6900000",
+      "name": "베이컨 토마토 스파게티",
+      "name_en": "Bacon Tomato Spaghetti",
+      "url": "https://www.10000recipe.com/recipe/6900000",
+      "author": "만개의레시피",
+      "category": "면요리",
+      "cuisine": "양식",
+      "servings": 2,
+      "cook_time_min": 20,
+      "difficulty": "쉬움",
+      "difficulty_level": 2,
+      "tags": [
+        "파스타",
+        "스파게티",
+        "베이컨",
+        "토마토",
+        "브런치",
+        "양식"
+      ],
+      "mood_tags": [
+        "브런치",
+        "데이트",
+        "손님맞이",
+        "간편한거"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "스파게티",
+        "베이컨",
+        "양파",
+        "스파게티 소스",
+        "올리브오일"
+      ],
+      "ingredients": [
+        {
+          "name": "스파게티 면",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "베이컨",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "양파",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "스파게티 소스",
+          "amount": 200,
+          "unit": "ml"
+        },
+        {
+          "name": "올리브오일",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "파마산치즈",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "파슬리",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "끓는 물에 소금 1T + 스파게티 7-8분 삶기",
+        "베이컨은 1cm 폭으로, 양파 채썰기",
+        "팬에 올리브오일 2T + 다진마늘 볶기",
+        "베이컨 넣고 바삭하게 볶기",
+        "양파 추가해서 투명해질 때까지",
+        "스파게티 소스 투입 → 중불로 5분 끓이기",
+        "삶은 면 넣고 소금·후추 간",
+        "파마산치즈·파슬리 뿌려 완성"
+      ],
+      "tips": [
+        "면수 2T 넣으면 소스가 면에 잘 코팅",
+        "발사믹 1t 추가하면 깊은맛",
+        "공주님 pantry: 스파게티소스·베이컨·양파·올리브오일 ✅"
+      ],
+      "cost_krw": 8000,
+      "cost_per_serving_krw": 4000,
+      "kcal_per_serving": 580,
+      "kcal_grade": "중칼로리",
+      "rating": 4.8,
+      "added_date": "2026-10-31",
+      "from_pantry": true
+    },
+    {
+      "id": "6900100",
+      "name": "참치마요 덮밥",
+      "name_en": "Tuna Mayo Donburi",
+      "url": "https://www.10000recipe.com/recipe/6900100",
+      "author": "만개의레시피",
+      "category": "덮밥",
+      "cuisine": "퓨전",
+      "servings": 1,
+      "cook_time_min": 10,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "덮밥",
+        "참치",
+        "마요",
+        "혼밥",
+        "자취생",
+        "5분",
+        "간편"
+      ],
+      "mood_tags": [
+        "혼밥",
+        "급할때",
+        "간편한거",
+        "자취생"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "참치캔",
+        "밥",
+        "계란",
+        "양파",
+        "마요네즈"
+      ],
+      "ingredients": [
+        {
+          "name": "참치캔",
+          "amount": 1,
+          "unit": "캔"
+        },
+        {
+          "name": "밥",
+          "amount": 1,
+          "unit": "공기"
+        },
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "양파",
+          "amount": 0.25,
+          "unit": "개"
+        },
+        {
+          "name": "마요네즈",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 0.5,
+          "unit": "t"
+        },
+        {
+          "name": "참기름",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "김가루",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "통깨",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "참치캔 기름 완전히 빼기",
+        "양파 잘게 다져 찬물에 5분 (매운맛 제거)",
+        "참치 + 양파 + 마요 2T + 간장 1T + 설탕 섞기",
+        "계란 반숙 프라이",
+        "밥 위에 참치마요 올리기",
+        "가운데 반숙 올리고 참기름·김가루·통깨"
+      ],
+      "tips": [
+        "양파 찬물에 담그면 매운맛 다운",
+        "간장 대신 쯔유 넣으면 일식풍",
+        "아보카도 추가하면 영양 UP",
+        "공주님 pantry: 참치캔·양파·계란 ✅ (3/3 매치!)"
+      ],
+      "cost_krw": 3000,
+      "cost_per_serving_krw": 3000,
+      "kcal_per_serving": 520,
+      "kcal_grade": "중칼로리",
+      "rating": 4.9,
+      "added_date": "2026-10-31",
+      "from_pantry": true
+    },
+    {
+      "id": "6900101",
+      "name": "참치 김치찌개",
+      "name_en": "Tuna Kimchi Jjigae",
+      "url": "https://www.10000recipe.com/recipe/6900101",
+      "author": "만개의레시피",
+      "category": "국·찌개",
+      "cuisine": "한식",
+      "servings": 2,
+      "cook_time_min": 20,
+      "difficulty": "초급",
+      "difficulty_level": 1,
+      "tags": [
+        "찌개",
+        "참치",
+        "김치찌개",
+        "간편",
+        "밥도둑",
+        "상비"
+      ],
+      "mood_tags": [
+        "집밥생각",
+        "속푸는거",
+        "간편한거",
+        "밥도둑"
+      ],
+      "weather_tags": [
+        "쌀쌀한날",
+        "비오는날"
+      ],
+      "main_ingredients": [
+        "참치캔",
+        "김치",
+        "양파",
+        "두부",
+        "대파"
+      ],
+      "ingredients": [
+        {
+          "name": "참치캔",
+          "amount": 1,
+          "unit": "캔"
+        },
+        {
+          "name": "김치",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "두부",
+          "amount": 0.5,
+          "unit": "모"
+        },
+        {
+          "name": "대파",
+          "amount": 0.5,
+          "unit": "대"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "국간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 400,
+          "unit": "ml"
+        },
+        {
+          "name": "참기름",
+          "amount": 0.5,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "김치 한입 크기로 자르기",
+        "냄비에 참기름 두르고 김치 2분 볶기",
+        "물 400ml + 참치캔(국물까지) 투입",
+        "양파·고춧가루·다진마늘·국간장·설탕 넣고 10분 끓이기",
+        "두부·대파 넣고 3분 더",
+        "완성!"
+      ],
+      "tips": [
+        "참치 국물까지 넣기 (감칠맛 폭발)",
+        "신김치일수록 맛있음",
+        "공주님 pantry: 참치캔·양파 ✅ (김치만 있으면 OK)"
+      ],
+      "cost_krw": 6000,
+      "cost_per_serving_krw": 3000,
+      "kcal_per_serving": 320,
+      "kcal_grade": "중저칼로리",
+      "rating": 4.7,
+      "added_date": "2026-10-31",
+      "from_pantry": true
+    },
+    {
+      "id": "6900200",
+      "name": "초간단 부대찌개",
+      "name_en": "Easy Budae Jjigae",
+      "url": "https://www.10000recipe.com/recipe/6900200",
+      "author": "만개의레시피",
+      "category": "국·찌개",
+      "cuisine": "한식",
+      "servings": 2,
+      "cook_time_min": 25,
+      "difficulty": "쉬움",
+      "difficulty_level": 2,
+      "tags": [
+        "부대찌개",
+        "찌개",
+        "소스사용",
+        "간편",
+        "손님맞이",
+        "안주"
+      ],
+      "mood_tags": [
+        "다같이",
+        "손님맞이",
+        "안주",
+        "밥도둑"
+      ],
+      "weather_tags": [
+        "쌀쌀한날",
+        "추운날"
+      ],
+      "main_ingredients": [
+        "부대찌개 소스",
+        "베이컨",
+        "계란",
+        "양파",
+        "라면사리",
+        "두부"
+      ],
+      "ingredients": [
+        {
+          "name": "부대찌개 소스",
+          "amount": 1,
+          "unit": "팩"
+        },
+        {
+          "name": "베이컨",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "스팸 (선택)",
+          "amount": 0.5,
+          "unit": "캔"
+        },
+        {
+          "name": "계란",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "대파",
+          "amount": 1,
+          "unit": "대"
+        },
+        {
+          "name": "두부",
+          "amount": 0.5,
+          "unit": "모"
+        },
+        {
+          "name": "라면사리",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "떡국떡",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "물",
+          "amount": 600,
+          "unit": "ml"
+        }
+      ],
+      "steps": [
+        "양파 채썰고, 베이컨 먹기 좋게 자르기",
+        "넓은 냄비에 재료 보기좋게 돌려담기 (김치 색순)",
+        "부대찌개 소스 + 물 600ml 투입",
+        "센불에서 끓이기",
+        "라면사리 넣고 2분 더",
+        "계란 톡 깨서 올리고 불 끄기",
+        "완성!"
+      ],
+      "tips": [
+        "라면사리는 마지막에 (퍼짐 방지)",
+        "치즈 올리면 로제 부대찌개",
+        "공주님 pantry: 부대찌개소스·베이컨·계란·양파 ✅ (4/4 매치!)"
+      ],
+      "cost_krw": 10000,
+      "cost_per_serving_krw": 5000,
+      "kcal_per_serving": 550,
+      "kcal_grade": "중칼로리",
+      "rating": 4.8,
+      "added_date": "2026-10-31",
+      "from_pantry": true
+    },
+    {
+      "id": "6900300",
+      "name": "육개장 (밀키트 활용)",
+      "name_en": "Yukgaejang Meal Kit",
+      "url": "https://www.10000recipe.com/recipe/6900300",
+      "author": "공주님 특선",
+      "category": "국·찌개",
+      "cuisine": "한식",
+      "servings": 2,
+      "cook_time_min": 15,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "육개장",
+        "밀키트",
+        "간편",
+        "보양",
+        "얼큰",
+        "해장"
+      ],
+      "mood_tags": [
+        "해장",
+        "속푸는거",
+        "간편한거",
+        "보양"
+      ],
+      "weather_tags": [
+        "쌀쌀한날",
+        "추운날",
+        "비오는날"
+      ],
+      "main_ingredients": [
+        "육개장 밀키트",
+        "대파",
+        "계란"
+      ],
+      "ingredients": [
+        {
+          "name": "육개장 밀키트",
+          "amount": 1,
+          "unit": "팩"
+        },
+        {
+          "name": "대파",
+          "amount": 1,
+          "unit": "대"
+        },
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "떡국떡 (선택)",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "고춧가루 (매콤)",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘 (매콤)",
+          "amount": 0.5,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "육개장 밀키트 포장대로 끓이기",
+        "대파 송송 썰어 추가",
+        "떡국떡 넣어 쫄깃하게",
+        "계란 풀어 넣고 저어주기",
+        "고춧가루·마늘 더해 입맛 맞추기",
+        "공기밥 투입하면 육개장 국밥!"
+      ],
+      "tips": [
+        "밀키트에 떡 추가하면 든든함 UP",
+        "공주님 pantry: 육개장·대파·계란 ✅",
+        "남은 국물에 밥 + 치즈 → 리조또"
+      ],
+      "cost_krw": 8000,
+      "cost_per_serving_krw": 4000,
+      "kcal_per_serving": 280,
+      "kcal_grade": "중저칼로리",
+      "rating": 4.5,
+      "added_date": "2026-10-31",
+      "from_pantry": true
+    },
+    {
+      "id": "6900400",
+      "name": "베이컨 에그 샌드위치",
+      "name_en": "BLT Egg Sandwich",
+      "url": "https://www.10000recipe.com/recipe/6900400",
+      "author": "만개의레시피",
+      "category": "브런치",
+      "cuisine": "양식",
+      "servings": 1,
+      "cook_time_min": 10,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "샌드위치",
+        "브런치",
+        "베이컨",
+        "계란",
+        "아침",
+        "토스트"
+      ],
+      "mood_tags": [
+        "브런치",
+        "아침",
+        "간편한거",
+        "주말"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "식빵",
+        "베이컨",
+        "계란",
+        "양상추",
+        "버터"
+      ],
+      "ingredients": [
+        {
+          "name": "식빵",
+          "amount": 2,
+          "unit": "장"
+        },
+        {
+          "name": "베이컨",
+          "amount": 2,
+          "unit": "줄"
+        },
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "양상추",
+          "amount": 2,
+          "unit": "장"
+        },
+        {
+          "name": "토마토",
+          "amount": 2,
+          "unit": "조각"
+        },
+        {
+          "name": "버터",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "마요네즈",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "머스터드",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "팬에 버터 녹여 식빵 양면 노릇하게 굽기",
+        "같은 팬에 베이컨 바삭하게",
+        "계란 반숙 프라이",
+        "식빵 → 마요+머스터드 → 양상추 → 토마토 → 베이컨 → 계란 → 식빵 순서",
+        "반으로 자르면 완성"
+      ],
+      "tips": [
+        "버터로 식빵 구우면 호텔맛",
+        "공주님 pantry: 베이컨·계란·버터 ✅ (3/3 매치!)",
+        "치즈 추가하면 BLT 치즈"
+      ],
+      "cost_krw": 4000,
+      "cost_per_serving_krw": 4000,
+      "kcal_per_serving": 480,
+      "kcal_grade": "중칼로리",
+      "rating": 4.8,
+      "added_date": "2026-10-31",
+      "from_pantry": true
+    },
+    {
+      "id": "6900500",
+      "name": "쌈장 쌈밥 (즉석)",
+      "name_en": "Ssamjang Lettuce Wrap",
+      "url": "https://www.10000recipe.com/recipe/6900500",
+      "author": "공주님 특선",
+      "category": "건강식",
+      "cuisine": "한식",
+      "servings": 2,
+      "cook_time_min": 10,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "쌈밥",
+        "쌈장",
+        "건강식",
+        "간편",
+        "채식가능",
+        "다이어트"
+      ],
+      "mood_tags": [
+        "건강한거",
+        "간편한거",
+        "다이어트",
+        "브런치"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "쌈장",
+        "상추",
+        "밥",
+        "계란",
+        "베이컨"
+      ],
+      "ingredients": [
+        {
+          "name": "상추",
+          "amount": 10,
+          "unit": "장"
+        },
+        {
+          "name": "깻잎",
+          "amount": 5,
+          "unit": "장"
+        },
+        {
+          "name": "밥",
+          "amount": 1,
+          "unit": "공기"
+        },
+        {
+          "name": "쌈장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "계란 (프라이)",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "베이컨 (구움)",
+          "amount": 2,
+          "unit": "줄"
+        },
+        {
+          "name": "양파 (채썬)",
+          "amount": 0.25,
+          "unit": "개"
+        },
+        {
+          "name": "참기름",
+          "amount": 0.5,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "상추·깻잎 깨끗이 씻기",
+        "밥에 참기름 살짝 비비기",
+        "베이컨 바삭하게 굽고 1cm로 자르기",
+        "계란 반숙 프라이",
+        "상추 → 깻잎 → 밥 → 베이컨 → 양파 → 쌈장 → 쌈",
+        "계란 반숙 터뜨려 함께"
+      ],
+      "tips": [
+        "쌈장은 집마다 다르니 1T부터 시작",
+        "밥을 참기름에 비비면 쌈이 더 고소",
+        "공주님 pantry: 쌈장·계란·베이컨·양파 ✅ (4/4 매치!)",
+        "구운 삼겹살 추가하면 완전체"
+      ],
+      "cost_krw": 4000,
+      "cost_per_serving_krw": 2000,
+      "kcal_per_serving": 380,
+      "kcal_grade": "중저칼로리",
+      "rating": 4.6,
+      "added_date": "2026-10-31",
+      "from_pantry": true
+    },
+    {
+      "id": "6900600",
+      "name": "카프레제 샐러드",
+      "name_en": "Caprese Salad",
+      "url": "https://www.10000recipe.com/recipe/6900600",
+      "author": "만개의레시피",
+      "category": "건강식",
+      "cuisine": "양식",
+      "servings": 2,
+      "cook_time_min": 5,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "샐러드",
+        "이탈리안",
+        "카프레제",
+        "발사믹",
+        "다이어트",
+        "브런치"
+      ],
+      "mood_tags": [
+        "브런치",
+        "건강한거",
+        "다이어트",
+        "손님맞이"
+      ],
+      "weather_tags": [
+        "더운날",
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "토마토",
+        "모짜렐라",
+        "바질",
+        "올리브오일",
+        "발사믹 소스"
+      ],
+      "ingredients": [
+        {
+          "name": "토마토",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "생모짜렐라 치즈",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "바질잎",
+          "amount": 10,
+          "unit": "장"
+        },
+        {
+          "name": "올리브오일",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "발사믹 글레이즈",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "토마토 1cm 두께로 슬라이스",
+        "모짜렐라도 비슷한 두께로",
+        "접시에 토마토·모짜렐라 번갈아 돌려 담기",
+        "바질잎 사이사이 끼우기",
+        "올리브오일 + 발사믹 글레이즈 지그재그",
+        "소금·후추 뿌려 완성"
+      ],
+      "tips": [
+        "소금은 토마토에만 (치즈 짜짐 방지)",
+        "발사믹이 핵심",
+        "공주님 pantry: 올리브오일·발사믹 소스 ✅",
+        "5분 완성 호텔 애피타이저"
+      ],
+      "cost_krw": 10000,
+      "cost_per_serving_krw": 5000,
+      "kcal_per_serving": 320,
+      "kcal_grade": "중저칼로리",
+      "rating": 4.9,
+      "added_date": "2026-10-31",
+      "from_pantry": true
     }
   ]
 }

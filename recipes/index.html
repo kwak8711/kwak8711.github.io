@@ -45,6 +45,69 @@
       color: #fff;
       border-color: #2d2d2d;
     }
+    .chip-hot {
+      background: #FFF0E8;
+      color: #B85C3C;
+      border-color: #FFB4A2;
+      font-weight: 700;
+    }
+    .chip-hot.active {
+      background: #B85C3C;
+      color: #fff;
+      border-color: #B85C3C;
+    }
+    .pantry-box {
+      background: rgba(255,255,255,0.5);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .pantry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #2d2d2d;
+    }
+    .pantry-toggle {
+      background: none;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0 6px;
+      transition: transform 0.15s;
+    }
+    .pantry-toggle.open { transform: rotate(180deg); }
+    .pantry-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s;
+    }
+    .pantry-list.open { max-height: 300px; }
+    .pantry-item {
+      background: #FFE5D9;
+      color: #B85C3C;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .match-badge {
+      display: inline-block;
+      background: #B85C3C;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
 
     .cards { display: flex; flex-direction: column; gap: 14px; margin: 16px 0; }
     .card {
@@ -287,6 +350,7 @@
 
     <div class="filters" id="filters">
       <div class="chip active" data-filter="all">전체</div>
+      <div class="chip chip-hot" data-filter="pantry">🏠 집에 있는 재료로</div>
       <div class="chip" data-filter="건강한거">🥗 건강식</div>
       <div class="chip" data-filter="혼밥">🧘 혼밥</div>
       <div class="chip" data-filter="쌀쌀한날">🌧 쌀쌀한날</div>
@@ -295,6 +359,14 @@
       <div class="chip" data-filter="quick">⚡ 20분이내</div>
       <div class="chip" data-filter="브런치">🥐 브런치</div>
       <div class="chip" data-filter="다이어트">🥬 다이어트</div>
+    </div>
+
+    <div id="pantryBox" class="pantry-box">
+      <div class="pantry-head">
+        <span>🏠 공주님 집 재료 (<span id="pantryCount">0</span>개)</span>
+        <button class="pantry-toggle" onclick="togglePantry()">▼</button>
+      </div>
+      <div id="pantryList" class="pantry-list"></div>
     </div>
 
     <div class="cards" id="cards"></div>
@@ -321,7 +393,9 @@
 
   <script>
     const RECIPES_URL = 'data/recipes.json';
+    const PANTRY_URL = 'data/pantry.json';
     let allRecipes = [];
+    let pantryData = { ingredients: [], match_aliases: {} };
     let currentPicks = [];
     let currentFilter = 'all';
 
@@ -330,8 +404,47 @@
     document.getElementById('todayDate').textContent =
       `${today.getFullYear()}.${String(today.getMonth()+1).padStart(2,'0')}.${String(today.getDate()).padStart(2,'0')} (${weekdays[today.getDay()]})`;
 
+    async function loadPantry() {
+      try {
+        const res = await fetch(PANTRY_URL);
+        pantryData = await res.json();
+        document.getElementById('pantryCount').textContent = pantryData.ingredients.length;
+        document.getElementById('pantryList').innerHTML = pantryData.ingredients
+          .map(i => `<span class="pantry-item">${i.name} (${i.qty}${i.unit})</span>`)
+          .join('');
+      } catch(e) {
+        console.warn('pantry 로딩 실패:', e);
+      }
+    }
+
+    function togglePantry() {
+      document.querySelector('.pantry-toggle').classList.toggle('open');
+      document.getElementById('pantryList').classList.toggle('open');
+    }
+
+    function matchPantry(recipe) {
+      if (!pantryData.ingredients || pantryData.ingredients.length === 0) return 0;
+      const pantryNames = pantryData.ingredients.map(i => i.name);
+      const aliases = pantryData.match_aliases || {};
+      const recipeIngs = (recipe.main_ingredients || []).concat(
+        (recipe.ingredients || []).map(x => x.name || '')
+      );
+      let matches = 0;
+      for (const p of pantryNames) {
+        const alts = aliases[p] || [p];
+        for (const ri of recipeIngs) {
+          if (alts.some(a => ri.includes(a) || a.includes(ri))) {
+            matches++;
+            break;
+          }
+        }
+      }
+      return matches;
+    }
+
     async function loadRecipes() {
       try {
+        await loadPantry();
         const res = await fetch(RECIPES_URL);
         const data = await res.json();
         allRecipes = data.recipes;
@@ -377,6 +490,10 @@
     function filterRecipes() {
       if (currentFilter === 'all') return [...allRecipes];
       if (currentFilter === 'quick') return allRecipes.filter(r => r.cook_time_min <= 20);
+      if (currentFilter === 'pantry') {
+        // 집에 있는 재료 2개 이상 매칭 레시피만
+        return allRecipes.filter(r => matchPantry(r) >= 2);
+      }
       return allRecipes.filter(r =>
         (r.mood_tags || []).includes(currentFilter) ||
         (r.weather_tags || []).includes(currentFilter) ||
@@ -391,17 +508,30 @@
           `<div class="empty">이 필터에는 레시피가 없어요 🥲</div>`;
         return;
       }
-      const shuffled = [...pool].sort(() => Math.random() - 0.5);
-      currentPicks = shuffled.slice(0, Math.min(3, shuffled.length));
+      // pantry 필터일 때는 매칭 수 내림차순 정렬 (아니면 랜덤)
+      let selected;
+      if (currentFilter === 'pantry') {
+        const sorted = pool.map(r => ({r, m: matchPantry(r)}))
+          .sort((a,b) => b.m - a.m);
+        // 상위 10개 중 3개 랜덤 (매칭 많은 것 위주)
+        const top = sorted.slice(0, Math.min(10, sorted.length));
+        selected = top.sort(() => Math.random() - 0.5).slice(0, 3).map(x => x.r);
+      } else {
+        selected = [...pool].sort(() => Math.random() - 0.5).slice(0, Math.min(3, pool.length));
+      }
+      currentPicks = selected;
       renderCards();
     }
 
     function renderCards() {
-      const html = currentPicks.map((r, i) => `
+      const html = currentPicks.map((r, i) => {
+        const matches = matchPantry(r);
+        const badge = matches >= 2 ? `<span class="match-badge">🏠 ${matches}개 매치</span>` : '';
+        return `
         <div class="card">
           <div onclick="openRecipe('${r.id}')">
             <div class="card-badge">선택지 ${i+1}</div>
-            <div class="card-name">${r.name}</div>
+            <div class="card-name">${r.name}${badge}</div>
             <div class="card-meta">
               <span>⏱ ${r.cook_time_min}분</span>
               <span>👥 ${r.servings}인분</span>
@@ -425,7 +555,8 @@
             </button>
           </div>
         </div>
-      `).join('');
+      `;
+      }).join('');
       document.getElementById('cards').innerHTML = html;
     }
 
