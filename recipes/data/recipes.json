@@ -15,27 +15,112 @@
       "cook_time_min": 20,
       "difficulty": "쉬움",
       "difficulty_level": 2,
-      "tags": ["덮밥", "1인분", "매운맛", "소고기", "김치", "빠른요리", "혼밥"],
-      "mood_tags": ["평일저녁", "혼밥", "매콤한거"],
-      "weather_tags": ["쌀쌀한날", "비오는날"],
-      "main_ingredients": ["우삼겹", "배추김치", "양파", "밥", "계란"],
+      "tags": [
+        "덮밥",
+        "1인분",
+        "매운맛",
+        "소고기",
+        "김치",
+        "빠른요리",
+        "혼밥"
+      ],
+      "mood_tags": [
+        "평일저녁",
+        "혼밥",
+        "매콤한거"
+      ],
+      "weather_tags": [
+        "쌀쌀한날",
+        "비오는날"
+      ],
+      "main_ingredients": [
+        "우삼겹",
+        "배추김치",
+        "양파",
+        "밥",
+        "계란"
+      ],
       "ingredients": [
-        {"name": "우삼겹", "amount": 250, "unit": "g"},
-        {"name": "배추김치", "amount": 70, "unit": "g"},
-        {"name": "양파", "amount": 50, "unit": "g"},
-        {"name": "밥", "amount": 300, "unit": "g"},
-        {"name": "계란 노른자", "amount": 1, "unit": "개"},
-        {"name": "식용유", "amount": 1, "unit": "T"},
-        {"name": "맛술", "amount": 1, "unit": "t"},
-        {"name": "간장", "amount": 1, "unit": "T"},
-        {"name": "고춧가루", "amount": 1, "unit": "T"},
-        {"name": "설탕", "amount": 1, "unit": "T"},
-        {"name": "물", "amount": 1, "unit": "T"},
-        {"name": "굴소스", "amount": 1, "unit": "t"},
-        {"name": "다진마늘", "amount": 1, "unit": "t"},
-        {"name": "물엿", "amount": 1, "unit": "t"},
-        {"name": "맛술(소스)", "amount": 1, "unit": "t"},
-        {"name": "후추", "amount": "약간", "unit": ""}
+        {
+          "name": "우삼겹",
+          "amount": 250,
+          "unit": "g"
+        },
+        {
+          "name": "배추김치",
+          "amount": 70,
+          "unit": "g"
+        },
+        {
+          "name": "양파",
+          "amount": 50,
+          "unit": "g"
+        },
+        {
+          "name": "밥",
+          "amount": 300,
+          "unit": "g"
+        },
+        {
+          "name": "계란 노른자",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "식용유",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "맛술",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "굴소스",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "물엿",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "맛술(소스)",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        }
       ],
       "steps": [
         "소스 재료(간장·고춧가루·설탕·물·굴소스·다진마늘·물엿·맛술·후추)를 모두 섞어 준비",
@@ -66,20 +151,73 @@
       "cook_time_min": 15,
       "difficulty": "초급",
       "difficulty_level": 1,
-      "tags": ["밑반찬", "상비식품", "소고기", "매운맛", "다용도", "비빔장"],
-      "mood_tags": ["간편한거", "밥도둑", "일주일상비"],
-      "weather_tags": ["아무때나"],
-      "main_ingredients": ["갈은 소고기", "양파", "고추장"],
+      "tags": [
+        "밑반찬",
+        "상비식품",
+        "소고기",
+        "매운맛",
+        "다용도",
+        "비빔장"
+      ],
+      "mood_tags": [
+        "간편한거",
+        "밥도둑",
+        "일주일상비"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "갈은 소고기",
+        "양파",
+        "고추장"
+      ],
       "ingredients": [
-        {"name": "갈은 소고기", "amount": 480, "unit": "g"},
-        {"name": "양파", "amount": 2, "unit": "개"},
-        {"name": "고추장", "amount": 9, "unit": "T"},
-        {"name": "다진마늘", "amount": 2, "unit": "T"},
-        {"name": "후추", "amount": 1, "unit": "T"},
-        {"name": "간장", "amount": 2, "unit": "T"},
-        {"name": "설탕", "amount": 3.5, "unit": "T"},
-        {"name": "참기름", "amount": 1, "unit": "T"},
-        {"name": "물엿", "amount": 1, "unit": "T"}
+        {
+          "name": "갈은 소고기",
+          "amount": 480,
+          "unit": "g"
+        },
+        {
+          "name": "양파",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "고추장",
+          "amount": 9,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "후추",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "간장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 3.5,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "물엿",
+          "amount": 1,
+          "unit": "T"
+        }
       ],
       "steps": [
         "큰 그릇에 갈은 소고기·다진마늘·간장·설탕·후추 넣고 섞어 10분 재우기",
@@ -112,25 +250,101 @@
       "cook_time_min": 30,
       "difficulty": "중급",
       "difficulty_level": 3,
-      "tags": ["찌개", "된장", "2인분", "소고기", "집밥"],
-      "mood_tags": ["집밥생각", "속푸는거", "손님맞이"],
-      "weather_tags": ["쌀쌀한날", "추운날", "비오는날"],
-      "main_ingredients": ["차돌박이", "두부", "애호박", "양파", "된장"],
+      "tags": [
+        "찌개",
+        "된장",
+        "2인분",
+        "소고기",
+        "집밥"
+      ],
+      "mood_tags": [
+        "집밥생각",
+        "속푸는거",
+        "손님맞이"
+      ],
+      "weather_tags": [
+        "쌀쌀한날",
+        "추운날",
+        "비오는날"
+      ],
+      "main_ingredients": [
+        "차돌박이",
+        "두부",
+        "애호박",
+        "양파",
+        "된장"
+      ],
       "ingredients": [
-        {"name": "차돌박이", "amount": 120, "unit": "g"},
-        {"name": "두부", "amount": 0.5, "unit": "모"},
-        {"name": "애호박", "amount": 0.33, "unit": "개"},
-        {"name": "양파", "amount": 0.5, "unit": "개"},
-        {"name": "대파", "amount": 0.25, "unit": "개"},
-        {"name": "청양고추", "amount": 2, "unit": "개"},
-        {"name": "팽이버섯", "amount": 0.33, "unit": "상자"},
-        {"name": "물", "amount": 500, "unit": "ml"},
-        {"name": "해물다시팩", "amount": 1, "unit": "개"},
-        {"name": "된장", "amount": 2, "unit": "T"},
-        {"name": "고추장", "amount": 0.5, "unit": "T"},
-        {"name": "국간장", "amount": 0.5, "unit": "T"},
-        {"name": "고춧가루", "amount": 0.5, "unit": "T"},
-        {"name": "다진마늘", "amount": 0.5, "unit": "T"}
+        {
+          "name": "차돌박이",
+          "amount": 120,
+          "unit": "g"
+        },
+        {
+          "name": "두부",
+          "amount": 0.5,
+          "unit": "모"
+        },
+        {
+          "name": "애호박",
+          "amount": 0.33,
+          "unit": "개"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "대파",
+          "amount": 0.25,
+          "unit": "개"
+        },
+        {
+          "name": "청양고추",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "팽이버섯",
+          "amount": 0.33,
+          "unit": "상자"
+        },
+        {
+          "name": "물",
+          "amount": 500,
+          "unit": "ml"
+        },
+        {
+          "name": "해물다시팩",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "된장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "고추장",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "국간장",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 0.5,
+          "unit": "T"
+        }
       ],
       "steps": [
         "양파 8등분, 애호박 비슷한 크기로 썰기",
@@ -168,24 +382,96 @@
       "cook_time_min": 30,
       "difficulty": "쉬움",
       "difficulty_level": 2,
-      "tags": ["덮밥", "일식", "짭짤", "소고기", "데리야끼", "숙주", "스테이크"],
-      "mood_tags": ["데이트", "손님맞이", "특별한날", "주말"],
-      "weather_tags": ["아무때나"],
-      "main_ingredients": ["소고기 등심", "숙주", "통마늘", "밥"],
+      "tags": [
+        "덮밥",
+        "일식",
+        "짭짤",
+        "소고기",
+        "데리야끼",
+        "숙주",
+        "스테이크"
+      ],
+      "mood_tags": [
+        "데이트",
+        "손님맞이",
+        "특별한날",
+        "주말"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "소고기 등심",
+        "숙주",
+        "통마늘",
+        "밥"
+      ],
       "ingredients": [
-        {"name": "소고기 등심", "amount": 200, "unit": "g"},
-        {"name": "숙주", "amount": 1, "unit": "줌"},
-        {"name": "통마늘", "amount": 5, "unit": "개"},
-        {"name": "버터", "amount": 1, "unit": "T"},
-        {"name": "올리브유", "amount": 2, "unit": "T"},
-        {"name": "소금", "amount": "약간", "unit": ""},
-        {"name": "후추", "amount": "약간", "unit": ""},
-        {"name": "밥", "amount": 1, "unit": "공기"},
-        {"name": "간장", "amount": 3, "unit": "T"},
-        {"name": "맛술", "amount": 3, "unit": "T"},
-        {"name": "설탕", "amount": 1, "unit": "T"},
-        {"name": "로즈마리", "amount": 1, "unit": "줄기"},
-        {"name": "송송 썬 쪽파", "amount": 1, "unit": "T"}
+        {
+          "name": "소고기 등심",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "숙주",
+          "amount": 1,
+          "unit": "줌"
+        },
+        {
+          "name": "통마늘",
+          "amount": 5,
+          "unit": "개"
+        },
+        {
+          "name": "버터",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "올리브유",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "밥",
+          "amount": 1,
+          "unit": "공기"
+        },
+        {
+          "name": "간장",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "맛술",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "로즈마리",
+          "amount": 1,
+          "unit": "줄기"
+        },
+        {
+          "name": "송송 썬 쪽파",
+          "amount": 1,
+          "unit": "T"
+        }
       ],
       "steps": [
         "소고기 큼직하게 썰어 소금·후추·올리브유에 잠시 재워두기",
@@ -218,21 +504,81 @@
       "cook_time_min": 30,
       "difficulty": "초급",
       "difficulty_level": 1,
-      "tags": ["찌개", "김치찌개", "돼지고기", "집밥", "매운맛", "쉬운요리"],
-      "mood_tags": ["집밥생각", "속푸는거", "밥도둑", "다같이"],
-      "weather_tags": ["쌀쌀한날", "추운날", "비오는날"],
-      "main_ingredients": ["돼지고기 앞다리살", "김치", "대파"],
+      "tags": [
+        "찌개",
+        "김치찌개",
+        "돼지고기",
+        "집밥",
+        "매운맛",
+        "쉬운요리"
+      ],
+      "mood_tags": [
+        "집밥생각",
+        "속푸는거",
+        "밥도둑",
+        "다같이"
+      ],
+      "weather_tags": [
+        "쌀쌀한날",
+        "추운날",
+        "비오는날"
+      ],
+      "main_ingredients": [
+        "돼지고기 앞다리살",
+        "김치",
+        "대파"
+      ],
       "ingredients": [
-        {"name": "돼지고기 앞다리살 (찌개용)", "amount": 1, "unit": "밥그릇"},
-        {"name": "김치", "amount": 1, "unit": "줌"},
-        {"name": "대파", "amount": "조금", "unit": ""},
-        {"name": "소금", "amount": 1, "unit": "T"},
-        {"name": "고추장", "amount": 1, "unit": "스푼"},
-        {"name": "다진마늘", "amount": 1, "unit": "T"},
-        {"name": "고춧가루", "amount": 1, "unit": "T"},
-        {"name": "맛술", "amount": 1, "unit": "T"},
-        {"name": "후추", "amount": "약간", "unit": ""},
-        {"name": "물", "amount": 2, "unit": "머그컵"}
+        {
+          "name": "돼지고기 앞다리살 (찌개용)",
+          "amount": 1,
+          "unit": "밥그릇"
+        },
+        {
+          "name": "김치",
+          "amount": 1,
+          "unit": "줌"
+        },
+        {
+          "name": "대파",
+          "amount": "조금",
+          "unit": ""
+        },
+        {
+          "name": "소금",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "고추장",
+          "amount": 1,
+          "unit": "스푼"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "맛술",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "물",
+          "amount": 2,
+          "unit": "머그컵"
+        }
       ],
       "steps": [
         "돼지고기에 맛술 1T + 후추 넣고 10분 재워두기",
@@ -265,27 +611,112 @@
       "cook_time_min": 30,
       "difficulty": "쉬움",
       "difficulty_level": 2,
-      "tags": ["제육볶음", "돼지고기", "매운맛", "밥도둑", "백종원", "다같이", "안주"],
-      "mood_tags": ["밥도둑", "손님맞이", "안주", "다같이", "매콤한거"],
-      "weather_tags": ["아무때나"],
-      "main_ingredients": ["돼지고기 앞다리살", "양파", "양송이버섯", "청양고추"],
+      "tags": [
+        "제육볶음",
+        "돼지고기",
+        "매운맛",
+        "밥도둑",
+        "백종원",
+        "다같이",
+        "안주"
+      ],
+      "mood_tags": [
+        "밥도둑",
+        "손님맞이",
+        "안주",
+        "다같이",
+        "매콤한거"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "돼지고기 앞다리살",
+        "양파",
+        "양송이버섯",
+        "청양고추"
+      ],
       "ingredients": [
-        {"name": "돼지고기 앞다리살", "amount": 600, "unit": "g"},
-        {"name": "당근", "amount": 0.5, "unit": "개"},
-        {"name": "양파", "amount": 1, "unit": "개"},
-        {"name": "양송이버섯", "amount": 5, "unit": "개"},
-        {"name": "청양고추", "amount": 3, "unit": "개"},
-        {"name": "다진 파", "amount": "적당량", "unit": ""},
-        {"name": "진간장", "amount": 3, "unit": "T"},
-        {"name": "고추장", "amount": 2, "unit": "T"},
-        {"name": "다진마늘", "amount": 2, "unit": "T"},
-        {"name": "물", "amount": 150, "unit": "ml"},
-        {"name": "설탕", "amount": 3, "unit": "T"},
-        {"name": "고춧가루", "amount": 3, "unit": "T"},
-        {"name": "올리브유", "amount": 3, "unit": "T"},
-        {"name": "참기름", "amount": 1, "unit": "T"},
-        {"name": "후추", "amount": "약간", "unit": ""},
-        {"name": "통깨", "amount": "약간", "unit": ""}
+        {
+          "name": "돼지고기 앞다리살",
+          "amount": 600,
+          "unit": "g"
+        },
+        {
+          "name": "당근",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "양파",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "양송이버섯",
+          "amount": 5,
+          "unit": "개"
+        },
+        {
+          "name": "청양고추",
+          "amount": 3,
+          "unit": "개"
+        },
+        {
+          "name": "다진 파",
+          "amount": "적당량",
+          "unit": ""
+        },
+        {
+          "name": "진간장",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "고추장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 150,
+          "unit": "ml"
+        },
+        {
+          "name": "설탕",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "올리브유",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "통깨",
+          "amount": "약간",
+          "unit": ""
+        }
       ],
       "steps": [
         "당근·양파 채썰고, 양송이 5개·청양고추 3개 다지기",
@@ -321,24 +752,97 @@
       "cook_time_min": 15,
       "difficulty": "쉬움",
       "difficulty_level": 1,
-      "tags": ["면요리", "비빔국수", "김치", "매콤", "혼밥", "빠른요리", "여름"],
-      "mood_tags": ["혼밥", "매콤한거", "입맛없을때", "여름"],
-      "weather_tags": ["더운날", "아무때나"],
-      "main_ingredients": ["소면", "김치", "오이", "삶은계란"],
+      "tags": [
+        "면요리",
+        "비빔국수",
+        "김치",
+        "매콤",
+        "혼밥",
+        "빠른요리",
+        "여름"
+      ],
+      "mood_tags": [
+        "혼밥",
+        "매콤한거",
+        "입맛없을때",
+        "여름"
+      ],
+      "weather_tags": [
+        "더운날",
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "소면",
+        "김치",
+        "오이",
+        "삶은계란"
+      ],
       "ingredients": [
-        {"name": "소면 (100원짜리 동전 지름)", "amount": 1, "unit": "인분"},
-        {"name": "김치 (1-1.5cm 크기로)", "amount": 100, "unit": "g"},
-        {"name": "오이 (채썬 것)", "amount": 0.5, "unit": "개"},
-        {"name": "삶은계란", "amount": 1, "unit": "개"},
-        {"name": "고추장", "amount": 2, "unit": "T"},
-        {"name": "고춧가루", "amount": 1, "unit": "T"},
-        {"name": "식초", "amount": 3, "unit": "T"},
-        {"name": "진간장", "amount": 1.5, "unit": "T"},
-        {"name": "올리고당", "amount": 2, "unit": "T"},
-        {"name": "설탕", "amount": 1, "unit": "T"},
-        {"name": "깨", "amount": 1, "unit": "T"},
-        {"name": "다진마늘", "amount": 1, "unit": "T"},
-        {"name": "참기름", "amount": 1, "unit": "T"}
+        {
+          "name": "소면 (100원짜리 동전 지름)",
+          "amount": 1,
+          "unit": "인분"
+        },
+        {
+          "name": "김치 (1-1.5cm 크기로)",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "오이 (채썬 것)",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "삶은계란",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "고추장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "식초",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "진간장",
+          "amount": 1.5,
+          "unit": "T"
+        },
+        {
+          "name": "올리고당",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "깨",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 1,
+          "unit": "T"
+        }
       ],
       "steps": [
         "오이 돌기 제거하고 채썰기, 김치는 1-1.5cm로 다지듯 썰기",
@@ -372,26 +876,106 @@
       "cook_time_min": 20,
       "difficulty": "쉬움",
       "difficulty_level": 1,
-      "tags": ["면요리", "비빔국수", "매콤", "새콤", "여름", "숙성양념", "황금레시피"],
-      "mood_tags": ["여름", "입맛없을때", "매콤한거", "새콤한거"],
-      "weather_tags": ["더운날"],
-      "main_ingredients": ["소면", "당근", "양배추", "상추"],
+      "tags": [
+        "면요리",
+        "비빔국수",
+        "매콤",
+        "새콤",
+        "여름",
+        "숙성양념",
+        "황금레시피"
+      ],
+      "mood_tags": [
+        "여름",
+        "입맛없을때",
+        "매콤한거",
+        "새콤한거"
+      ],
+      "weather_tags": [
+        "더운날"
+      ],
+      "main_ingredients": [
+        "소면",
+        "당근",
+        "양배추",
+        "상추"
+      ],
       "ingredients": [
-        {"name": "소면", "amount": 1, "unit": "인분"},
-        {"name": "당근 (채썬 것)", "amount": 1, "unit": "줌"},
-        {"name": "양배추 (채썬 것)", "amount": 1, "unit": "주먹"},
-        {"name": "상추 (잘게 썬 것)", "amount": 1, "unit": "주먹"},
-        {"name": "고추장", "amount": 2, "unit": "T"},
-        {"name": "고춧가루", "amount": 1, "unit": "T"},
-        {"name": "양조식초", "amount": 2, "unit": "T"},
-        {"name": "진간장", "amount": 1, "unit": "T"},
-        {"name": "매실액", "amount": 1, "unit": "T"},
-        {"name": "돈까스소스", "amount": 1, "unit": "T"},
-        {"name": "설탕", "amount": 1, "unit": "T"},
-        {"name": "물엿", "amount": 1, "unit": "T"},
-        {"name": "다진마늘", "amount": 0.5, "unit": "T"},
-        {"name": "참기름", "amount": 1, "unit": "T"},
-        {"name": "통깨", "amount": 1, "unit": "T"}
+        {
+          "name": "소면",
+          "amount": 1,
+          "unit": "인분"
+        },
+        {
+          "name": "당근 (채썬 것)",
+          "amount": 1,
+          "unit": "줌"
+        },
+        {
+          "name": "양배추 (채썬 것)",
+          "amount": 1,
+          "unit": "주먹"
+        },
+        {
+          "name": "상추 (잘게 썬 것)",
+          "amount": 1,
+          "unit": "주먹"
+        },
+        {
+          "name": "고추장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "양조식초",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "진간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "매실액",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "돈까스소스",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "물엿",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "통깨",
+          "amount": 1,
+          "unit": "T"
+        }
       ],
       "steps": [
         "양념장 모두 섞어 24시간 냉장 숙성 (고춧가루 풋내 제거)",
@@ -425,24 +1009,96 @@
       "cook_time_min": 60,
       "difficulty": "초급",
       "difficulty_level": 2,
-      "tags": ["찜닭", "닭요리", "안동찜닭", "손님맞이", "당면", "생생정보통"],
-      "mood_tags": ["손님맞이", "주말", "다같이", "특별한날"],
-      "weather_tags": ["아무때나"],
-      "main_ingredients": ["닭", "감자", "당근", "양파", "당면"],
+      "tags": [
+        "찜닭",
+        "닭요리",
+        "안동찜닭",
+        "손님맞이",
+        "당면",
+        "생생정보통"
+      ],
+      "mood_tags": [
+        "손님맞이",
+        "주말",
+        "다같이",
+        "특별한날"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "닭",
+        "감자",
+        "당근",
+        "양파",
+        "당면"
+      ],
       "ingredients": [
-        {"name": "닭 (볶음탕용)", "amount": 1, "unit": "마리"},
-        {"name": "감자", "amount": 2, "unit": "개"},
-        {"name": "당근", "amount": 1, "unit": "개"},
-        {"name": "양파", "amount": 1, "unit": "개"},
-        {"name": "당면", "amount": 1, "unit": "줌"},
-        {"name": "대파", "amount": 1, "unit": "대"},
-        {"name": "물", "amount": 600, "unit": "ml"},
-        {"name": "진간장", "amount": 13, "unit": "T"},
-        {"name": "인스턴트 커피", "amount": 1, "unit": "T"},
-        {"name": "설탕", "amount": 3, "unit": "T"},
-        {"name": "물엿", "amount": 6, "unit": "T"},
-        {"name": "다진마늘", "amount": 3, "unit": "T"},
-        {"name": "후춧가루", "amount": "약간", "unit": ""}
+        {
+          "name": "닭 (볶음탕용)",
+          "amount": 1,
+          "unit": "마리"
+        },
+        {
+          "name": "감자",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "당근",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "양파",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "당면",
+          "amount": 1,
+          "unit": "줌"
+        },
+        {
+          "name": "대파",
+          "amount": 1,
+          "unit": "대"
+        },
+        {
+          "name": "물",
+          "amount": 600,
+          "unit": "ml"
+        },
+        {
+          "name": "진간장",
+          "amount": 13,
+          "unit": "T"
+        },
+        {
+          "name": "인스턴트 커피",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "물엿",
+          "amount": 6,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "후춧가루",
+          "amount": "약간",
+          "unit": ""
+        }
       ],
       "steps": [
         "닭에 칼집 내고 물에 담가 핏물 빼기",
@@ -477,29 +1133,120 @@
       "cook_time_min": 60,
       "difficulty": "쉬움",
       "difficulty_level": 2,
-      "tags": ["닭갈비", "춘천", "닭다리살", "매콤달콤", "다같이", "안주"],
-      "mood_tags": ["손님맞이", "다같이", "안주", "매콤한거"],
-      "weather_tags": ["아무때나"],
-      "main_ingredients": ["닭다리살", "양배추", "고구마", "떡"],
+      "tags": [
+        "닭갈비",
+        "춘천",
+        "닭다리살",
+        "매콤달콤",
+        "다같이",
+        "안주"
+      ],
+      "mood_tags": [
+        "손님맞이",
+        "다같이",
+        "안주",
+        "매콤한거"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "닭다리살",
+        "양배추",
+        "고구마",
+        "떡"
+      ],
       "ingredients": [
-        {"name": "닭다리살", "amount": 700, "unit": "g"},
-        {"name": "양배추", "amount": 0.25, "unit": "통"},
-        {"name": "고구마", "amount": 1, "unit": "개"},
-        {"name": "양파", "amount": 1, "unit": "개"},
-        {"name": "당근", "amount": 0.5, "unit": "개"},
-        {"name": "떡국떡", "amount": 150, "unit": "g"},
-        {"name": "대파", "amount": 1, "unit": "대"},
-        {"name": "깻잎", "amount": 10, "unit": "장"},
-        {"name": "고추장", "amount": 3, "unit": "T"},
-        {"name": "고춧가루", "amount": 3, "unit": "T"},
-        {"name": "진간장", "amount": 2, "unit": "T"},
-        {"name": "설탕", "amount": 2, "unit": "T"},
-        {"name": "물엿", "amount": 2, "unit": "T"},
-        {"name": "맛술", "amount": 2, "unit": "T"},
-        {"name": "다진마늘", "amount": 2, "unit": "T"},
-        {"name": "카레가루", "amount": 1, "unit": "T"},
-        {"name": "후춧가루", "amount": "약간", "unit": ""},
-        {"name": "생강가루", "amount": "약간", "unit": ""}
+        {
+          "name": "닭다리살",
+          "amount": 700,
+          "unit": "g"
+        },
+        {
+          "name": "양배추",
+          "amount": 0.25,
+          "unit": "통"
+        },
+        {
+          "name": "고구마",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "양파",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "당근",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "떡국떡",
+          "amount": 150,
+          "unit": "g"
+        },
+        {
+          "name": "대파",
+          "amount": 1,
+          "unit": "대"
+        },
+        {
+          "name": "깻잎",
+          "amount": 10,
+          "unit": "장"
+        },
+        {
+          "name": "고추장",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "진간장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "물엿",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "맛술",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "카레가루",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "후춧가루",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "생강가루",
+          "amount": "약간",
+          "unit": ""
+        }
       ],
       "steps": [
         "양념장 섞기: 고추장·고춧가루·간장·설탕·물엿·맛술·마늘·카레가루·후추·생강",
@@ -534,16 +1281,53 @@
       "cook_time_min": 15,
       "difficulty": "초급",
       "difficulty_level": 2,
-      "tags": ["생선", "고등어", "구이", "집밥", "오메가3", "다이어트"],
-      "mood_tags": ["집밥생각", "건강한거", "혼밥"],
-      "weather_tags": ["아무때나"],
-      "main_ingredients": ["고등어", "소금", "식용유"],
+      "tags": [
+        "생선",
+        "고등어",
+        "구이",
+        "집밥",
+        "오메가3",
+        "다이어트"
+      ],
+      "mood_tags": [
+        "집밥생각",
+        "건강한거",
+        "혼밥"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "고등어",
+        "소금",
+        "식용유"
+      ],
       "ingredients": [
-        {"name": "고등어 (손질된 것)", "amount": 1, "unit": "마리"},
-        {"name": "소금", "amount": 1, "unit": "t"},
-        {"name": "식용유", "amount": 2, "unit": "T"},
-        {"name": "밀가루 (살짝)", "amount": 1, "unit": "T"},
-        {"name": "레몬 (선택)", "amount": 0.25, "unit": "개"}
+        {
+          "name": "고등어 (손질된 것)",
+          "amount": 1,
+          "unit": "마리"
+        },
+        {
+          "name": "소금",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "식용유",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "밀가루 (살짝)",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "레몬 (선택)",
+          "amount": 0.25,
+          "unit": "개"
+        }
       ],
       "steps": [
         "고등어 비린내 주범인 '막' 제거 (키친타월로 닦기)",
@@ -578,17 +1362,61 @@
       "cook_time_min": 5,
       "difficulty": "매우쉬움",
       "difficulty_level": 1,
-      "tags": ["덮밥", "고등어", "5분요리", "혼밥", "자취생", "간편식"],
-      "mood_tags": ["혼밥", "급할때", "간편한거", "입맛없을때"],
-      "weather_tags": ["더운날", "아무때나"],
-      "main_ingredients": ["시판 고등어구이", "밥", "간장", "참기름"],
+      "tags": [
+        "덮밥",
+        "고등어",
+        "5분요리",
+        "혼밥",
+        "자취생",
+        "간편식"
+      ],
+      "mood_tags": [
+        "혼밥",
+        "급할때",
+        "간편한거",
+        "입맛없을때"
+      ],
+      "weather_tags": [
+        "더운날",
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "시판 고등어구이",
+        "밥",
+        "간장",
+        "참기름"
+      ],
       "ingredients": [
-        {"name": "시판용 고등어구이", "amount": 1, "unit": "토막"},
-        {"name": "밥 (뜨거운 밥)", "amount": 1, "unit": "공기"},
-        {"name": "참기름 (or 들기름)", "amount": 1, "unit": "T"},
-        {"name": "간장", "amount": 1, "unit": "T"},
-        {"name": "김 (선택)", "amount": 1, "unit": "장"},
-        {"name": "통깨", "amount": "약간", "unit": ""}
+        {
+          "name": "시판용 고등어구이",
+          "amount": 1,
+          "unit": "토막"
+        },
+        {
+          "name": "밥 (뜨거운 밥)",
+          "amount": 1,
+          "unit": "공기"
+        },
+        {
+          "name": "참기름 (or 들기름)",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "김 (선택)",
+          "amount": 1,
+          "unit": "장"
+        },
+        {
+          "name": "통깨",
+          "amount": "약간",
+          "unit": ""
+        }
       ],
       "steps": [
         "그릇에 참기름 1T + 간장 1T (1:1 비율)",
@@ -619,25 +1447,102 @@
       "cook_time_min": 30,
       "difficulty": "중급",
       "difficulty_level": 3,
-      "tags": ["다이어트", "두부", "스테이크", "저칼로리", "채식", "아이들", "건강식"],
-      "mood_tags": ["건강한거", "다이어트", "아이들", "채식"],
-      "weather_tags": ["아무때나"],
-      "main_ingredients": ["두부", "브로콜리", "양파", "당근", "표고버섯"],
+      "tags": [
+        "다이어트",
+        "두부",
+        "스테이크",
+        "저칼로리",
+        "채식",
+        "아이들",
+        "건강식"
+      ],
+      "mood_tags": [
+        "건강한거",
+        "다이어트",
+        "아이들",
+        "채식"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "두부",
+        "브로콜리",
+        "양파",
+        "당근",
+        "표고버섯"
+      ],
       "ingredients": [
-        {"name": "두부 (단단한 것)", "amount": 1, "unit": "모"},
-        {"name": "양파 (다진 것)", "amount": 0.5, "unit": "개"},
-        {"name": "당근 (다진 것)", "amount": 0.33, "unit": "개"},
-        {"name": "브로콜리 (데쳐 다진 것)", "amount": 50, "unit": "g"},
-        {"name": "계란", "amount": 1, "unit": "개"},
-        {"name": "빵가루 (식빵 갈아서)", "amount": 50, "unit": "g"},
-        {"name": "다진마늘", "amount": 1, "unit": "t"},
-        {"name": "소금·후추", "amount": "약간", "unit": ""},
-        {"name": "표고버섯", "amount": 2, "unit": "개"},
-        {"name": "양송이", "amount": 3, "unit": "개"},
-        {"name": "간장", "amount": 2, "unit": "T"},
-        {"name": "맛술", "amount": 1, "unit": "T"},
-        {"name": "설탕", "amount": 1, "unit": "T"},
-        {"name": "물", "amount": 100, "unit": "ml"}
+        {
+          "name": "두부 (단단한 것)",
+          "amount": 1,
+          "unit": "모"
+        },
+        {
+          "name": "양파 (다진 것)",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "당근 (다진 것)",
+          "amount": 0.33,
+          "unit": "개"
+        },
+        {
+          "name": "브로콜리 (데쳐 다진 것)",
+          "amount": 50,
+          "unit": "g"
+        },
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "빵가루 (식빵 갈아서)",
+          "amount": 50,
+          "unit": "g"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "소금·후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "표고버섯",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "양송이",
+          "amount": 3,
+          "unit": "개"
+        },
+        {
+          "name": "간장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "맛술",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 100,
+          "unit": "ml"
+        }
       ],
       "steps": [
         "두부 키친타월로 눌러 물기 빼기 (중요!)",
@@ -673,18 +1578,65 @@
       "cook_time_min": 15,
       "difficulty": "쉬움",
       "difficulty_level": 1,
-      "tags": ["다이어트", "샐러드", "브로콜리", "두부", "저칼로리", "채식", "건강식"],
-      "mood_tags": ["건강한거", "다이어트", "채식", "가볍게"],
-      "weather_tags": ["아무때나"],
-      "main_ingredients": ["브로콜리", "두부", "파프리카"],
+      "tags": [
+        "다이어트",
+        "샐러드",
+        "브로콜리",
+        "두부",
+        "저칼로리",
+        "채식",
+        "건강식"
+      ],
+      "mood_tags": [
+        "건강한거",
+        "다이어트",
+        "채식",
+        "가볍게"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "브로콜리",
+        "두부",
+        "파프리카"
+      ],
       "ingredients": [
-        {"name": "브로콜리", "amount": 1, "unit": "개"},
-        {"name": "두부", "amount": 0.5, "unit": "모"},
-        {"name": "노란 파프리카", "amount": 0.5, "unit": "개"},
-        {"name": "빨간 파프리카", "amount": 0.5, "unit": "개"},
-        {"name": "오리엔탈 드레싱", "amount": 3, "unit": "T"},
-        {"name": "소금", "amount": "약간", "unit": ""},
-        {"name": "식초", "amount": 1, "unit": "T"}
+        {
+          "name": "브로콜리",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "두부",
+          "amount": 0.5,
+          "unit": "모"
+        },
+        {
+          "name": "노란 파프리카",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "빨간 파프리카",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "오리엔탈 드레싱",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "식초",
+          "amount": 1,
+          "unit": "T"
+        }
       ],
       "steps": [
         "브로콜리 식초+베이킹소다물에 10분 담가 세척",
@@ -719,17 +1671,61 @@
       "cook_time_min": 5,
       "difficulty": "매우쉬움",
       "difficulty_level": 1,
-      "tags": ["5분요리", "간장계란밥", "자취생", "혼밥", "급할때", "불없이"],
-      "mood_tags": ["혼밥", "급할때", "간편한거", "입맛없을때", "자취생"],
-      "weather_tags": ["아무때나"],
-      "main_ingredients": ["밥", "계란", "간장", "참기름"],
+      "tags": [
+        "5분요리",
+        "간장계란밥",
+        "자취생",
+        "혼밥",
+        "급할때",
+        "불없이"
+      ],
+      "mood_tags": [
+        "혼밥",
+        "급할때",
+        "간편한거",
+        "입맛없을때",
+        "자취생"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "밥",
+        "계란",
+        "간장",
+        "참기름"
+      ],
       "ingredients": [
-        {"name": "밥 (차가운/따뜻한 둘 다 OK)", "amount": 1, "unit": "공기"},
-        {"name": "계란", "amount": 1, "unit": "개"},
-        {"name": "참기름", "amount": 2, "unit": "T"},
-        {"name": "간장", "amount": 1, "unit": "T"},
-        {"name": "통깨", "amount": "약간", "unit": ""},
-        {"name": "김가루 (선택)", "amount": "약간", "unit": ""}
+        {
+          "name": "밥 (차가운/따뜻한 둘 다 OK)",
+          "amount": 1,
+          "unit": "공기"
+        },
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "참기름",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "통깨",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "김가루 (선택)",
+          "amount": "약간",
+          "unit": ""
+        }
       ],
       "steps": [
         "불 켜지 않은 팬에 참기름 2T 두르기",
@@ -761,21 +1757,77 @@
       "cook_time_min": 30,
       "difficulty": "쉬움",
       "difficulty_level": 1,
-      "tags": ["밑반찬", "계란장", "상비식품", "짭짤", "일주일상비"],
-      "mood_tags": ["밥도둑", "일주일상비", "간편한거"],
-      "weather_tags": ["아무때나"],
-      "main_ingredients": ["계란", "간장", "설탕"],
+      "tags": [
+        "밑반찬",
+        "계란장",
+        "상비식품",
+        "짭짤",
+        "일주일상비"
+      ],
+      "mood_tags": [
+        "밥도둑",
+        "일주일상비",
+        "간편한거"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "계란",
+        "간장",
+        "설탕"
+      ],
       "ingredients": [
-        {"name": "계란", "amount": 6, "unit": "개"},
-        {"name": "물", "amount": 600, "unit": "ml"},
-        {"name": "간장", "amount": 250, "unit": "ml"},
-        {"name": "설탕", "amount": 250, "unit": "g"},
-        {"name": "대파", "amount": 0.33, "unit": "대"},
-        {"name": "양파", "amount": 1, "unit": "개"},
-        {"name": "파뿌리", "amount": 3, "unit": "개"},
-        {"name": "다시마", "amount": 3, "unit": "장"},
-        {"name": "국물용 멸치", "amount": 1, "unit": "주먹"},
-        {"name": "청양고추 (선택)", "amount": 2, "unit": "개"}
+        {
+          "name": "계란",
+          "amount": 6,
+          "unit": "개"
+        },
+        {
+          "name": "물",
+          "amount": 600,
+          "unit": "ml"
+        },
+        {
+          "name": "간장",
+          "amount": 250,
+          "unit": "ml"
+        },
+        {
+          "name": "설탕",
+          "amount": 250,
+          "unit": "g"
+        },
+        {
+          "name": "대파",
+          "amount": 0.33,
+          "unit": "대"
+        },
+        {
+          "name": "양파",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "파뿌리",
+          "amount": 3,
+          "unit": "개"
+        },
+        {
+          "name": "다시마",
+          "amount": 3,
+          "unit": "장"
+        },
+        {
+          "name": "국물용 멸치",
+          "amount": 1,
+          "unit": "주먹"
+        },
+        {
+          "name": "청양고추 (선택)",
+          "amount": 2,
+          "unit": "개"
+        }
       ],
       "steps": [
         "계란 삶기: 끓는 물에 7-8분 (반숙) 또는 10분 (완숙)",
@@ -798,6 +1850,2055 @@
       "cost_per_serving_krw": 800,
       "storage": "냉장 5-7일 (2-3일 내 최상)",
       "rating": 4.9,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6630284",
+      "name": "날치알 떡볶이 황금레시피",
+      "name_en": "Flying Fish Roe Tteokbokki",
+      "url": "https://www.10000recipe.com/recipe/6630284",
+      "author": "만개의레시피",
+      "category": "분식",
+      "cuisine": "한식",
+      "servings": 1,
+      "cook_time_min": 30,
+      "difficulty": "초급",
+      "difficulty_level": 2,
+      "tags": [
+        "떡볶이",
+        "분식",
+        "간식",
+        "매콤달콤",
+        "길거리음식"
+      ],
+      "mood_tags": [
+        "간식",
+        "매콤한거",
+        "분식",
+        "야식"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "떡볶이떡",
+        "어묵",
+        "날치알",
+        "계란",
+        "맛살"
+      ],
+      "ingredients": [
+        {
+          "name": "떡볶이떡",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "어묵",
+          "amount": 2,
+          "unit": "장"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "삶은계란",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "맛살",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "날치알",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "고추장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "간장",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "조미료",
+          "amount": 0.5,
+          "unit": "t"
+        },
+        {
+          "name": "후추",
+          "amount": 0.33,
+          "unit": "t"
+        },
+        {
+          "name": "물",
+          "amount": 500,
+          "unit": "ml"
+        }
+      ],
+      "steps": [
+        "양념장 섞기: 고추장2T+고춧가루2T+간장0.5T+설탕2T+조미료+후추",
+        "물 끓이고 양파·떡·양념장 투입",
+        "떡이 익으면 어묵·계란·맛살 추가",
+        "날치알+화이트와인 살짝 넣고 한소끔 끓이기",
+        "완성!"
+      ],
+      "tips": [
+        "조미료 소량이 길거리맛 핵심",
+        "날치알이 신의한수",
+        "치즈 올리면 치즈떡볶이"
+      ],
+      "cost_krw": 5000,
+      "cost_per_serving_krw": 5000,
+      "rating": 4.6,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "7038533",
+      "name": "초간단 짬뽕 황금레시피",
+      "name_en": "Easy Jjamppong",
+      "url": "https://www.10000recipe.com/recipe/7038533",
+      "author": "두율이아빠",
+      "category": "면요리",
+      "cuisine": "중식",
+      "servings": 2,
+      "cook_time_min": 30,
+      "difficulty": "초급",
+      "difficulty_level": 2,
+      "tags": [
+        "짬뽕",
+        "중식",
+        "면요리",
+        "매콤",
+        "얼큰"
+      ],
+      "mood_tags": [
+        "중식생각",
+        "매콤한거",
+        "속푸는거",
+        "쌀쌀한날"
+      ],
+      "weather_tags": [
+        "쌀쌀한날",
+        "추운날",
+        "비오는날"
+      ],
+      "main_ingredients": [
+        "중화면",
+        "양파",
+        "양배추",
+        "오징어",
+        "홍합"
+      ],
+      "ingredients": [
+        {
+          "name": "중화면",
+          "amount": 2,
+          "unit": "인분"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "양배추",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "대파",
+          "amount": 1,
+          "unit": "대"
+        },
+        {
+          "name": "오징어",
+          "amount": 0.5,
+          "unit": "마리"
+        },
+        {
+          "name": "홍합",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "간장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "굴소스",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "물",
+          "amount": 800,
+          "unit": "ml"
+        }
+      ],
+      "steps": [
+        "양파·양배추·대파 썰기",
+        "달군 팬에 기름 두르고 고춧가루 3T + 다진마늘 1T 넣어 고추기름 내기",
+        "채소·해물 넣고 센불에 볶기 (불맛!)",
+        "물 800ml + 간장 2T + 굴소스 1T 투입",
+        "끓으면 중화면 삶아 그릇에 담고 국물 부어 완성"
+      ],
+      "tips": [
+        "핵심: 고추기름으로 불맛 내기",
+        "숙주·목이버섯 추가하면 더 풍성",
+        "라면사리 넣어도 OK"
+      ],
+      "cost_krw": 12000,
+      "cost_per_serving_krw": 6000,
+      "rating": 4.7,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "7042497",
+      "name": "중국집 짜장면 (춘장)",
+      "name_en": "Jajangmyeon",
+      "url": "https://www.10000recipe.com/recipe/7042497",
+      "author": "포우맘의요리",
+      "category": "면요리",
+      "cuisine": "중식",
+      "servings": 6,
+      "cook_time_min": 60,
+      "difficulty": "초급",
+      "difficulty_level": 2,
+      "tags": [
+        "짜장면",
+        "중식",
+        "면요리",
+        "춘장",
+        "다같이",
+        "아이들"
+      ],
+      "mood_tags": [
+        "중식생각",
+        "다같이",
+        "손님맞이",
+        "아이들"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "중화면",
+        "춘장",
+        "감자",
+        "양파",
+        "돼지고기 등심"
+      ],
+      "ingredients": [
+        {
+          "name": "중화면",
+          "amount": 6,
+          "unit": "인분"
+        },
+        {
+          "name": "춘장",
+          "amount": 4,
+          "unit": "T"
+        },
+        {
+          "name": "감자",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "양파",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "양배추",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "돼지고기 등심",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "식용유",
+          "amount": 5,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 700,
+          "unit": "ml"
+        },
+        {
+          "name": "녹말가루",
+          "amount": 3,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "감자·양파·양배추 깍둑썰기",
+        "궁중팬에 식용유 3T + 채소+고기 볶기",
+        "별도 팬에 식용유 5T + 춘장 넣어 튀기듯 볶기",
+        "볶은 춘장을 채소에 넣고 섞기",
+        "설탕 3T + 물 3컵반 넣고 채소 익을 때까지",
+        "전분물(물 반컵+녹말 3T) 넣고 2분 더",
+        "중화면 삶아 짜장소스 올리기"
+      ],
+      "tips": [
+        "설탕이 중국집맛 포인트 (MSG 대체)",
+        "춘장은 반드시 기름에 튀기듯 볶기",
+        "토핑: 삶은계란·옥수수·오이"
+      ],
+      "cost_krw": 15000,
+      "cost_per_serving_krw": 2500,
+      "rating": 4.6,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6835110",
+      "name": "매콤달콤 어묵볶음",
+      "name_en": "Spicy Sweet Fish Cake",
+      "url": "https://www.10000recipe.com/recipe/6835110",
+      "author": "전라도언니루비씨",
+      "category": "밑반찬",
+      "cuisine": "한식",
+      "servings": 4,
+      "cook_time_min": 10,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "밑반찬",
+        "어묵볶음",
+        "매콤달콤",
+        "아이들",
+        "도시락"
+      ],
+      "mood_tags": [
+        "도시락",
+        "아이들",
+        "간편한거",
+        "상비식품"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "어묵",
+        "청양고추",
+        "간장"
+      ],
+      "ingredients": [
+        {
+          "name": "어묵",
+          "amount": 4,
+          "unit": "장"
+        },
+        {
+          "name": "청양고추",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "대파",
+          "amount": 0.3,
+          "unit": "대"
+        },
+        {
+          "name": "진간장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "식용유",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "올리고당",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "통깨",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "어묵 뜨거운 물에 데쳐 기름기 제거 후 썰기",
+        "팬에 기름 두르고 청양고추·대파 볶기",
+        "어묵 넣고 볶기",
+        "양념(간장2T+물2T+설탕1T) 넣고 조리기",
+        "올리고당 넣어 윤기 내기",
+        "통깨 뿌려 완성"
+      ],
+      "tips": [
+        "설탕 대신 올리고당이 식감 유지 비법",
+        "양념 넣고 잔열로 한번 더 볶기",
+        "계란장 국물 재활용하면 더 깊은 맛"
+      ],
+      "cost_krw": 3000,
+      "cost_per_serving_krw": 750,
+      "storage": "냉장 3-4일",
+      "rating": 4.5,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6882316",
+      "name": "어묵 콩나물무침",
+      "name_en": "Fish Cake Bean Sprout Salad",
+      "url": "https://www.10000recipe.com/recipe/6882316",
+      "author": "요리쿡조리쿡",
+      "category": "밑반찬",
+      "cuisine": "한식",
+      "servings": 3,
+      "cook_time_min": 30,
+      "difficulty": "초급",
+      "difficulty_level": 1,
+      "tags": [
+        "밑반찬",
+        "콩나물",
+        "어묵",
+        "아삭",
+        "담백"
+      ],
+      "mood_tags": [
+        "건강한거",
+        "간편한거",
+        "상비식품"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "콩나물",
+        "어묵",
+        "참기름"
+      ],
+      "ingredients": [
+        {
+          "name": "콩나물",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "사각어묵",
+          "amount": 2,
+          "unit": "장"
+        },
+        {
+          "name": "국간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "통깨",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": 0.33,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "콩나물 깨끗이 씻고 저수분으로 데치기 (물 반컵+소금)",
+        "데친 콩나물 얼음물에 담갔다 꺼내기 (쫄깃함 UP)",
+        "어묵 길쭉하게 채썰어 10초 데치기",
+        "볼에 콩나물+어묵+양념 모두 넣고 무치기"
+      ],
+      "tips": [
+        "얼음물 담그면 아삭함 극대화",
+        "계란후라이+고추장 비비면 비빔밥",
+        "아이들 매운 거 못 먹으면 고춧가루 생략"
+      ],
+      "cost_krw": 4000,
+      "cost_per_serving_krw": 1300,
+      "rating": 4.6,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "7049309",
+      "name": "소고기 소보로덮밥",
+      "name_en": "Beef Soboro Donburi",
+      "url": "https://www.10000recipe.com/recipe/7049309",
+      "author": "심플민",
+      "category": "덮밥",
+      "cuisine": "퓨전",
+      "servings": 2,
+      "cook_time_min": 30,
+      "difficulty": "초급",
+      "difficulty_level": 2,
+      "tags": [
+        "덮밥",
+        "소보로",
+        "다진고기",
+        "아이들",
+        "도시락"
+      ],
+      "mood_tags": [
+        "아이들",
+        "도시락",
+        "간편한거"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "다진 소고기",
+        "밥",
+        "간장",
+        "설탕"
+      ],
+      "ingredients": [
+        {
+          "name": "다진 소고기",
+          "amount": 300,
+          "unit": "g"
+        },
+        {
+          "name": "밥",
+          "amount": 2,
+          "unit": "공기"
+        },
+        {
+          "name": "간장",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "맛술",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "계란 노른자",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "통깨",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "다진고기 핏물 제거",
+        "양념(간장3T+설탕2T+맛술2T+마늘1T) 섞기",
+        "달군 팬에 고기 넣고 센불에 볶기",
+        "양념 투입 → 물기 없을 때까지 조리기 (소보로처럼!)",
+        "참기름+후추로 마무리",
+        "밥 위에 올리고 노른자 중앙에, 통깨 뿌리기"
+      ],
+      "tips": [
+        "아이들 메뉴로 활용 (유부초밥·주먹밥에도)",
+        "노른자 대신 반숙 프라이로 대체",
+        "깻잎·오이 썰어 곁들이면 산뜻"
+      ],
+      "cost_krw": 10000,
+      "cost_per_serving_krw": 5000,
+      "rating": 4.7,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6900978",
+      "name": "혼밥 간고등어 덮밥",
+      "name_en": "Salted Mackerel Donburi",
+      "url": "https://www.10000recipe.com/recipe/6900978",
+      "author": "동주",
+      "category": "덮밥",
+      "cuisine": "일식",
+      "servings": 1,
+      "cook_time_min": 30,
+      "difficulty": "초급",
+      "difficulty_level": 2,
+      "tags": [
+        "덮밥",
+        "생선",
+        "고등어",
+        "혼밥",
+        "일식",
+        "간고등어"
+      ],
+      "mood_tags": [
+        "혼밥",
+        "건강한거",
+        "간편한거"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "간고등어",
+        "밥",
+        "양파",
+        "쪽파"
+      ],
+      "ingredients": [
+        {
+          "name": "간고등어",
+          "amount": 1,
+          "unit": "마리"
+        },
+        {
+          "name": "밥",
+          "amount": 1,
+          "unit": "공기"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "청양고추",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "쪽파",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "편생강",
+          "amount": 3,
+          "unit": "장"
+        },
+        {
+          "name": "부침가루",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "식용유",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "간장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "맛술",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 3,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "통깨",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "청양고추·쪽파 송송 썰고 양파 채썰어 찬물에 10분",
+        "간고등어 반으로 썰어 부침가루 묻히기",
+        "팬에 기름 두르고 껍질 먼저 익히기 (가장자리 말림 방지)",
+        "중불에서 앞뒤 노릇하게",
+        "간장2T+맛술2T+설탕1T+물3T 양념과 청양고추·편생강 넣고 약불로 조리기",
+        "참기름 둘러 마무리",
+        "밥 위에 양파+고등어+쪽파+통깨"
+      ],
+      "tips": [
+        "껍질부터 익히는 게 포인트",
+        "자체 간이라 짜게 하지 말기",
+        "냉동 간고등어로도 OK (하루 한 마리 다이어트)"
+      ],
+      "cost_krw": 5000,
+      "cost_per_serving_krw": 5000,
+      "rating": 4.7,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6843857",
+      "name": "뚝배기 폭탄 계란찜",
+      "name_en": "Steamed Egg Casserole",
+      "url": "https://www.10000recipe.com/recipe/6843857",
+      "author": "만개의베스트",
+      "category": "밑반찬",
+      "cuisine": "한식",
+      "servings": 2,
+      "cook_time_min": 15,
+      "difficulty": "쉬움",
+      "difficulty_level": 2,
+      "tags": [
+        "계란찜",
+        "뚝배기",
+        "부드러움",
+        "식당맛",
+        "아이들"
+      ],
+      "mood_tags": [
+        "아이들",
+        "간편한거",
+        "속편한거"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "계란",
+        "물",
+        "새우젓"
+      ],
+      "ingredients": [
+        {
+          "name": "계란",
+          "amount": 4,
+          "unit": "개"
+        },
+        {
+          "name": "물",
+          "amount": 1,
+          "unit": "컵"
+        },
+        {
+          "name": "새우젓",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "쪽파",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 0.5,
+          "unit": "t"
+        },
+        {
+          "name": "통깨",
+          "amount": "약간",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "계란 4개 풀고 새우젓 1t + 물 1컵 (계란:물 = 1:0.5)",
+        "체에 걸러 알끈 제거 (부드러움 핵심)",
+        "뚝배기에 넣고 중불에서 저어가며 끓이기",
+        "표면이 익기 시작하면 뚜껑 덮고 약불 3분",
+        "쪽파+참기름+통깨 올려 완성"
+      ],
+      "tips": [
+        "폭탄처럼 부풀리는 비법: 뚜껑 꼭 덮고 약불 유지",
+        "새우젓 대신 소금+다시다 1꼬집",
+        "치즈 올리면 영양만점"
+      ],
+      "cost_krw": 2000,
+      "cost_per_serving_krw": 1000,
+      "rating": 4.8,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6843268",
+      "name": "고추장 멸치볶음",
+      "name_en": "Spicy Anchovy Stir-fry",
+      "url": "https://www.10000recipe.com/recipe/6843268",
+      "author": "만개의매거진",
+      "category": "밑반찬",
+      "cuisine": "한식",
+      "servings": 10,
+      "cook_time_min": 15,
+      "difficulty": "초급",
+      "difficulty_level": 1,
+      "tags": [
+        "밑반찬",
+        "멸치볶음",
+        "상비식품",
+        "밥도둑",
+        "매콤달콤"
+      ],
+      "mood_tags": [
+        "밥도둑",
+        "상비식품",
+        "도시락"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "멸치",
+        "고추장",
+        "견과류"
+      ],
+      "ingredients": [
+        {
+          "name": "잔멸치",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "고추장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "물엿",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "식용유",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "견과류 (호두·아몬드)",
+          "amount": 30,
+          "unit": "g"
+        },
+        {
+          "name": "통깨",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 0.5,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "멸치 체에 걸러 가루 털어내기",
+        "마른 팬에 멸치 초벌볶음 (비린내 제거)",
+        "별도 팬에 기름+다진마늘 볶다가 고추장+설탕+고춧가루 넣기",
+        "멸치+견과류 투입하고 섞기",
+        "물엿 넣고 윤기 내기 (딱딱함 방지!)",
+        "통깨+참기름 마무리"
+      ],
+      "tips": [
+        "초벌볶음이 비린내 제거 핵심",
+        "물엿은 마지막에 넣기 (안 그러면 딱딱)",
+        "꽈리고추·마늘종 추가하면 베스트",
+        "냉장 2주 보관 가능"
+      ],
+      "cost_krw": 5000,
+      "cost_per_serving_krw": 500,
+      "storage": "냉장 2주",
+      "rating": 4.8,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6851356",
+      "name": "짜파게티 황금레시피",
+      "name_en": "Chapaghetti Gold",
+      "url": "https://www.10000recipe.com/recipe/6851356",
+      "author": "꽃청춘이주부",
+      "category": "면요리",
+      "cuisine": "분식",
+      "servings": 1,
+      "cook_time_min": 15,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "라면",
+        "짜파게티",
+        "짜장라면",
+        "야식",
+        "자취생",
+        "간편"
+      ],
+      "mood_tags": [
+        "야식",
+        "자취생",
+        "간편한거",
+        "급할때"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "짜파게티",
+        "계란",
+        "오이"
+      ],
+      "ingredients": [
+        {
+          "name": "짜파게티",
+          "amount": 1,
+          "unit": "봉"
+        },
+        {
+          "name": "물",
+          "amount": 400,
+          "unit": "ml"
+        },
+        {
+          "name": "녹차티백",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "간장",
+          "amount": 0.5,
+          "unit": "t"
+        },
+        {
+          "name": "올리브유",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "오이",
+          "amount": 0.25,
+          "unit": "개"
+        },
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개"
+        }
+      ],
+      "steps": [
+        "물 400ml에 녹차티백 넣고 강불로 끓이기",
+        "30초 지나면 티백 건지기 (1분 이상이면 쓴맛!)",
+        "건더기+면 투입 2분 끓이기",
+        "면 풀고 중간불 2분",
+        "분말스프+간장 0.5t 넣고 센불 1분",
+        "불 끄고 올리브유 섞기",
+        "오이채+반숙 계란후라이 토핑"
+      ],
+      "tips": [
+        "녹차티백이 생생정보 비법",
+        "간장 소량이 중국집맛",
+        "오이 넣으면 느끼함 다운"
+      ],
+      "cost_krw": 2500,
+      "cost_per_serving_krw": 2500,
+      "rating": 4.6,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6888000",
+      "name": "소고기미역국",
+      "name_en": "Beef Seaweed Soup",
+      "url": "https://www.10000recipe.com/recipe/6888000",
+      "author": "각설탕식구들",
+      "category": "국·찌개",
+      "cuisine": "한식",
+      "servings": 5,
+      "cook_time_min": 60,
+      "difficulty": "초급",
+      "difficulty_level": 2,
+      "tags": [
+        "미역국",
+        "소고기",
+        "생일",
+        "보양",
+        "칼슘",
+        "철분"
+      ],
+      "mood_tags": [
+        "생일",
+        "속편한거",
+        "건강한거",
+        "보양"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "소고기 양지",
+        "건미역",
+        "참기름",
+        "마늘"
+      ],
+      "ingredients": [
+        {
+          "name": "소고기 양지(or 사태)",
+          "amount": 300,
+          "unit": "g"
+        },
+        {
+          "name": "건미역",
+          "amount": 30,
+          "unit": "g"
+        },
+        {
+          "name": "참기름",
+          "amount": 4,
+          "unit": "T"
+        },
+        {
+          "name": "국간장",
+          "amount": 4,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "물 (쌀뜨물 추천)",
+          "amount": 1200,
+          "unit": "ml"
+        }
+      ],
+      "steps": [
+        "건미역 물에 20분 불린 후 꼭 짜고 한입 크기로",
+        "소고기 기름 제거 후 적당히 썰기",
+        "냄비에 참기름 2T 두르고 소고기 볶기",
+        "미역 넣고 함께 볶기 (매우 중요!)",
+        "국간장 2T 넣고 더 볶기",
+        "물(쌀뜨물) 1200ml 붓고 센불 → 중약불로 40분 뭉근히",
+        "마지막 다진마늘+소금 간"
+      ],
+      "tips": [
+        "쌀뜨물 사용하면 깊은맛 UP",
+        "미역을 반드시 볶아야 뽀얀 국물",
+        "사태 vs 양지: 깔끔함 vs 깊은맛",
+        "생일날 전날 끓여서 숙성하면 더 맛있음"
+      ],
+      "cost_krw": 10000,
+      "cost_per_serving_krw": 2000,
+      "storage": "냉장 4일",
+      "rating": 4.9,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6888001",
+      "name": "시원한 콩나물국",
+      "name_en": "Bean Sprout Soup",
+      "url": "https://www.10000recipe.com/recipe/6888001",
+      "author": "요리쿡조리쿡",
+      "category": "국·찌개",
+      "cuisine": "한식",
+      "servings": 3,
+      "cook_time_min": 15,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "콩나물국",
+        "해장",
+        "숙취",
+        "시원",
+        "아삭",
+        "속편한"
+      ],
+      "mood_tags": [
+        "해장",
+        "속편한거",
+        "숙취",
+        "간편한거"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "콩나물",
+        "대파",
+        "다진마늘"
+      ],
+      "ingredients": [
+        {
+          "name": "콩나물",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "대파",
+          "amount": 0.5,
+          "unit": "대"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "국간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 800,
+          "unit": "ml"
+        },
+        {
+          "name": "청양고추 (선택)",
+          "amount": 1,
+          "unit": "개"
+        }
+      ],
+      "steps": [
+        "콩나물 깨끗이 씻고 뿌리 다듬기",
+        "냄비에 물 800ml + 콩나물 넣고 뚜껑 덮어 센불",
+        "끓어도 뚜껑 열지 말기 (비린내 방지!)",
+        "5분 끓이면 뚜껑 열고 대파·다진마늘 투입",
+        "국간장 1T + 소금 간",
+        "청양고추 넣어 칼칼하게 완성"
+      ],
+      "tips": [
+        "핵심: 뚜껑 열면 비린내 폭발, 끓을 때까지 절대 열지 말기",
+        "해장용으로는 청양고추+소금 추가",
+        "북엇국 변형: 북어채 추가"
+      ],
+      "cost_krw": 2500,
+      "cost_per_serving_krw": 800,
+      "rating": 4.6,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6888002",
+      "name": "고소한 콩나물무침",
+      "name_en": "Seasoned Bean Sprouts",
+      "url": "https://www.10000recipe.com/recipe/6888002",
+      "author": "수미네반찬",
+      "category": "밑반찬",
+      "cuisine": "한식",
+      "servings": 3,
+      "cook_time_min": 15,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "콩나물",
+        "무침",
+        "밑반찬",
+        "아삭",
+        "국민반찬",
+        "비빔밥"
+      ],
+      "mood_tags": [
+        "국민반찬",
+        "비빔밥",
+        "건강한거"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "콩나물",
+        "참기름",
+        "깨소금"
+      ],
+      "ingredients": [
+        {
+          "name": "콩나물",
+          "amount": 300,
+          "unit": "g"
+        },
+        {
+          "name": "소금 (삶는 용)",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "참치액",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "국간장",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "참기름",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "깨소금",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "t"
+        },
+        {
+          "name": "다진 대파",
+          "amount": 1,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "콩나물 상한 부분·꼬리 다듬고 씻기",
+        "냄비에 물 300ml + 소금 1t 넣고 끓으면 콩나물 투입",
+        "뚜껑 열고 2분30초~3분 삶기",
+        "찬물에 헹궈 식히고 물기 꽉 짜기 (아삭함!)",
+        "볼에 참치액·국간장·마늘·파·참기름·깨소금 넣고 조물조물",
+        "간보고 소금·설탕 꼬집 조절"
+      ],
+      "tips": [
+        "아삭함 비법: 찬물 헹굼 + 물기 꽉 짜기",
+        "참치액이 감칠맛 폭발",
+        "비빔밥 토핑으로도 최고"
+      ],
+      "cost_krw": 2500,
+      "cost_per_serving_krw": 830,
+      "rating": 4.8,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "7018854",
+      "name": "콩나물어묵찜",
+      "name_en": "Steamed Bean Sprout Fish Cake",
+      "url": "https://www.10000recipe.com/recipe/7018854",
+      "author": "만개의레시피",
+      "category": "메인요리",
+      "cuisine": "한식",
+      "servings": 4,
+      "cook_time_min": 30,
+      "difficulty": "초급",
+      "difficulty_level": 1,
+      "tags": [
+        "콩나물",
+        "어묵",
+        "찜",
+        "간편",
+        "메인반찬",
+        "아삭"
+      ],
+      "mood_tags": [
+        "간편한거",
+        "건강한거",
+        "밥반찬"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "콩나물",
+        "어묵",
+        "새송이버섯",
+        "깻잎"
+      ],
+      "ingredients": [
+        {
+          "name": "콩나물",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "어묵",
+          "amount": 4,
+          "unit": "장"
+        },
+        {
+          "name": "새송이버섯",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "대파",
+          "amount": 1,
+          "unit": "대"
+        },
+        {
+          "name": "깻잎",
+          "amount": 5,
+          "unit": "장"
+        },
+        {
+          "name": "고추장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "간장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 100,
+          "unit": "ml"
+        }
+      ],
+      "steps": [
+        "어묵 한 입 크기, 새송이·양파·깻잎 채썰기",
+        "대파 다지기",
+        "양념 섞기: 고추장1T+고춧가루2T+간장2T+마늘1T+설탕1T",
+        "냄비에 콩나물>어묵>버섯>대파>물 순서로 쌓기",
+        "뚜껑 덮고 끓이기",
+        "콩나물 숨 죽으면 양념 넣고 섞기",
+        "깻잎·통깨 뿌려 완성"
+      ],
+      "tips": [
+        "재료 쌓는 순서가 중요 (콩나물이 바닥)",
+        "전분물 넣으면 걸쭉하게",
+        "4인 메인반찬으로 든든"
+      ],
+      "cost_krw": 6000,
+      "cost_per_serving_krw": 1500,
+      "rating": 4.5,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6888003",
+      "name": "5분 계란볶음밥",
+      "name_en": "5min Egg Fried Rice",
+      "url": "https://www.10000recipe.com/recipe/6888003",
+      "author": "이연복",
+      "category": "5분요리",
+      "cuisine": "중식",
+      "servings": 1,
+      "cook_time_min": 5,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "볶음밥",
+        "계란",
+        "중식",
+        "5분",
+        "자취생",
+        "급할때"
+      ],
+      "mood_tags": [
+        "급할때",
+        "자취생",
+        "간편한거",
+        "야식"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "밥",
+        "계란",
+        "간장",
+        "참기름"
+      ],
+      "ingredients": [
+        {
+          "name": "찬밥 (중요!)",
+          "amount": 1,
+          "unit": "공기"
+        },
+        {
+          "name": "계란",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "대파",
+          "amount": 0.3,
+          "unit": "대"
+        },
+        {
+          "name": "간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "식용유",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "후추",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "참기름",
+          "amount": 0.5,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "찬밥 준비 (갓지은 밥은 질척해짐)",
+        "대파 송송 썰기",
+        "센불 팬에 식용유 2T + 대파 볶아 파기름 내기",
+        "계란 2개 풀어 넣고 저어가며 익히기",
+        "계란이 반쯤 익으면 밥 투입",
+        "센불에서 쌀알 하나씩 튀어오르듯 볶기",
+        "간장 1T 팬 가장자리에 두르기 (불맛!)",
+        "소금·후추+참기름 마무리"
+      ],
+      "tips": [
+        "핵심: 찬밥 사용 (갓지은 밥 X)",
+        "간장은 팬 가장자리에 두르기 (불향)",
+        "센불로 짧게 (물컹 방지)",
+        "햄·당근·완두콩 추가 OK"
+      ],
+      "cost_krw": 2000,
+      "cost_per_serving_krw": 2000,
+      "rating": 4.8,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6888004",
+      "name": "두부김치",
+      "name_en": "Tofu Kimchi",
+      "url": "https://www.10000recipe.com/recipe/6888004",
+      "author": "만개의레시피",
+      "category": "안주",
+      "cuisine": "한식",
+      "servings": 2,
+      "cook_time_min": 20,
+      "difficulty": "쉬움",
+      "difficulty_level": 2,
+      "tags": [
+        "안주",
+        "두부",
+        "김치",
+        "막걸리",
+        "소주",
+        "따끈"
+      ],
+      "mood_tags": [
+        "안주",
+        "술자리",
+        "비오는날"
+      ],
+      "weather_tags": [
+        "쌀쌀한날",
+        "비오는날"
+      ],
+      "main_ingredients": [
+        "두부",
+        "김치",
+        "돼지고기 앞다리살"
+      ],
+      "ingredients": [
+        {
+          "name": "두부",
+          "amount": 1,
+          "unit": "모"
+        },
+        {
+          "name": "묵은지",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "돼지고기 앞다리살",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "대파",
+          "amount": 1,
+          "unit": "대"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "식용유",
+          "amount": 2,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "두부 1.5cm 두께로 썰어 끓는 물에 데치기 (3분)",
+        "돼지고기·김치·양파 썰기",
+        "팬에 기름 두르고 돼지고기 볶기",
+        "김치+양파+설탕 1T 넣고 볶기 (단맛 포인트)",
+        "고춧가루+마늘 넣고 중불로 조리기",
+        "대파+참기름 마무리",
+        "접시에 데친 두부 깔고 김치볶음 올리기"
+      ],
+      "tips": [
+        "묵은지가 신의한수 (일반김치 X)",
+        "설탕 1T가 깊은맛",
+        "막걸리·소주와 궁합 👍",
+        "밥반찬으로도 OK"
+      ],
+      "cost_krw": 6000,
+      "cost_per_serving_krw": 3000,
+      "rating": 4.7,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6888005",
+      "name": "폭신 계란말이",
+      "name_en": "Fluffy Egg Roll",
+      "url": "https://www.10000recipe.com/recipe/6888005",
+      "author": "만개의레시피",
+      "category": "밑반찬",
+      "cuisine": "한식",
+      "servings": 2,
+      "cook_time_min": 10,
+      "difficulty": "쉬움",
+      "difficulty_level": 2,
+      "tags": [
+        "계란말이",
+        "아이들",
+        "도시락",
+        "밑반찬",
+        "폭신"
+      ],
+      "mood_tags": [
+        "아이들",
+        "도시락",
+        "간편한거",
+        "밥반찬"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "계란",
+        "당근",
+        "쪽파"
+      ],
+      "ingredients": [
+        {
+          "name": "계란",
+          "amount": 4,
+          "unit": "개"
+        },
+        {
+          "name": "당근 (다진 것)",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "쪽파 (다진 것)",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "양파 (다진 것)",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "설탕",
+          "amount": 0.5,
+          "unit": "t"
+        },
+        {
+          "name": "맛술",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "식용유",
+          "amount": 1,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "계란 4개 풀고 체에 걸러 알끈 제거",
+        "당근·쪽파·양파 잘게 다지기",
+        "계란에 채소+소금+설탕+맛술 섞기",
+        "약불에 기름 두르고 계란물 1/3 붓기",
+        "반쯤 익으면 돌돌 말기",
+        "남은 계란물 붓고 반복 (3번)",
+        "식힌 후 1cm 두께로 썰기"
+      ],
+      "tips": [
+        "약불 유지 (타지 않게)",
+        "체에 거르면 폭신함 UP",
+        "치즈·햄 추가하면 아이들 환호",
+        "도시락 최강 반찬"
+      ],
+      "cost_krw": 2000,
+      "cost_per_serving_krw": 1000,
+      "rating": 4.7,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6888006",
+      "name": "속풀이 북엇국",
+      "name_en": "Pollock Hangover Soup",
+      "url": "https://www.10000recipe.com/recipe/6888006",
+      "author": "만개의레시피",
+      "category": "국·찌개",
+      "cuisine": "한식",
+      "servings": 3,
+      "cook_time_min": 30,
+      "difficulty": "초급",
+      "difficulty_level": 1,
+      "tags": [
+        "북엇국",
+        "해장",
+        "숙취",
+        "속편한",
+        "보양"
+      ],
+      "mood_tags": [
+        "해장",
+        "숙취",
+        "속편한거",
+        "아침"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "북어채",
+        "무",
+        "두부",
+        "계란"
+      ],
+      "ingredients": [
+        {
+          "name": "북어채",
+          "amount": 50,
+          "unit": "g"
+        },
+        {
+          "name": "무",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "name": "두부",
+          "amount": 0.5,
+          "unit": "모"
+        },
+        {
+          "name": "계란",
+          "amount": 1,
+          "unit": "개"
+        },
+        {
+          "name": "대파",
+          "amount": 0.5,
+          "unit": "대"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "국간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "참기름",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "소금",
+          "amount": 0.5,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 1000,
+          "unit": "ml"
+        },
+        {
+          "name": "들기름 (선택)",
+          "amount": 1,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "북어채 찬물에 10분 불려 꼭 짜기",
+        "무 나박썰기, 두부 깍둑썰기",
+        "냄비에 참기름 1T 두르고 북어채 볶기 (고소함 UP)",
+        "무 넣고 1분 더 볶기",
+        "물 1000ml 붓고 센불 → 10분",
+        "두부+대파+마늘+국간장+소금 투입",
+        "계란 풀어 넣고 저어 완성"
+      ],
+      "tips": [
+        "북어채 볶는 게 핵심 (안 볶으면 비림)",
+        "들기름 추가하면 구수함 폭발",
+        "숙취 특효 (수분+단백질 보충)"
+      ],
+      "cost_krw": 5000,
+      "cost_per_serving_krw": 1700,
+      "rating": 4.6,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6888007",
+      "name": "라볶이",
+      "name_en": "Ramen Tteokbokki",
+      "url": "https://www.10000recipe.com/recipe/6888007",
+      "author": "만개의레시피",
+      "category": "분식",
+      "cuisine": "한식",
+      "servings": 2,
+      "cook_time_min": 20,
+      "difficulty": "쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "라볶이",
+        "떡볶이",
+        "라면",
+        "분식",
+        "야식",
+        "간식"
+      ],
+      "mood_tags": [
+        "간식",
+        "야식",
+        "분식",
+        "급할때"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "떡볶이떡",
+        "라면",
+        "어묵",
+        "계란"
+      ],
+      "ingredients": [
+        {
+          "name": "떡볶이떡",
+          "amount": 150,
+          "unit": "g"
+        },
+        {
+          "name": "라면",
+          "amount": 1,
+          "unit": "봉"
+        },
+        {
+          "name": "어묵",
+          "amount": 2,
+          "unit": "장"
+        },
+        {
+          "name": "삶은계란",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "대파",
+          "amount": 1,
+          "unit": "대"
+        },
+        {
+          "name": "양파",
+          "amount": 0.5,
+          "unit": "개"
+        },
+        {
+          "name": "고추장",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "고춧가루",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "간장",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "설탕",
+          "amount": 1.5,
+          "unit": "T"
+        },
+        {
+          "name": "다진마늘",
+          "amount": 1,
+          "unit": "T"
+        },
+        {
+          "name": "물",
+          "amount": 600,
+          "unit": "ml"
+        }
+      ],
+      "steps": [
+        "양파·대파 썰기, 어묵 한입 크기로",
+        "냄비에 물 600ml + 라면스프 1/2 + 양념(고추장2T+고춧가루2T+간장1T+설탕1.5T+마늘1T)",
+        "끓으면 떡+어묵+양파 투입",
+        "3분 끓이고 라면사리 넣기",
+        "라면 익으면 대파+삶은계란 투입",
+        "치즈 올리면 보너스"
+      ],
+      "tips": [
+        "라면스프는 반만 사용 (짜지 않게)",
+        "즉석 라볶이는 라면 생으로 넣기",
+        "치즈·만두 추가하면 로제 라볶이"
+      ],
+      "cost_krw": 4000,
+      "cost_per_serving_krw": 2000,
+      "rating": 4.6,
+      "added_date": "2026-10-31"
+    },
+    {
+      "id": "6888008",
+      "name": "프렌치토스트",
+      "name_en": "French Toast",
+      "url": "https://www.10000recipe.com/recipe/6888008",
+      "author": "만개의레시피",
+      "category": "브런치",
+      "cuisine": "양식",
+      "servings": 2,
+      "cook_time_min": 10,
+      "difficulty": "매우쉬움",
+      "difficulty_level": 1,
+      "tags": [
+        "브런치",
+        "토스트",
+        "아침",
+        "간식",
+        "계란",
+        "우유"
+      ],
+      "mood_tags": [
+        "브런치",
+        "아침",
+        "간식",
+        "주말"
+      ],
+      "weather_tags": [
+        "아무때나"
+      ],
+      "main_ingredients": [
+        "식빵",
+        "계란",
+        "우유",
+        "버터"
+      ],
+      "ingredients": [
+        {
+          "name": "식빵",
+          "amount": 4,
+          "unit": "장"
+        },
+        {
+          "name": "계란",
+          "amount": 2,
+          "unit": "개"
+        },
+        {
+          "name": "우유",
+          "amount": 100,
+          "unit": "ml"
+        },
+        {
+          "name": "설탕",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "바닐라에센스 (선택)",
+          "amount": 0.5,
+          "unit": "t"
+        },
+        {
+          "name": "버터",
+          "amount": 2,
+          "unit": "T"
+        },
+        {
+          "name": "시나몬파우더",
+          "amount": "약간",
+          "unit": ""
+        },
+        {
+          "name": "메이플시럽",
+          "amount": 2,
+          "unit": "T"
+        }
+      ],
+      "steps": [
+        "계란 2개 + 우유 100ml + 설탕 2T + 바닐라에센스 섞기",
+        "식빵 양면을 계란물에 10초씩 적시기 (너무 오래 X)",
+        "약불 팬에 버터 1T 녹이기",
+        "식빵 올리고 앞뒤 노릇하게 (각 1분)",
+        "시나몬파우더 솔솔",
+        "메이플시럽 뿌리고 완성"
+      ],
+      "tips": [
+        "약불이 포인트 (타지 않게)",
+        "우유:계란 = 1:1 비율이 황금",
+        "딸기·바나나 올리면 호텔 조식",
+        "남은 식빵 활용 꿀팁"
+      ],
+      "cost_krw": 4000,
+      "cost_per_serving_krw": 2000,
+      "rating": 4.7,
       "added_date": "2026-10-31"
     }
   ]
