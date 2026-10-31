@@ -102,6 +102,35 @@
       line-height: 1.5;
       padding-top: 10px;
       border-top: 1px dashed #eee;
+      margin-bottom: 10px;
+    }
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #f5f5f5;
+    }
+    .card-action-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s;
+      border: none;
+      font-family: inherit;
+    }
+    .card-action-btn:active { transform: scale(0.97); }
+    .card-action-primary {
+      background: #B85C3C;
+      color: #fff;
+    }
+    .card-action-secondary {
+      background: #FFF0E8;
+      color: #B85C3C;
     }
 
     .buttons {
@@ -356,21 +385,31 @@
 
     function renderCards() {
       const html = currentPicks.map((r, i) => `
-        <div class="card" onclick="openRecipe('${r.id}')">
-          <div class="card-badge">선택지 ${i+1}</div>
-          <div class="card-name">${r.name}</div>
-          <div class="card-meta">
-            <span>⏱ ${r.cook_time_min}분</span>
-            <span>👥 ${r.servings}인분</span>
-            <span>${'★'.repeat(r.difficulty_level)}${'☆'.repeat(5-r.difficulty_level)}</span>
-            <span>🔥 ${r.kcal_per_serving || '?'}kcal</span>
-            <span>💰 ₩${(r.cost_per_serving_krw || r.cost_krw).toLocaleString()}/인</span>
+        <div class="card">
+          <div onclick="openRecipe('${r.id}')">
+            <div class="card-badge">선택지 ${i+1}</div>
+            <div class="card-name">${r.name}</div>
+            <div class="card-meta">
+              <span>⏱ ${r.cook_time_min}분</span>
+              <span>👥 ${r.servings}인분</span>
+              <span>${'★'.repeat(r.difficulty_level)}${'☆'.repeat(5-r.difficulty_level)}</span>
+              <span>🔥 ${r.kcal_per_serving || '?'}kcal</span>
+              <span>💰 ₩${(r.cost_per_serving_krw || r.cost_krw).toLocaleString()}/인</span>
+            </div>
+            <div class="card-tags">
+              ${(r.tags || []).slice(0,4).map(t => `<span class="tag">#${t}</span>`).join('')}
+            </div>
+            <div class="card-ingredients">
+              🥘 ${(r.main_ingredients || []).join(', ')}
+            </div>
           </div>
-          <div class="card-tags">
-            ${(r.tags || []).slice(0,4).map(t => `<span class="tag">#${t}</span>`).join('')}
-          </div>
-          <div class="card-ingredients">
-            🥘 ${(r.main_ingredients || []).join(', ')}
+          <div class="card-actions">
+            <a class="card-action-btn card-action-secondary" href="${r.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+              📖 레시피로 가기
+            </a>
+            <button class="card-action-btn card-action-primary" onclick="event.stopPropagation(); selectRecipe('${r.id}', true)">
+              ✅ 이걸로 선택
+            </button>
           </div>
         </div>
       `).join('');
