@@ -3,388 +3,257 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🍚 오늘 저녁 뭐 먹지?</title>
+  <title>🍚 공주님 집밥 허브</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
       background: linear-gradient(135deg, #FFE5D9 0%, #FFC9B9 50%, #FFB4A2 100%);
-      min-height: 100vh;
-      padding: 16px;
-      color: #2d2d2d;
+      min-height: 100vh; padding: 16px 12px 40px; color: #2d2d2d;
       -webkit-font-smoothing: antialiased;
     }
     .wrap { max-width: 480px; margin: 0 auto; }
-    header { text-align: center; padding: 20px 0 16px; }
-    h1 { font-size: 28px; font-weight: 800; margin-bottom: 6px; }
-    .sub { font-size: 13px; opacity: 0.7; }
-    .date { font-size: 12px; opacity: 0.6; margin-top: 4px; }
+    header { text-align: center; padding: 16px 0 12px; }
+    h1 { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
+    .sub { font-size: 12px; opacity: 0.7; }
+    .date { font-size: 11px; opacity: 0.6; margin-top: 2px; }
 
-    .filters {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 12px 0;
-      scrollbar-width: none;
+    /* 탭 */
+    .tabs { display: flex; gap: 4px; margin: 12px 0; background: rgba(255,255,255,0.4); padding: 4px; border-radius: 14px; }
+    .tab {
+      flex: 1; padding: 10px 6px; text-align: center; font-size: 12px; font-weight: 700;
+      border-radius: 10px; cursor: pointer; transition: all 0.15s; color: #666;
     }
+    .tab.active { background: #fff; color: #B85C3C; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+
+    /* 탭 콘텐츠 */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* 공통 */
+    .section-head { display: flex; justify-content: space-between; align-items: center; margin: 14px 0 10px; }
+    .section-title { font-size: 15px; font-weight: 800; color: #2d2d2d; }
+    .section-sub { font-size: 11px; color: #999; }
+
+    /* 필터 chip */
+    .filters { display: flex; gap: 6px; overflow-x: auto; padding: 4px 0 10px; scrollbar-width: none; }
     .filters::-webkit-scrollbar { display: none; }
     .chip {
-      flex-shrink: 0;
-      padding: 8px 14px;
-      background: rgba(255,255,255,0.6);
-      border: 1.5px solid transparent;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
+      flex-shrink: 0; padding: 7px 12px; background: rgba(255,255,255,0.7);
+      border: 1px solid transparent; border-radius: 16px; font-size: 12px; font-weight: 700;
+      cursor: pointer; white-space: nowrap; transition: all 0.15s;
     }
-    .chip.active {
-      background: #2d2d2d;
-      color: #fff;
-      border-color: #2d2d2d;
+    .chip.active { background: #2d2d2d; color: #fff; border-color: #2d2d2d; }
+    .chip-hot { background: #FFF0E8; color: #B85C3C; border-color: #FFB4A2; }
+    .chip-hot.active { background: #B85C3C; color: #fff; border-color: #B85C3C; }
+
+    /* 레시피 카드 */
+    .cards { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+    .card {
+      background: #fff; border-radius: 16px; padding: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     }
-    .chip-hot {
-      background: #FFF0E8;
-      color: #B85C3C;
-      border-color: #FFB4A2;
-      font-weight: 700;
-    }
-    .chip-hot.active {
-      background: #B85C3C;
-      color: #fff;
-      border-color: #B85C3C;
-    }
-    .pantry-box {
-      background: rgba(255,255,255,0.5);
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-bottom: 12px;
-    }
-    .pantry-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      font-weight: 700;
-      color: #2d2d2d;
-    }
-    .pantry-toggle {
-      background: none;
-      border: none;
-      font-size: 14px;
-      cursor: pointer;
-      padding: 0 6px;
-      transition: transform 0.15s;
-    }
-    .pantry-toggle.open { transform: rotate(180deg); }
-    .pantry-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.25s;
-    }
-    .pantry-list.open { max-height: 300px; }
-    .pantry-item {
-      background: #FFE5D9;
-      color: #B85C3C;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 600;
+    .card-body { cursor: pointer; }
+    .card-badge {
+      display: inline-block; background: #FFB4A2; color: #fff; padding: 2px 8px;
+      border-radius: 10px; font-size: 10px; font-weight: 700; margin-bottom: 6px;
     }
     .match-badge {
-      display: inline-block;
-      background: #B85C3C;
-      color: #fff;
-      padding: 2px 8px;
-      border-radius: 10px;
-      font-size: 10px;
-      font-weight: 700;
-      margin-left: 6px;
-      vertical-align: middle;
+      display: inline-block; background: #B85C3C; color: #fff; padding: 2px 8px;
+      border-radius: 10px; font-size: 10px; font-weight: 700; margin-left: 6px;
     }
-
-    .cards { display: flex; flex-direction: column; gap: 14px; margin: 16px 0; }
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
-      position: relative;
-      overflow: hidden;
-    }
-    .card:active {
-      transform: scale(0.98);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .card-badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: #FFB4A2;
-      color: #fff;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-    .card-name {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 6px;
-      line-height: 1.3;
-    }
+    .card-name { font-size: 16px; font-weight: 800; margin-bottom: 6px; line-height: 1.3; }
     .card-meta {
-      display: flex;
-      gap: 12px;
-      font-size: 12px;
-      color: #666;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
+      display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 11px; color: #666; margin-bottom: 8px;
     }
-    .card-meta span { display: inline-flex; align-items: center; gap: 3px; }
-    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
-    .tag {
-      background: #FFE5D9;
-      color: #B85C3C;
-      padding: 3px 9px;
-      border-radius: 10px;
-      font-size: 11px;
-      font-weight: 600;
+    .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+    .tag { background: #FFE5D9; color: #B85C3C; padding: 2px 7px; border-radius: 8px; font-size: 10px; font-weight: 600; }
+    .card-ing-check {
+      padding: 8px 10px; background: #FAFAFA; border-radius: 8px; margin-bottom: 8px; font-size: 11px; line-height: 1.6;
     }
-    .card-ingredients {
-      font-size: 12px;
-      color: #888;
-      line-height: 1.5;
-      padding-top: 10px;
-      border-top: 1px dashed #eee;
-      margin-bottom: 10px;
-    }
-    .card-actions {
-      display: flex;
-      gap: 8px;
-      padding-top: 8px;
-      border-top: 1px solid #f5f5f5;
-    }
+    .ing-have { color: #0F6E56; }
+    .ing-miss { color: #A32D2D; font-weight: 600; }
+    .card-actions { display: flex; gap: 6px; padding-top: 6px; border-top: 1px solid #f5f5f5; }
     .card-action-btn {
-      flex: 1;
-      padding: 10px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.15s;
-      border: none;
-      font-family: inherit;
+      flex: 1; padding: 9px 4px; border-radius: 10px; font-size: 12px; font-weight: 700;
+      text-align: center; cursor: pointer; border: none; font-family: inherit;
     }
-    .card-action-btn:active { transform: scale(0.97); }
-    .card-action-primary {
-      background: #B85C3C;
-      color: #fff;
-    }
-    .card-action-secondary {
-      background: #FFF0E8;
-      color: #B85C3C;
-    }
+    .card-action-primary { background: #B85C3C; color: #fff; }
+    .card-action-secondary { background: #FFF0E8; color: #B85C3C; }
+    .card-action-success { background: #0F6E56; color: #fff; }
 
-    .buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-      position: sticky;
-      bottom: 16px;
-    }
+    /* 버튼 */
+    .buttons { display: flex; gap: 8px; margin: 10px 0 16px; }
     .btn {
-      flex: 1;
-      padding: 16px;
-      border: none;
-      border-radius: 16px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.15s;
-      font-family: inherit;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex: 1; padding: 13px; border: none; border-radius: 14px;
+      font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     .btn-primary { background: #2d2d2d; color: #fff; }
     .btn-secondary { background: #fff; color: #2d2d2d; }
-    .btn:active { transform: scale(0.97); }
 
-    .history {
-      margin-top: 32px;
-      padding: 16px;
-      background: rgba(255,255,255,0.5);
-      border-radius: 16px;
+    /* Pantry 섹션 */
+    .pantry-group { margin-bottom: 14px; }
+    .pantry-cat { font-size: 11px; color: #999; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; }
+    .pantry-row {
+      display: flex; align-items: center; gap: 8px; background: #fff;
+      padding: 10px 12px; border-radius: 10px; margin-bottom: 4px;
     }
-    .history h3 { font-size: 14px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
-    .history-clear { font-size: 11px; color: #999; background: none; border: none; cursor: pointer; padding: 4px 8px; }
+    .pantry-row.out { opacity: 0.5; }
+    .pantry-row.low { border-left: 3px solid #E24B4A; }
+    .pantry-name { flex: 1; font-size: 13px; font-weight: 600; }
+    .pantry-status { font-size: 10px; padding: 2px 6px; border-radius: 6px; font-weight: 700; }
+    .st-full { background: #E1F5EE; color: #0F6E56; }
+    .st-mid { background: #FAEEDA; color: #854F0B; }
+    .st-low { background: #FCEBEB; color: #A32D2D; }
+    .st-out { background: #333; color: #fff; }
+    .pantry-qty-ctrl { display: flex; align-items: center; gap: 4px; }
+    .qty-btn {
+      width: 24px; height: 24px; border-radius: 6px; border: 1px solid #ddd;
+      background: #fff; font-size: 14px; font-weight: 700; cursor: pointer;
+    }
+    .qty-num { min-width: 24px; text-align: center; font-size: 13px; font-weight: 700; }
+
+    /* 장보기 */
+    .shop-item {
+      display: flex; align-items: center; gap: 10px; background: #fff;
+      padding: 10px 12px; border-radius: 10px; margin-bottom: 4px; cursor: pointer;
+    }
+    .shop-item.checked { opacity: 0.5; text-decoration: line-through; }
+    .shop-check { width: 20px; height: 20px; flex-shrink: 0; }
+    .shop-name { flex: 1; font-size: 13px; font-weight: 600; }
+    .shop-need { font-size: 10px; color: #999; }
+
+    /* 히스토리 */
     .history-item {
-      font-size: 13px;
-      padding: 10px 12px;
-      margin: 4px 0;
-      background: rgba(255,255,255,0.7);
-      border-radius: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: transform 0.15s, background 0.15s;
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      background: #fff; padding: 10px 12px; border-radius: 10px; margin-bottom: 4px; cursor: pointer;
     }
-    .history-item:active { transform: scale(0.98); background: #FFF0E8; }
-    .history-date { font-size: 11px; color: #999; min-width: 70px; }
-    .history-name { font-size: 13px; font-weight: 500; flex: 1; }
-    .history-go { font-size: 11px; color: #B85C3C; font-weight: 700; white-space: nowrap; }
-    .empty { font-size: 12px; opacity: 0.5; text-align: center; padding: 10px; }
+    .h-date { font-size: 11px; color: #999; min-width: 70px; }
+    .h-name { flex: 1; font-size: 13px; font-weight: 600; }
+    .h-go { font-size: 10px; color: #B85C3C; font-weight: 700; }
 
-    /* Modal */
+    .empty { text-align: center; padding: 30px 20px; color: #999; font-size: 12px; background: rgba(255,255,255,0.5); border-radius: 12px; }
+
+    /* 알림/저장 안내 */
+    .sync-banner {
+      background: #FFF0E8; border: 1px dashed #FFB4A2; border-radius: 10px;
+      padding: 10px 12px; margin-bottom: 12px; font-size: 11px; color: #B85C3C; line-height: 1.5;
+    }
+    .sync-banner b { font-weight: 700; }
+
+    /* 토스트 & 모달 */
+    .toast {
+      position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
+      background: #2d2d2d; color: #fff; padding: 10px 20px; border-radius: 20px;
+      font-size: 13px; opacity: 0; transition: opacity 0.25s; z-index: 300; white-space: nowrap;
+    }
+    .toast.show { opacity: 1; }
     .modal-bg {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      display: none;
-      align-items: flex-end;
-      justify-content: center;
-      z-index: 100;
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none;
+      align-items: flex-end; justify-content: center; z-index: 200;
     }
     .modal-bg.show { display: flex; }
     .modal {
-      background: #fff;
-      border-radius: 24px 24px 0 0;
-      padding: 24px 20px 32px;
-      max-height: 90vh;
-      overflow-y: auto;
-      width: 100%;
-      max-width: 480px;
+      background: #fff; border-radius: 24px 24px 0 0; padding: 20px 18px 28px;
+      max-height: 90vh; overflow-y: auto; width: 100%; max-width: 480px;
       animation: slideUp 0.25s;
     }
-    @keyframes slideUp {
-      from { transform: translateY(100%); }
-      to { transform: translateY(0); }
-    }
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      margin-bottom: 16px;
-    }
-    .modal h2 { font-size: 22px; line-height: 1.3; }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .modal-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 14px; }
+    .modal h2 { font-size: 19px; line-height: 1.3; }
     .close {
-      background: #f0f0f0;
-      border: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      font-size: 18px;
-      cursor: pointer;
+      background: #f0f0f0; border: none; width: 30px; height: 30px; border-radius: 50%;
+      font-size: 16px; cursor: pointer;
     }
-    .section { margin: 16px 0; }
-    .section h4 {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #666;
-    }
+    .section { margin: 14px 0; }
+    .section h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; color: #666; }
     .section ul { padding-left: 18px; }
-    .section li { font-size: 14px; line-height: 1.7; }
+    .section li { font-size: 13px; line-height: 1.7; }
     .step-num {
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      background: #FFB4A2;
-      color: #fff;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 22px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-right: 8px;
+      display: inline-block; width: 22px; height: 22px; background: #FFB4A2; color: #fff;
+      border-radius: 50%; text-align: center; line-height: 22px; font-size: 12px;
+      font-weight: 700; margin-right: 8px; flex-shrink: 0;
     }
-    .steps li { list-style: none; margin: 10px 0; display: flex; }
+    .steps li { list-style: none; margin: 8px 0; display: flex; }
     .url-btn {
-      display: block;
-      text-align: center;
-      padding: 14px;
-      background: #FFF0E8;
-      color: #B85C3C;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-      margin-top: 16px;
-      font-size: 14px;
+      display: block; text-align: center; padding: 12px; background: #FFF0E8; color: #B85C3C;
+      border-radius: 10px; text-decoration: none; font-weight: 700; margin-top: 12px; font-size: 13px;
     }
-
-    .toast {
-      position: fixed;
-      bottom: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #2d2d2d;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 13px;
-      opacity: 0;
-      transition: opacity 0.25s;
-      z-index: 200;
-    }
-    .toast.show { opacity: 1; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1>🍚 오늘 저녁 뭐 먹지?</h1>
-      <div class="sub">만개의레시피 큐레이션 · 공주님 집밥 자동화</div>
+      <h1>🍚 공주님 집밥 허브</h1>
+      <div class="sub">53개 레시피 · 20개 재료 pantry</div>
       <div class="date" id="todayDate"></div>
     </header>
 
-    <div class="filters" id="filters">
-      <div class="chip active" data-filter="all">전체</div>
-      <div class="chip chip-hot" data-filter="pantry">🏠 집에 있는 재료로</div>
-      <div class="chip" data-filter="건강한거">🥗 건강식</div>
-      <div class="chip" data-filter="혼밥">🧘 혼밥</div>
-      <div class="chip" data-filter="쌀쌀한날">🌧 쌀쌀한날</div>
-      <div class="chip" data-filter="손님맞이">👥 손님맞이</div>
-      <div class="chip" data-filter="밥도둑">🍚 밥도둑</div>
-      <div class="chip" data-filter="quick">⚡ 20분이내</div>
-      <div class="chip" data-filter="브런치">🥐 브런치</div>
-      <div class="chip" data-filter="다이어트">🥬 다이어트</div>
+    <!-- 탭 네비 -->
+    <div class="tabs">
+      <div class="tab active" data-tab="pick">🎲 뽑기</div>
+      <div class="tab" data-tab="pantry">🏠 재료</div>
+      <div class="tab" data-tab="shop">🛒 장보기</div>
+      <div class="tab" data-tab="log">📅 기록</div>
     </div>
 
-    <div id="pantryBox" class="pantry-box">
-      <div class="pantry-head">
-        <span>🏠 공주님 집 재료 (<span id="pantryCount">0</span>개)</span>
-        <button class="pantry-toggle" onclick="togglePantry()">▼</button>
+    <!-- 탭 1: 뽑기 -->
+    <div id="tab-pick" class="tab-content active">
+      <div class="filters" id="filters">
+        <div class="chip active" data-filter="all">전체</div>
+        <div class="chip chip-hot" data-filter="pantry">🏠 집에 있는 재료로</div>
+        <div class="chip" data-filter="건강한거">🥗 건강식</div>
+        <div class="chip" data-filter="혼밥">🧘 혼밥</div>
+        <div class="chip" data-filter="손님맞이">👥 손님맞이</div>
+        <div class="chip" data-filter="quick">⚡ 20분이내</div>
+        <div class="chip" data-filter="브런치">🥐 브런치</div>
       </div>
-      <div id="pantryList" class="pantry-list"></div>
+      <div class="cards" id="cards"></div>
+      <div class="buttons">
+        <button class="btn btn-secondary" onclick="reshuffle()">🎲 다시 뽑기</button>
+        <button class="btn btn-primary" onclick="pickRandom()">🎯 랜덤 1개</button>
+      </div>
     </div>
 
-    <div class="cards" id="cards"></div>
-
-    <div class="buttons">
-      <button class="btn btn-secondary" onclick="reshuffle()">🎲 다시 뽑기</button>
-      <button class="btn btn-primary" onclick="pickRandom()">🎯 랜덤 1개</button>
+    <!-- 탭 2: 재료 현황 -->
+    <div id="tab-pantry" class="tab-content">
+      <div class="sync-banner">
+        <b>💡 로컬 저장 안내:</b> 재료 수량은 이 브라우저에만 저장돼요. 다른 기기에서 동기화하려면 <b>"💾 Slack에 저장"</b> 버튼을 눌러주세요.
+      </div>
+      <div class="section-head">
+        <div class="section-title">🏠 내 재료 (<span id="pantryCount">0</span>개)</div>
+        <button class="btn btn-secondary" style="flex:0 0 auto; padding:7px 12px; font-size:11px; box-shadow:none" onclick="syncPantryToSlack()">💾 Slack 저장</button>
+      </div>
+      <div id="pantryList"></div>
+      <div class="buttons" style="margin-top: 16px">
+        <button class="btn btn-secondary" onclick="resetPantryLocal()">🔄 원본 복원</button>
+        <button class="btn btn-primary" onclick="showPickFromPantry()">🍽 지금 재료로 뽑기</button>
+      </div>
     </div>
 
-    <div class="history">
-      <h3>
-        <span>📅 최근 선택 기록</span>
-        <button class="history-clear" onclick="clearHistory()">🗑 비우기</button>
-      </h3>
-      <div id="historyList"></div>
+    <!-- 탭 3: 장보기 -->
+    <div id="tab-shop" class="tab-content">
+      <div class="sync-banner">
+        <b>🛒 자동 장보기 리스트:</b> 매칭 50% 이상 레시피에서 자주 빠진 재료를 모았어요. 체크하면 로컬 저장되고, 💾 Slack으로 공유도 가능.
+      </div>
+      <div class="section-head">
+        <div class="section-title">🛒 사야할 재료 (<span id="shopCount">0</span>개)</div>
+        <button class="btn btn-secondary" style="flex:0 0 auto; padding:7px 12px; font-size:11px; box-shadow:none" onclick="sendShoppingToSlack()">💾 Slack 전송</button>
+      </div>
+      <div id="shopList"></div>
+    </div>
+
+    <!-- 탭 4: 기록 -->
+    <div id="tab-log" class="tab-content">
+      <div class="section-head">
+        <div class="section-title">📅 최근 요리 (<span id="logCount">0</span>개)</div>
+        <button class="btn btn-secondary" style="flex:0 0 auto; padding:7px 12px; font-size:11px; box-shadow:none" onclick="clearLog()">🗑 비우기</button>
+      </div>
+      <div id="logList"></div>
     </div>
   </div>
 
+  <!-- 레시피 상세 모달 -->
   <div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
     <div class="modal" id="modalContent"></div>
   </div>
@@ -394,184 +263,175 @@
   <script>
     const RECIPES_URL = 'data/recipes.json';
     const PANTRY_URL = 'data/pantry.json';
+    const LS_PANTRY = 'dinner-pantry-local';
+    const LS_HISTORY = 'dinner-history';
+    const LS_SHOP = 'dinner-shopping';
+    const LS_SHOP_CHECKED = 'dinner-shop-checked';
+    const COMMON_SEASONING = ['소금','후추','간장','설탕','물','식용유','다진마늘','참기름','고춧가루'];
+
     let allRecipes = [];
-    let pantryData = { ingredients: [], match_aliases: {} };
+    let pantryOriginal = { ingredients: [], match_aliases: {} };
+    let pantryLocal = null; // 수정된 로컬 수량
     let currentPicks = [];
     let currentFilter = 'all';
 
+    // --- 초기 로딩 ---
     const today = new Date();
-    const weekdays = ['일', '월', '화', '수', '목', '금', '토'];
+    const weekdays = ['일','월','화','수','목','금','토'];
     document.getElementById('todayDate').textContent =
       `${today.getFullYear()}.${String(today.getMonth()+1).padStart(2,'0')}.${String(today.getDate()).padStart(2,'0')} (${weekdays[today.getDay()]})`;
 
-    async function loadPantry() {
+    async function init() {
       try {
-        const res = await fetch(PANTRY_URL);
-        pantryData = await res.json();
-        document.getElementById('pantryCount').textContent = pantryData.ingredients.length;
-        document.getElementById('pantryList').innerHTML = pantryData.ingredients
-          .map(i => `<span class="pantry-item">${i.name} (${i.qty}${i.unit})</span>`)
-          .join('');
-      } catch(e) {
-        console.warn('pantry 로딩 실패:', e);
-      }
-    }
+        const [rRes, pRes] = await Promise.all([fetch(RECIPES_URL), fetch(PANTRY_URL)]);
+        const rData = await rRes.json();
+        pantryOriginal = await pRes.json();
+        allRecipes = rData.recipes;
 
-    function togglePantry() {
-      document.querySelector('.pantry-toggle').classList.toggle('open');
-      document.getElementById('pantryList').classList.toggle('open');
-    }
+        // 로컬 저장된 pantry 복원
+        try { pantryLocal = JSON.parse(localStorage.getItem(LS_PANTRY)) || clonePantry(); }
+        catch(e) { pantryLocal = clonePantry(); }
 
-    function matchPantry(recipe) {
-      if (!pantryData.ingredients || pantryData.ingredients.length === 0) return 0;
-      const pantryNames = pantryData.ingredients.map(i => i.name);
-      const aliases = pantryData.match_aliases || {};
-      const recipeIngs = (recipe.main_ingredients || []).concat(
-        (recipe.ingredients || []).map(x => x.name || '')
-      );
-      let matches = 0;
-      for (const p of pantryNames) {
-        const alts = aliases[p] || [p];
-        for (const ri of recipeIngs) {
-          if (alts.some(a => ri.includes(a) || a.includes(ri))) {
-            matches++;
-            break;
-          }
-        }
-      }
-      return matches;
-    }
-
-    async function loadRecipes() {
-      try {
-        await loadPantry();
-        const res = await fetch(RECIPES_URL);
-        const data = await res.json();
-        allRecipes = data.recipes;
-
-        // URL 파라미터 처리 (Slack 봇 연동)
+        // URL 파라미터 처리
         const params = new URLSearchParams(window.location.search);
         const hash = window.location.hash.slice(1);
-
-        // ?filter=quick 처리
-        const urlFilter = params.get('filter');
-        if (urlFilter) {
-          currentFilter = urlFilter;
-          document.querySelectorAll('.chip').forEach(c => {
-            c.classList.toggle('active', c.dataset.filter === urlFilter);
-          });
+        if (hash === 'shopping') switchTab('shop');
+        if (params.get('filter') === 'pantry') {
+          currentFilter = 'pantry';
+          document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.filter === 'pantry'));
         }
 
+        renderAll();
         reshuffle();
-
-        // ?select=ID → 특정 레시피 자동 선택
-        const selectId = params.get('select');
-        if (selectId) {
-          setTimeout(() => {
-            const r = allRecipes.find(x => x.id === selectId);
-            if (r) { openRecipe(selectId); showToast(`✨ Slack에서 선택: ${r.name}`); }
-          }, 400);
-        }
-
-        // #ID → 특정 레시피 모달 열기
-        if (hash && allRecipes.find(x => x.id === hash)) {
-          setTimeout(() => openRecipe(hash), 400);
-        }
-
-        // ?reshuffle=1 → 바로 다시 뽑기 toast
-        if (params.get('reshuffle') === '1') {
-          setTimeout(() => showToast('🎲 Slack에서 다시 뽑기!'), 300);
-        }
       } catch(e) {
         document.getElementById('cards').innerHTML = `<div class="empty">레시피 로딩 실패: ${e.message}</div>`;
       }
     }
 
+    function clonePantry() {
+      return {
+        ingredients: pantryOriginal.ingredients.map(i => ({...i})),
+        match_aliases: pantryOriginal.match_aliases
+      };
+    }
+
+    function savePantryLocal() {
+      try { localStorage.setItem(LS_PANTRY, JSON.stringify(pantryLocal)); } catch(e) {}
+    }
+
+    // --- 탭 전환 ---
+    function switchTab(name) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.toggle('active', c.id === 'tab-' + name));
+      if (name === 'pantry') renderPantry();
+      if (name === 'shop') renderShop();
+      if (name === 'log') renderLog();
+    }
+    document.querySelectorAll('.tab').forEach(t => {
+      t.addEventListener('click', () => switchTab(t.dataset.tab));
+    });
+
+    // --- 매칭 로직 ---
+    function matchPantry(recipe) {
+      if (!pantryLocal.ingredients.length) return { have: [], missing: [], ratio: 0 };
+      const names = pantryLocal.ingredients.filter(i => i.qty > 0).map(i => i.name);
+      const aliases = pantryLocal.match_aliases || {};
+      const main = recipe.main_ingredients || [];
+      const have = [], missing = [];
+      for (const ing of main) {
+        let found = false;
+        for (const p of names) {
+          const alts = aliases[p] || [p];
+          if (alts.some(a => ing.indexOf(a) > -1 || a.indexOf(ing) > -1)) {
+            have.push(ing); found = true; break;
+          }
+        }
+        if (!found) {
+          if (COMMON_SEASONING.some(s => ing.indexOf(s) > -1)) { have.push(ing); }
+          else { missing.push(ing); }
+        }
+      }
+      const total = main.length;
+      return { have, missing, ratio: total > 0 ? have.length / total : 0, total };
+    }
+
+    // --- 뽑기 ---
     function filterRecipes() {
       if (currentFilter === 'all') return [...allRecipes];
       if (currentFilter === 'quick') return allRecipes.filter(r => r.cook_time_min <= 20);
       if (currentFilter === 'pantry') {
-        // 집에 있는 재료 2개 이상 매칭 레시피만
-        return allRecipes.filter(r => matchPantry(r) >= 2);
+        return allRecipes.map(r => ({r, m: matchPantry(r)})).filter(x => x.m.ratio >= 0.5).sort((a,b) => b.m.ratio - a.m.ratio).map(x => x.r);
       }
       return allRecipes.filter(r =>
-        (r.mood_tags || []).includes(currentFilter) ||
-        (r.weather_tags || []).includes(currentFilter) ||
-        (r.tags || []).includes(currentFilter)
+        (r.mood_tags||[]).includes(currentFilter) ||
+        (r.weather_tags||[]).includes(currentFilter) ||
+        (r.tags||[]).includes(currentFilter)
       );
     }
 
     function reshuffle() {
       const pool = filterRecipes();
-      if (pool.length === 0) {
-        document.getElementById('cards').innerHTML =
-          `<div class="empty">이 필터에는 레시피가 없어요 🥲</div>`;
-        return;
-      }
-      // pantry 필터일 때는 매칭 수 내림차순 정렬 (아니면 랜덤)
+      if (!pool.length) { document.getElementById('cards').innerHTML = `<div class="empty">조건에 맞는 메뉴가 없어요 🥲</div>`; return; }
       let selected;
       if (currentFilter === 'pantry') {
-        const sorted = pool.map(r => ({r, m: matchPantry(r)}))
-          .sort((a,b) => b.m - a.m);
-        // 상위 10개 중 3개 랜덤 (매칭 많은 것 위주)
-        const top = sorted.slice(0, Math.min(10, sorted.length));
-        selected = top.sort(() => Math.random() - 0.5).slice(0, 3).map(x => x.r);
+        const top = pool.slice(0, 10);
+        selected = top.sort(() => Math.random() - 0.5).slice(0, 3);
       } else {
-        selected = [...pool].sort(() => Math.random() - 0.5).slice(0, Math.min(3, pool.length));
+        selected = [...pool].sort(() => Math.random() - 0.5).slice(0, 3);
       }
       currentPicks = selected;
       renderCards();
     }
 
-    function renderCards() {
-      const html = currentPicks.map((r, i) => {
-        const matches = matchPantry(r);
-        const badge = matches >= 2 ? `<span class="match-badge">🏠 ${matches}개 매치</span>` : '';
-        return `
-        <div class="card">
-          <div onclick="openRecipe('${r.id}')">
-            <div class="card-badge">선택지 ${i+1}</div>
-            <div class="card-name">${r.name}${badge}</div>
-            <div class="card-meta">
-              <span>⏱ ${r.cook_time_min}분</span>
-              <span>👥 ${r.servings}인분</span>
-              <span>${'★'.repeat(r.difficulty_level)}${'☆'.repeat(5-r.difficulty_level)}</span>
-              <span>🔥 ${r.kcal_per_serving || '?'}kcal</span>
-              <span>💰 ₩${(r.cost_per_serving_krw || r.cost_krw).toLocaleString()}/인</span>
-            </div>
-            <div class="card-tags">
-              ${(r.tags || []).slice(0,4).map(t => `<span class="tag">#${t}</span>`).join('')}
-            </div>
-            <div class="card-ingredients">
-              🥘 ${(r.main_ingredients || []).join(', ')}
-            </div>
-          </div>
-          <div class="card-actions">
-            <a class="card-action-btn card-action-secondary" href="${r.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-              📖 레시피로 가기
-            </a>
-            <button class="card-action-btn card-action-primary" onclick="event.stopPropagation(); selectRecipe('${r.id}', true)">
-              ✅ 이걸로 선택
-            </button>
-          </div>
-        </div>
-      `;
-      }).join('');
-      document.getElementById('cards').innerHTML = html;
-    }
-
     function pickRandom() {
       const pool = filterRecipes();
-      if (pool.length === 0) return;
+      if (!pool.length) return;
       const pick = pool[Math.floor(Math.random() * pool.length)];
       selectRecipe(pick.id, true);
     }
 
+    function showPickFromPantry() {
+      switchTab('pick');
+      document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.filter === 'pantry'));
+      currentFilter = 'pantry';
+      reshuffle();
+    }
+
+    function renderCards() {
+      const html = currentPicks.map((r, i) => {
+        const m = matchPantry(r);
+        const matchBadge = m.ratio >= 0.5 ? `<span class="match-badge">🏠 ${Math.round(m.ratio*100)}%</span>` : '';
+        const haveTxt = m.have.length > 0 ? `<span class="ing-have">🏠 있음: ${m.have.join(', ')}</span>` : '';
+        const missTxt = m.missing.length > 0 ? `<br><span class="ing-miss">🛒 사야함: ${m.missing.join(', ')}</span>` : (m.have.length ? '<br>✅ 모든 재료 준비 완료!' : '');
+        return `
+        <div class="card">
+          <div class="card-body" onclick="openRecipe('${r.id}')">
+            <div class="card-badge">선택지 ${i+1}</div>
+            <div class="card-name">${r.name}${matchBadge}</div>
+            <div class="card-meta">
+              <span>⏱ ${r.cook_time_min}분</span>
+              <span>👥 ${r.servings}인분</span>
+              <span>🔥 ${r.kcal_per_serving||'?'}kcal</span>
+              <span>💰 ₩${(r.cost_per_serving_krw||r.cost_krw||0).toLocaleString()}/인</span>
+            </div>
+            <div class="card-tags">${(r.tags||[]).slice(0,4).map(t => `<span class="tag">#${t}</span>`).join('')}</div>
+            <div class="card-ing-check">${haveTxt}${missTxt}</div>
+          </div>
+          <div class="card-actions">
+            <a class="card-action-btn card-action-secondary" href="${r.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📖 레시피</a>
+            <button class="card-action-btn card-action-success" onclick="event.stopPropagation(); completeRecipe('${r.id}')">✅ 다 먹었어</button>
+          </div>
+        </div>`;
+      }).join('');
+      document.getElementById('cards').innerHTML = html;
+    }
+
+    // --- 레시피 상세 ---
     function openRecipe(id) {
       const r = allRecipes.find(x => x.id === id);
       if (!r) return;
-      const modal = document.getElementById('modalContent');
-      modal.innerHTML = `
+      const m = matchPantry(r);
+      document.getElementById('modalContent').innerHTML = `
         <div class="modal-header">
           <h2>${r.name}</h2>
           <button class="close" onclick="closeModal()">✕</button>
@@ -579,36 +439,233 @@
         <div class="card-meta">
           <span>⏱ ${r.cook_time_min}분</span>
           <span>👥 ${r.servings}인분</span>
-          <span>${'★'.repeat(r.difficulty_level)}${'☆'.repeat(5-r.difficulty_level)}</span>
-          <span>🔥 ${r.kcal_per_serving || '?'}kcal/인</span>
-          <span>💰 ₩${(r.cost_per_serving_krw || r.cost_krw || 0).toLocaleString()}</span>
+          <span>🔥 ${r.kcal_per_serving||'?'}kcal</span>
+          <span>💰 ₩${(r.cost_per_serving_krw||r.cost_krw||0).toLocaleString()}/인</span>
+        </div>
+        <div class="section">
+          <h4>🏠 재료 체크 (${m.have.length}/${m.total})</h4>
+          ${m.have.length > 0 ? `<div class="ing-have" style="font-size:13px;line-height:1.7">🏠 있음: ${m.have.join(', ')}</div>` : ''}
+          ${m.missing.length > 0 ? `<div class="ing-miss" style="font-size:13px;line-height:1.7;margin-top:4px">🛒 사야함: ${m.missing.join(', ')}</div>` : ''}
         </div>
         <div class="section">
           <h4>📝 재료</h4>
-          <ul>
-            ${r.ingredients.map(ing => `<li>${ing.name} ${ing.amount}${ing.unit}</li>`).join('')}
-          </ul>
+          <ul>${r.ingredients.map(ing => `<li>${ing.name} ${ing.amount}${ing.unit}</li>`).join('')}</ul>
         </div>
         <div class="section">
           <h4>🍳 조리순서</h4>
-          <ul class="steps">
-            ${r.steps.map((s,i) => `<li><span class="step-num">${i+1}</span>${s}</li>`).join('')}
-          </ul>
+          <ul class="steps">${r.steps.map((s,i) => `<li><span class="step-num">${i+1}</span>${s}</li>`).join('')}</ul>
         </div>
         <div class="section">
           <h4>💡 꿀팁</h4>
-          <ul>
-            ${(r.tips||[]).map(t => `<li>${t}</li>`).join('')}
-          </ul>
+          <ul>${(r.tips||[]).map(t => `<li>${t}</li>`).join('')}</ul>
         </div>
-        <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="selectRecipe('${r.id}')">✅ 오늘 저녁은 이걸로!</button>
+        <div class="buttons" style="margin-top:12px">
+          <button class="btn btn-secondary" onclick="addMissingToShop('${r.id}')">🛒 부족 재료 장보기 추가</button>
+          <button class="btn btn-primary" onclick="completeRecipe('${r.id}'); closeModal()">✅ 다 먹었어</button>
+        </div>
         <a class="url-btn" href="${r.url}" target="_blank">🔗 만개의레시피 원문 보기</a>
       `;
       document.getElementById('modal').classList.add('show');
     }
 
-    function closeModal() {
-      document.getElementById('modal').classList.remove('show');
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+
+    // --- 재료 소진 (요리 완성) ---
+    function completeRecipe(id) {
+      const r = allRecipes.find(x => x.id === id);
+      if (!r) return;
+      const m = matchPantry(r);
+      const aliases = pantryLocal.match_aliases || {};
+      const consumed = [];
+
+      m.have.forEach(ing => {
+        for (const p of pantryLocal.ingredients) {
+          const alts = aliases[p.name] || [p.name];
+          if (alts.some(a => ing.indexOf(a) > -1 || a.indexOf(ing) > -1)) {
+            if (p.qty > 0) { p.qty = Math.max(0, p.qty - 1); consumed.push(p.name); }
+            break;
+          }
+        }
+      });
+      savePantryLocal();
+      saveHistory(r);
+      showToast(`✅ ${r.name} 완성! ${consumed.length}개 재료 차감`);
+
+      // 소진된 재료는 자동으로 장보기 추가
+      const nowOut = pantryLocal.ingredients.filter(i => i.qty === 0);
+      if (nowOut.length > 0) {
+        setTimeout(() => showToast(`🔴 소진: ${nowOut.map(i => i.name).join(', ')} - 장보기에 자동 추가됨`), 2200);
+        addOutToShop();
+      }
+    }
+
+    // --- Pantry 렌더 ---
+    function renderPantry() {
+      document.getElementById('pantryCount').textContent = pantryLocal.ingredients.length;
+      const byCat = {};
+      pantryLocal.ingredients.forEach(i => {
+        const c = i.category || '기타';
+        if (!byCat[c]) byCat[c] = [];
+        byCat[c].push(i);
+      });
+      const html = Object.keys(byCat).map(cat => {
+        const items = byCat[cat].map((i, idx) => {
+          const stClass = i.qty === 0 ? 'st-out' : i.qty <= 1 ? 'st-low' : i.qty >= 5 ? 'st-full' : 'st-mid';
+          const stText = i.qty === 0 ? '🔴 소진' : i.qty <= 1 ? '⚠️ 부족' : i.qty >= 5 ? '🟢 넉넉' : '🟡 보통';
+          const rowClass = i.qty === 0 ? 'out' : i.qty <= 1 ? 'low' : '';
+          return `
+          <div class="pantry-row ${rowClass}">
+            <div class="pantry-name">${i.name}</div>
+            <div class="pantry-status ${stClass}">${stText}</div>
+            <div class="pantry-qty-ctrl">
+              <button class="qty-btn" onclick="adjustPantry('${i.name}', -1)">−</button>
+              <span class="qty-num">${i.qty}${i.unit}</span>
+              <button class="qty-btn" onclick="adjustPantry('${i.name}', 1)">+</button>
+            </div>
+          </div>`;
+        }).join('');
+        return `<div class="pantry-group"><div class="pantry-cat">${cat}</div>${items}</div>`;
+      }).join('');
+      document.getElementById('pantryList').innerHTML = html;
+    }
+
+    function adjustPantry(name, delta) {
+      const item = pantryLocal.ingredients.find(i => i.name === name);
+      if (!item) return;
+      const oldQty = item.qty;
+      item.qty = Math.max(0, item.qty + delta);
+      if (typeof item.qty === 'number' && String(item.qty).indexOf('.') === -1) {
+        item.qty = Math.round(item.qty);
+      }
+      savePantryLocal();
+      renderPantry();
+      if (item.qty === 0 && oldQty > 0) {
+        showToast(`🔴 ${name} 소진! 장보기 리스트에 추가`);
+        addOutToShop();
+      }
+    }
+
+    function resetPantryLocal() {
+      if (!confirm('pantry.json 원본 수량으로 복원할까요?\n(로컬 수정사항 모두 삭제)')) return;
+      pantryLocal = clonePantry();
+      savePantryLocal();
+      renderPantry();
+      showToast('🔄 원본 복원 완료');
+    }
+
+    // --- 장보기 리스트 ---
+    function renderShop() {
+      let shop = loadShop();
+      // 자동: 소진된 pantry 재료 추가
+      pantryLocal.ingredients.filter(i => i.qty === 0).forEach(i => {
+        if (!shop.find(s => s.name === i.name)) {
+          shop.push({ name: i.name, reason: '🔴 재료 소진', source: 'pantry' });
+        }
+      });
+      // 자동: 매칭 50%+ 레시피 missing
+      const missMap = {};
+      allRecipes.forEach(r => {
+        const m = matchPantry(r);
+        if (m.ratio >= 0.5) {
+          m.missing.forEach(ing => {
+            if (!missMap[ing]) missMap[ing] = [];
+            missMap[ing].push(r.name);
+          });
+        }
+      });
+      Object.keys(missMap).forEach(ing => {
+        if (!shop.find(s => s.name === ing)) {
+          shop.push({ name: ing, reason: `${missMap[ing].length}개 레시피에 필요`, source: 'auto' });
+        }
+      });
+      saveShop(shop);
+
+      const checked = loadChecked();
+      document.getElementById('shopCount').textContent = shop.length;
+      if (!shop.length) {
+        document.getElementById('shopList').innerHTML = '<div class="empty">살 재료가 없어요! 🎉</div>';
+        return;
+      }
+      const html = shop.map((s, idx) => {
+        const isChecked = checked.includes(s.name);
+        return `
+        <div class="shop-item ${isChecked?'checked':''}" onclick="toggleShop('${s.name}')">
+          <input type="checkbox" class="shop-check" ${isChecked?'checked':''} onclick="event.stopPropagation()">
+          <div class="shop-name">${s.name}</div>
+          <div class="shop-need">${s.reason}</div>
+        </div>`;
+      }).join('');
+      document.getElementById('shopList').innerHTML = html;
+    }
+
+    function loadShop() { try { return JSON.parse(localStorage.getItem(LS_SHOP)) || []; } catch(e) { return []; } }
+    function saveShop(s) { try { localStorage.setItem(LS_SHOP, JSON.stringify(s)); } catch(e) {} }
+    function loadChecked() { try { return JSON.parse(localStorage.getItem(LS_SHOP_CHECKED)) || []; } catch(e) { return []; } }
+    function saveChecked(c) { try { localStorage.setItem(LS_SHOP_CHECKED, JSON.stringify(c)); } catch(e) {} }
+
+    function toggleShop(name) {
+      let checked = loadChecked();
+      if (checked.includes(name)) checked = checked.filter(x => x !== name);
+      else checked.push(name);
+      saveChecked(checked);
+      renderShop();
+    }
+
+    function addMissingToShop(id) {
+      const r = allRecipes.find(x => x.id === id);
+      if (!r) return;
+      const m = matchPantry(r);
+      let shop = loadShop();
+      m.missing.forEach(ing => {
+        if (!shop.find(s => s.name === ing)) {
+          shop.push({ name: ing, reason: `${r.name}에 필요`, source: 'manual' });
+        }
+      });
+      saveShop(shop);
+      showToast(`🛒 ${m.missing.length}개 재료 장보기 추가`);
+    }
+
+    function addOutToShop() {
+      let shop = loadShop();
+      pantryLocal.ingredients.filter(i => i.qty === 0).forEach(i => {
+        if (!shop.find(s => s.name === i.name)) {
+          shop.push({ name: i.name, reason: '🔴 재료 소진', source: 'pantry' });
+        }
+      });
+      saveShop(shop);
+    }
+
+    // --- 히스토리 ---
+    function saveHistory(r) {
+      let hist = [];
+      try { hist = JSON.parse(localStorage.getItem(LS_HISTORY)) || []; } catch(e) {}
+      const today = new Date().toISOString().slice(0,10);
+      hist.unshift({ date: today, id: r.id, name: r.name, url: r.url });
+      hist = hist.slice(0, 30);
+      try { localStorage.setItem(LS_HISTORY, JSON.stringify(hist)); } catch(e) {}
+    }
+
+    function renderLog() {
+      let hist = [];
+      try { hist = JSON.parse(localStorage.getItem(LS_HISTORY)) || []; } catch(e) {}
+      document.getElementById('logCount').textContent = hist.length;
+      if (!hist.length) {
+        document.getElementById('logList').innerHTML = '<div class="empty">아직 완료한 요리가 없어요</div>';
+        return;
+      }
+      document.getElementById('logList').innerHTML = hist.slice(0,30).map(h =>
+        `<div class="history-item" onclick="window.open('${h.url||('https://www.10000recipe.com/recipe/'+h.id)}', '_blank')">
+          <span class="h-date">${h.date}</span>
+          <span class="h-name">${h.name}</span>
+          <span class="h-go">📖 바로가기 →</span>
+        </div>`).join('');
+    }
+
+    function clearLog() {
+      if (!confirm('요리 기록 전부 지울까요?')) return;
+      try { localStorage.removeItem(LS_HISTORY); } catch(e) {}
+      renderLog();
+      showToast('🗑 기록 삭제됨');
     }
 
     function selectRecipe(id, skipClose) {
@@ -616,74 +673,55 @@
       if (!r) return;
       saveHistory(r);
       if (!skipClose) closeModal();
-      showToast(`✅ 오늘 저녁: ${r.name}`);
-      renderHistory();
+      showToast(`✅ 선택: ${r.name}`);
     }
 
-    function saveHistory(r) {
-      let hist = [];
-      try {
-        hist = JSON.parse(localStorage.getItem('dinner-history') || '[]');
-      } catch(e) {}
-      const today = new Date().toISOString().slice(0,10);
-      // id와 url도 같이 저장 (바로가기 기능용)
-      hist.unshift({ date: today, id: r.id, name: r.name, url: r.url });
-      hist = hist.slice(0, 14);
-      try { localStorage.setItem('dinner-history', JSON.stringify(hist)); } catch(e) {}
+    // --- Slack 전송 (Claude에게 요청 유도) ---
+    function syncPantryToSlack() {
+      const txt = `[pantry.json 업데이트 요청]\n현재 재료 수량:\n` +
+        pantryLocal.ingredients.map(i => `• ${i.name}: ${i.qty}${i.unit}`).join('\n') +
+        '\n\n위 수량대로 pantry.json 업데이트해줘.';
+      navigator.clipboard.writeText(txt).then(() => {
+        showToast('📋 클립보드 복사 완료! Claude에게 붙여넣기');
+      }).catch(() => {
+        prompt('이 메시지를 Claude에게 보내주세요:', txt);
+      });
     }
 
-    function openHistoryRecipe(id, url) {
-      // id로 레시피 찾아서 url 열기 (레거시 기록은 id로 조회)
-      const r = allRecipes.find(x => x.id === id);
-      const targetUrl = (r && r.url) || url || `https://www.10000recipe.com/recipe/${id}`;
-      window.open(targetUrl, '_blank');
-      showToast(`📖 ${(r && r.name) || '레시피'}로 이동`);
+    function sendShoppingToSlack() {
+      const shop = loadShop();
+      const checked = loadChecked();
+      const notBought = shop.filter(s => !checked.includes(s.name));
+      if (!notBought.length) { showToast('살 재료가 없어요!'); return; }
+      const txt = `🛒 오늘 장보기 리스트 (${notBought.length}개):\n\n` +
+        notBought.map(s => `• ${s.name} (${s.reason})`).join('\n');
+      navigator.clipboard.writeText(txt).then(() => {
+        showToast('📋 클립보드 복사! Slack에 붙여넣기');
+      }).catch(() => {
+        prompt('Slack에 보낼 메시지:', txt);
+      });
     }
 
-    function clearHistory() {
-      if (!confirm('최근 선택 기록을 모두 지울까요?')) return;
-      try { localStorage.removeItem('dinner-history'); } catch(e) {}
-      renderHistory();
-      showToast('🗑 기록 삭제됨');
-    }
-
-    function renderHistory() {
-      let hist = [];
-      try {
-        hist = JSON.parse(localStorage.getItem('dinner-history') || '[]');
-      } catch(e) {}
-      const el = document.getElementById('historyList');
-      if (hist.length === 0) {
-        el.innerHTML = '<div class="empty">아직 선택한 메뉴가 없어요</div>';
-        return;
-      }
-      el.innerHTML = hist.slice(0,7).map(h =>
-        `<div class="history-item" onclick="openHistoryRecipe('${h.id}', '${h.url || ''}')">
-          <span class="history-date">${h.date}</span>
-          <span class="history-name">${h.name}</span>
-          <span class="history-go">📖 바로가기 →</span>
-        </div>`
-      ).join('');
-    }
+    function renderAll() { renderCards(); renderPantry(); renderShop(); renderLog(); }
 
     function showToast(msg) {
       const t = document.getElementById('toast');
       t.textContent = msg;
       t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 2000);
+      setTimeout(() => t.classList.remove('show'), 2200);
     }
 
-    document.querySelectorAll('.chip').forEach(chip => {
+    // 필터 chip
+    document.querySelectorAll('#filters .chip').forEach(chip => {
       chip.addEventListener('click', () => {
-        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('#filters .chip').forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         currentFilter = chip.dataset.filter;
         reshuffle();
       });
     });
 
-    loadRecipes();
-    renderHistory();
+    init();
   </script>
 </body>
 </html>
