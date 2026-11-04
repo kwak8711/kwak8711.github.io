@@ -1,11 +1,5 @@
 /**
- * 🍚 공주님 집밥 허브 봇 v3.2 - 웹 각 탭 바로가기 포함
- *
- * v3.2 신규:
- *   - 메시지에 🌐 집밥 허브 바로가기 섹션 추가
- *   - [🎲 뽑기] [🏠 재료] [🛒 장보기] [📅 기록] 4버튼
- *   - 각 탭 현황 요약 (재료 N개 / 사야할 N개 / 최근 요리)
- *   - 짧고 핵심적인 메시지 유지
+ * 공주님 집밥 허브 봇 v3.3 - 이모지 최소화
  */
 
 const CONFIG = {
@@ -18,7 +12,7 @@ const CONFIG = {
 
 function onOpen() {
   SpreadsheetApp.getUi()
-    .createMenu('🍚 레시피')
+    .createMenu('레시피')
     .addItem('1. 트리거 설치 (매일 18:00)', 'installDailyTrigger')
     .addItem('2. 지금 추천 보내기', 'sendDailyPicks')
     .addSeparator()
@@ -31,7 +25,7 @@ function onOpen() {
 function sendDailyPicks() {
   const recipes = fetchRecipes();
   const pantry = fetchPantry();
-  if (!recipes || recipes.length === 0) { log_('⚠️ 레시피 로딩 실패'); return; }
+  if (!recipes || recipes.length === 0) { log_('레시피 로딩 실패'); return; }
 
   const picks = pickWithPantry_(recipes, pantry, 3);
   const stats = calcStats_(recipes, pantry);
@@ -42,9 +36,9 @@ function sendDailyPicks() {
     if (result.ts) {
       sendThreadReply_(result.ts, buildThreadMessage_(picks[0]));
     }
-    log_(`✅ 발송 - ${picks.map(p => p.name).join(', ')}`);
+    log_(`발송 완료 - ${picks.map(p => p.name).join(', ')}`);
   } else {
-    log_(`❌ 실패: ${result.error}`);
+    log_(`실패: ${result.error}`);
   }
 }
 
@@ -113,10 +107,8 @@ function pickWithPantry_(recipes, pantry, count) {
   return picks;
 }
 
-// 허브 현황 집계
 function calcStats_(recipes, pantry) {
   const totalIng = (pantry.ingredients || []).length;
-  // 매칭 50% 이상 레시피들의 missing 재료 유니크 집계
   const missingSet = {};
   recipes.forEach(r => {
     const m = matchPantry_(r, pantry);
@@ -128,23 +120,16 @@ function calcStats_(recipes, pantry) {
     const m = matchPantry_(r, pantry);
     return (m.totalCount > 0 ? m.haveCount / m.totalCount : 0) >= 0.5;
   }).length;
-  return {
-    totalRecipes: recipes.length,
-    totalIng: totalIng,
-    pantryMatchable: pantryMatchable,
-    shopCount: shopCount
-  };
+  return { totalRecipes: recipes.length, totalIng, pantryMatchable, shopCount };
 }
 
-// v3.2 메시지: 추천 + 현황 요약 + 각 탭 바로가기
+// v3.3: 이모지 최소화 메시지
 function sendMainMessage_(picks, pantry, stats) {
   const today = Utilities.formatDate(new Date(), 'Asia/Seoul', 'M월 d일 (E)');
   const main = picks[0];
   const others = picks.slice(1);
   const match = main._match || { have: [], missing: [] };
-
   const kcal = main.kcal_per_serving || '?';
-  const kcalEmoji = kcal === '?' ? '🔥' : (kcal < 300 ? '🟢' : kcal < 500 ? '🟡' : kcal < 700 ? '🟠' : '🔴');
   const cost = (main.cost_per_serving_krw || main.cost_krw || 0).toLocaleString();
 
   const topHave = match.have.slice(0, 3);
@@ -153,117 +138,92 @@ function sendMainMessage_(picks, pantry, stats) {
     : `${stats.totalRecipes}개 등록 메뉴 중`;
 
   const blocks = [
-    // 1. 추천 헤더
     {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `👑 *${today}, 오늘 저녁*\n${hint}\n\n🍽️ *${main.name}* 어떠세요?`
+        text: `*오늘 저녁 · ${today}*\n${hint}\n\n*${main.name}* 어떠세요?`
       }
     },
-    // 2. 메인 메타 한 줄
     {
       type: 'section',
-      text: { type: 'mrkdwn', text: `⏱ ${main.cook_time_min}분 · ${kcalEmoji} ${kcal}kcal · 💰 ₩${cost}/인` }
+      text: { type: 'mrkdwn', text: `${main.cook_time_min}분 · ${kcal}kcal · ₩${cost}/인` }
     }
   ];
 
-  // 3. 재료 체크
   if (match.totalCount > 0) {
-    const haveTxt = match.have.length > 0 ? `🏠 *있음* (${match.haveCount}/${match.totalCount}): ${match.have.join(', ')}` : '';
-    const missTxt = match.missing.length > 0 ? `\n🛒 *사야함*: ${match.missing.join(', ')}` : '\n✅ *모든 재료 준비 완료!*';
+    const haveTxt = match.have.length > 0 ? `있음 (${match.haveCount}/${match.totalCount}): ${match.have.join(', ')}` : '';
+    const missTxt = match.missing.length > 0 ? `\n사야함: *${match.missing.join(', ')}*` : '\n모든 재료 준비 완료';
     blocks.push({ type: 'section', text: { type: 'mrkdwn', text: haveTxt + missTxt } });
   }
 
-  // 4. 추천 액션 2버튼
   blocks.push({
     type: 'actions',
     elements: [
       {
         type: 'button',
-        text: { type: 'plain_text', text: '📖 레시피 보기', emoji: true },
+        text: { type: 'plain_text', text: '레시피 보기' },
         url: main.url,
         style: 'primary'
       },
       {
         type: 'button',
-        text: { type: 'plain_text', text: '✅ 다 먹었어 (재료 차감)', emoji: true },
+        text: { type: 'plain_text', text: '다 먹었어 (재료 차감)' },
         url: CONFIG.PICKER_URL + '?tab=pick'
       }
     ]
   });
 
-  // 5. 다른 추천 간단히
   if (others.length > 0) {
     const txt = others.map((r, i) => {
       const m = r._match || { haveCount: 0, totalCount: 0 };
       const ratio = m.totalCount > 0 ? Math.round(m.haveCount / m.totalCount * 100) : 0;
-      return `${i+2}. *${r.name}* _(${r.cook_time_min}분·${r.kcal_per_serving||'?'}kcal·재료 ${ratio}%)_`;
+      return `${i+2}. *${r.name}* _(${r.cook_time_min}분 · ${r.kcal_per_serving||'?'}kcal · 재료 ${ratio}%)_`;
     }).join('\n');
     blocks.push({ type: 'divider' });
-    blocks.push({ type: 'section', text: { type: 'mrkdwn', text: `*🎲 다른 추천:*\n${txt}` } });
+    blocks.push({ type: 'section', text: { type: 'mrkdwn', text: `*다른 추천*\n${txt}` } });
   }
 
-  // 6. ⭐ 집밥 허브 현황 요약
   blocks.push({ type: 'divider' });
   blocks.push({
     type: 'section',
     text: {
       type: 'mrkdwn',
-      text: `*🌐 집밥 허브 현황*\n` +
-            `📚 등록 레시피 *${stats.totalRecipes}개*\n` +
-            `🏠 내 재료 *${stats.totalIng}개* · 🍽️ 지금 요리 가능 *${stats.pantryMatchable}개*\n` +
-            `🛒 사야할 재료 *${stats.shopCount}개*`
+      text: `*집밥 허브 현황*\n` +
+            `등록 레시피 *${stats.totalRecipes}개* · 내 재료 *${stats.totalIng}개*\n` +
+            `요리 가능 *${stats.pantryMatchable}개* · 사야할 재료 *${stats.shopCount}개*`
     }
   });
 
-  // 7. ⭐ 각 탭 바로가기 (핵심!)
   blocks.push({
     type: 'actions',
     elements: [
-      {
-        type: 'button',
-        text: { type: 'plain_text', text: '🎲 뽑기', emoji: true },
-        url: CONFIG.PICKER_URL + '?tab=pick'
-      },
-      {
-        type: 'button',
-        text: { type: 'plain_text', text: '🏠 재료', emoji: true },
-        url: CONFIG.PICKER_URL + '?tab=pantry'
-      },
-      {
-        type: 'button',
-        text: { type: 'plain_text', text: '🛒 장보기', emoji: true },
-        url: CONFIG.PICKER_URL + '?tab=shop'
-      },
-      {
-        type: 'button',
-        text: { type: 'plain_text', text: '📅 기록', emoji: true },
-        url: CONFIG.PICKER_URL + '?tab=log'
-      }
+      { type: 'button', text: { type: 'plain_text', text: '뽑기' }, url: CONFIG.PICKER_URL + '?tab=pick' },
+      { type: 'button', text: { type: 'plain_text', text: '재료' }, url: CONFIG.PICKER_URL + '?tab=pantry' },
+      { type: 'button', text: { type: 'plain_text', text: '장보기' }, url: CONFIG.PICKER_URL + '?tab=shop' },
+      { type: 'button', text: { type: 'plain_text', text: '기록' }, url: CONFIG.PICKER_URL + '?tab=log' }
     ]
   });
 
-  // 8. 하단
   blocks.push({
     type: 'context',
     elements: [{
       type: 'mrkdwn',
-      text: `✨ 매일 18:00 자동 발송 · 🏠 pantry 기반 추천 · 💾 수정은 웹에서`
+      text: `매일 18:00 자동 발송 · 수정은 웹에서`
     }]
   });
 
   return sendSlack_({
-    text: `🍽️ 오늘 저녁: ${main.name}`,
+    text: `오늘 저녁: ${main.name}`,
     blocks: blocks
   });
 }
 
 function buildThreadMessage_(main) {
   const match = main._match || { missing: [] };
-  let msg = '🍳 요리 완성하면 👉 웹 🎲 뽑기 탭에서 *"✅ 다 먹었어"* 버튼 터치!\n재료 자동 차감됩니다.';
+  let msg = '요리 완성하면 웹 뽑기 탭에서 *"다 먹었어"* 버튼 터치하면 재료 자동 차감됩니다.';
   if (match.missing && match.missing.length > 0) {
-    msg += `\n\n🛒 *장보기 자동 추가 대상:*\n${match.missing.map(m => '• ' + m).join('\n')}`;
+    msg += `\n\n*장보기 자동 추가 대상:*\n${match.missing.map(m => '• ' + m).join('\n')}`;
   }
   return msg;
 }
@@ -339,35 +299,35 @@ function installDailyTrigger() {
   deleteAllTriggers();
   ScriptApp.newTrigger('sendDailyPicks')
     .timeBased().atHour(18).everyDays(1).inTimezone('Asia/Seoul').create();
-  SpreadsheetApp.getUi().alert('✅ 트리거 설치 완료\n매일 18:00 자동 발송됩니다.');
+  SpreadsheetApp.getUi().alert('트리거 설치 완료\n매일 18:00 자동 발송됩니다.');
 }
 
 function deleteAllTriggers() {
   const triggers = ScriptApp.getProjectTriggers();
   triggers.forEach(t => ScriptApp.deleteTrigger(t));
-  if (triggers.length > 0) log_(`🗑 ${triggers.length}개 트리거 삭제`);
+  if (triggers.length > 0) log_(`${triggers.length}개 트리거 삭제`);
 }
 
 function testWebhook() {
   const ui = SpreadsheetApp.getUi();
   const testPayload = {
-    text: '🧪 Webhook 테스트',
+    text: 'Webhook 테스트',
     blocks: [{
       type: 'section',
-      text: { type: 'mrkdwn', text: '*✅ v3.2 봇 연결 테스트*\n이제 각 탭 바로가기 버튼 포함!' }
+      text: { type: 'mrkdwn', text: '*v3.3 봇 연결 테스트*\n이모지 정리된 깔끔한 메시지로 발송됩니다.' }
     }, {
       type: 'actions',
       elements: [
-        { type: 'button', text: { type: 'plain_text', text: '🎲 뽑기', emoji: true }, url: CONFIG.PICKER_URL + '?tab=pick' },
-        { type: 'button', text: { type: 'plain_text', text: '🏠 재료', emoji: true }, url: CONFIG.PICKER_URL + '?tab=pantry' },
-        { type: 'button', text: { type: 'plain_text', text: '🛒 장보기', emoji: true }, url: CONFIG.PICKER_URL + '?tab=shop' },
-        { type: 'button', text: { type: 'plain_text', text: '📅 기록', emoji: true }, url: CONFIG.PICKER_URL + '?tab=log' }
+        { type: 'button', text: { type: 'plain_text', text: '뽑기' }, url: CONFIG.PICKER_URL + '?tab=pick' },
+        { type: 'button', text: { type: 'plain_text', text: '재료' }, url: CONFIG.PICKER_URL + '?tab=pantry' },
+        { type: 'button', text: { type: 'plain_text', text: '장보기' }, url: CONFIG.PICKER_URL + '?tab=shop' },
+        { type: 'button', text: { type: 'plain_text', text: '기록' }, url: CONFIG.PICKER_URL + '?tab=log' }
       ]
     }]
   };
   const result = sendSlack_(testPayload);
-  if (result.ok) ui.alert('✅ 테스트 성공!', 'Slack 채널 확인하세요.', ui.ButtonSet.OK);
-  else ui.alert('❌ 실패', result.error, ui.ButtonSet.OK);
+  if (result.ok) ui.alert('테스트 성공', 'Slack 채널 확인하세요.', ui.ButtonSet.OK);
+  else ui.alert('실패', result.error, ui.ButtonSet.OK);
 }
 
 function checkConfig() {
@@ -375,14 +335,13 @@ function checkConfig() {
   const triggers = ScriptApp.getProjectTriggers();
   const info = triggers.map(t => `  - ${t.getHandlerFunction()}`).join('\n') || '  (없음)';
   const hasBot = props.SLACK_BOT_TOKEN && props.SLACK_BOT_TOKEN.indexOf('xoxb-') === 0;
-  const msg = `📋 봇 설정 (v3.2)\n\n` +
-    `🔑 스크립트 속성:\n` +
-    `  - SLACK_WEBHOOK_URL: ${props.SLACK_WEBHOOK_URL ? '✅' : '❌'}\n` +
+  const msg = `봇 설정 (v3.3)\n\n` +
+    `스크립트 속성:\n` +
+    `  - SLACK_WEBHOOK_URL: ${props.SLACK_WEBHOOK_URL ? 'OK' : '미설정'}\n` +
     `  - SLACK_CHANNEL: ${props.SLACK_CHANNEL || '(기본 #집밥)'}\n` +
-    `  - SLACK_BOT_TOKEN: ${hasBot ? '✅ (스레드 ON)' : '⚠️'}\n\n` +
-    `⏰ 트리거 (${triggers.length}개):\n${info}\n\n` +
-    `🆕 v3.2: Slack 메시지에 웹 각 탭 바로가기 포함\n` +
-    `  - 🎲 뽑기 · 🏠 재료 · 🛒 장보기 · 📅 기록 4버튼`;
+    `  - SLACK_BOT_TOKEN: ${hasBot ? 'OK (스레드 ON)' : '미설정'}\n\n` +
+    `트리거 (${triggers.length}개):\n${info}\n\n` +
+    `v3.3: 이모지 최소화 (버튼·헤더 clean)`;
   SpreadsheetApp.getUi().alert(msg);
 }
 

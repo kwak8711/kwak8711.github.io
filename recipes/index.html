@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🍚 공주님 집밥 허브</title>
+  <title>공주님 집밥 허브</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -14,14 +14,14 @@
     }
     .wrap { max-width: 480px; margin: 0 auto; }
     header { text-align: center; padding: 16px 0 12px; }
-    h1 { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
+    h1 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
     .sub { font-size: 12px; opacity: 0.7; }
     .date { font-size: 11px; opacity: 0.6; margin-top: 2px; }
 
     /* 탭 */
     .tabs { display: flex; gap: 4px; margin: 12px 0; background: rgba(255,255,255,0.4); padding: 4px; border-radius: 14px; }
     .tab {
-      flex: 1; padding: 10px 6px; text-align: center; font-size: 12px; font-weight: 700;
+      flex: 1; padding: 11px 6px; text-align: center; font-size: 13px; font-weight: 700;
       border-radius: 10px; cursor: pointer; transition: all 0.15s; color: #666;
     }
     .tab.active { background: #fff; color: #B85C3C; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
@@ -134,14 +134,12 @@
 
     .empty { text-align: center; padding: 30px 20px; color: #999; font-size: 12px; background: rgba(255,255,255,0.5); border-radius: 12px; }
 
-    /* 알림/저장 안내 */
     .sync-banner {
       background: #FFF0E8; border: 1px dashed #FFB4A2; border-radius: 10px;
       padding: 10px 12px; margin-bottom: 12px; font-size: 11px; color: #B85C3C; line-height: 1.5;
     }
     .sync-banner b { font-weight: 700; }
 
-    /* 토스트 & 모달 */
     .toast {
       position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
       background: #2d2d2d; color: #fff; padding: 10px 20px; border-radius: 20px;
@@ -184,76 +182,70 @@
 <body>
   <div class="wrap">
     <header>
-      <h1>🍚 공주님 집밥 허브</h1>
+      <h1>공주님 집밥 허브</h1>
       <div class="sub">53개 레시피 · 20개 재료 pantry</div>
       <div class="date" id="todayDate"></div>
     </header>
 
-    <!-- 탭 네비 -->
     <div class="tabs">
-      <div class="tab active" data-tab="pick">🎲 뽑기</div>
-      <div class="tab" data-tab="pantry">🏠 재료</div>
-      <div class="tab" data-tab="shop">🛒 장보기</div>
-      <div class="tab" data-tab="log">📅 기록</div>
+      <div class="tab active" data-tab="pick">뽑기</div>
+      <div class="tab" data-tab="pantry">재료</div>
+      <div class="tab" data-tab="shop">장보기</div>
+      <div class="tab" data-tab="log">기록</div>
     </div>
 
-    <!-- 탭 1: 뽑기 -->
     <div id="tab-pick" class="tab-content active">
       <div class="filters" id="filters">
         <div class="chip active" data-filter="all">전체</div>
-        <div class="chip chip-hot" data-filter="pantry">🏠 집에 있는 재료로</div>
-        <div class="chip" data-filter="건강한거">🥗 건강식</div>
-        <div class="chip" data-filter="혼밥">🧘 혼밥</div>
-        <div class="chip" data-filter="손님맞이">👥 손님맞이</div>
-        <div class="chip" data-filter="quick">⚡ 20분이내</div>
-        <div class="chip" data-filter="브런치">🥐 브런치</div>
+        <div class="chip chip-hot" data-filter="pantry">집에 있는 재료로</div>
+        <div class="chip" data-filter="건강한거">건강식</div>
+        <div class="chip" data-filter="혼밥">혼밥</div>
+        <div class="chip" data-filter="손님맞이">손님맞이</div>
+        <div class="chip" data-filter="quick">20분이내</div>
+        <div class="chip" data-filter="브런치">브런치</div>
       </div>
       <div class="cards" id="cards"></div>
       <div class="buttons">
-        <button class="btn btn-secondary" onclick="reshuffle()">🎲 다시 뽑기</button>
-        <button class="btn btn-primary" onclick="pickRandom()">🎯 랜덤 1개</button>
+        <button class="btn btn-secondary" onclick="reshuffle()">다시 뽑기</button>
+        <button class="btn btn-primary" onclick="pickRandom()">랜덤 1개</button>
       </div>
     </div>
 
-    <!-- 탭 2: 재료 현황 -->
     <div id="tab-pantry" class="tab-content">
       <div class="sync-banner">
-        <b>💡 로컬 저장 안내:</b> 재료 수량은 이 브라우저에만 저장돼요. 다른 기기에서 동기화하려면 <b>"💾 Slack에 저장"</b> 버튼을 눌러주세요.
+        <b>로컬 저장:</b> 재료 수량은 이 브라우저에만 저장돼요. 다른 기기 동기화는 <b>Slack 저장</b> 버튼.
       </div>
       <div class="section-head">
-        <div class="section-title">🏠 내 재료 (<span id="pantryCount">0</span>개)</div>
-        <button class="btn btn-secondary" style="flex:0 0 auto; padding:7px 12px; font-size:11px; box-shadow:none" onclick="syncPantryToSlack()">💾 Slack 저장</button>
+        <div class="section-title">내 재료 (<span id="pantryCount">0</span>개)</div>
+        <button class="btn btn-secondary" style="flex:0 0 auto; padding:7px 12px; font-size:11px; box-shadow:none" onclick="syncPantryToSlack()">Slack 저장</button>
       </div>
       <div id="pantryList"></div>
       <div class="buttons" style="margin-top: 16px">
-        <button class="btn btn-secondary" onclick="resetPantryLocal()">🔄 원본 복원</button>
-        <button class="btn btn-primary" onclick="showPickFromPantry()">🍽 지금 재료로 뽑기</button>
+        <button class="btn btn-secondary" onclick="resetPantryLocal()">원본 복원</button>
+        <button class="btn btn-primary" onclick="showPickFromPantry()">지금 재료로 뽑기</button>
       </div>
     </div>
 
-    <!-- 탭 3: 장보기 -->
     <div id="tab-shop" class="tab-content">
       <div class="sync-banner">
-        <b>🛒 자동 장보기 리스트:</b> 매칭 50% 이상 레시피에서 자주 빠진 재료를 모았어요. 체크하면 로컬 저장되고, 💾 Slack으로 공유도 가능.
+        <b>자동 장보기:</b> 매칭 50% 이상 레시피에서 자주 빠진 재료를 모았어요. 체크하면 로컬 저장되고, Slack 전송도 가능.
       </div>
       <div class="section-head">
-        <div class="section-title">🛒 사야할 재료 (<span id="shopCount">0</span>개)</div>
-        <button class="btn btn-secondary" style="flex:0 0 auto; padding:7px 12px; font-size:11px; box-shadow:none" onclick="sendShoppingToSlack()">💾 Slack 전송</button>
+        <div class="section-title">사야할 재료 (<span id="shopCount">0</span>개)</div>
+        <button class="btn btn-secondary" style="flex:0 0 auto; padding:7px 12px; font-size:11px; box-shadow:none" onclick="sendShoppingToSlack()">Slack 전송</button>
       </div>
       <div id="shopList"></div>
     </div>
 
-    <!-- 탭 4: 기록 -->
     <div id="tab-log" class="tab-content">
       <div class="section-head">
-        <div class="section-title">📅 최근 요리 (<span id="logCount">0</span>개)</div>
-        <button class="btn btn-secondary" style="flex:0 0 auto; padding:7px 12px; font-size:11px; box-shadow:none" onclick="clearLog()">🗑 비우기</button>
+        <div class="section-title">최근 요리 (<span id="logCount">0</span>개)</div>
+        <button class="btn btn-secondary" style="flex:0 0 auto; padding:7px 12px; font-size:11px; box-shadow:none" onclick="clearLog()">비우기</button>
       </div>
       <div id="logList"></div>
     </div>
   </div>
 
-  <!-- 레시피 상세 모달 -->
   <div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
     <div class="modal" id="modalContent"></div>
   </div>
@@ -271,11 +263,10 @@
 
     let allRecipes = [];
     let pantryOriginal = { ingredients: [], match_aliases: {} };
-    let pantryLocal = null; // 수정된 로컬 수량
+    let pantryLocal = null;
     let currentPicks = [];
     let currentFilter = 'all';
 
-    // --- 초기 로딩 ---
     const today = new Date();
     const weekdays = ['일','월','화','수','목','금','토'];
     document.getElementById('todayDate').textContent =
@@ -288,14 +279,11 @@
         pantryOriginal = await pRes.json();
         allRecipes = rData.recipes;
 
-        // 로컬 저장된 pantry 복원
         try { pantryLocal = JSON.parse(localStorage.getItem(LS_PANTRY)) || clonePantry(); }
         catch(e) { pantryLocal = clonePantry(); }
 
-        // URL 파라미터 처리 (Slack 봇 바로가기)
         const params = new URLSearchParams(window.location.search);
         const hash = window.location.hash.slice(1);
-        // tab=pick/pantry/shop/log 지원
         const tabParam = params.get('tab') || (['pick','pantry','shop','log'].includes(hash) ? hash : null);
         if (tabParam && ['pick','pantry','shop','log'].includes(tabParam)) {
           setTimeout(() => switchTab(tabParam), 50);
@@ -324,7 +312,6 @@
       try { localStorage.setItem(LS_PANTRY, JSON.stringify(pantryLocal)); } catch(e) {}
     }
 
-    // --- 탭 전환 ---
     function switchTab(name) {
       document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
       document.querySelectorAll('.tab-content').forEach(c => c.classList.toggle('active', c.id === 'tab-' + name));
@@ -336,7 +323,6 @@
       t.addEventListener('click', () => switchTab(t.dataset.tab));
     });
 
-    // --- 매칭 로직 ---
     function matchPantry(recipe) {
       if (!pantryLocal.ingredients.length) return { have: [], missing: [], ratio: 0 };
       const names = pantryLocal.ingredients.filter(i => i.qty > 0).map(i => i.name);
@@ -360,7 +346,6 @@
       return { have, missing, ratio: total > 0 ? have.length / total : 0, total };
     }
 
-    // --- 뽑기 ---
     function filterRecipes() {
       if (currentFilter === 'all') return [...allRecipes];
       if (currentFilter === 'quick') return allRecipes.filter(r => r.cook_time_min <= 20);
@@ -376,7 +361,7 @@
 
     function reshuffle() {
       const pool = filterRecipes();
-      if (!pool.length) { document.getElementById('cards').innerHTML = `<div class="empty">조건에 맞는 메뉴가 없어요 🥲</div>`; return; }
+      if (!pool.length) { document.getElementById('cards').innerHTML = `<div class="empty">조건에 맞는 메뉴가 없어요</div>`; return; }
       let selected;
       if (currentFilter === 'pantry') {
         const top = pool.slice(0, 10);
@@ -405,33 +390,32 @@
     function renderCards() {
       const html = currentPicks.map((r, i) => {
         const m = matchPantry(r);
-        const matchBadge = m.ratio >= 0.5 ? `<span class="match-badge">🏠 ${Math.round(m.ratio*100)}%</span>` : '';
-        const haveTxt = m.have.length > 0 ? `<span class="ing-have">🏠 있음: ${m.have.join(', ')}</span>` : '';
-        const missTxt = m.missing.length > 0 ? `<br><span class="ing-miss">🛒 사야함: ${m.missing.join(', ')}</span>` : (m.have.length ? '<br>✅ 모든 재료 준비 완료!' : '');
+        const matchBadge = m.ratio >= 0.5 ? `<span class="match-badge">재료 ${Math.round(m.ratio*100)}%</span>` : '';
+        const haveTxt = m.have.length > 0 ? `<span class="ing-have">있음: ${m.have.join(', ')}</span>` : '';
+        const missTxt = m.missing.length > 0 ? `<br><span class="ing-miss">사야함: ${m.missing.join(', ')}</span>` : (m.have.length ? '<br>모든 재료 준비 완료' : '');
         return `
         <div class="card">
           <div class="card-body" onclick="openRecipe('${r.id}')">
             <div class="card-badge">선택지 ${i+1}</div>
             <div class="card-name">${r.name}${matchBadge}</div>
             <div class="card-meta">
-              <span>⏱ ${r.cook_time_min}분</span>
-              <span>👥 ${r.servings}인분</span>
-              <span>🔥 ${r.kcal_per_serving||'?'}kcal</span>
-              <span>💰 ₩${(r.cost_per_serving_krw||r.cost_krw||0).toLocaleString()}/인</span>
+              <span>${r.cook_time_min}분</span>
+              <span>${r.servings}인분</span>
+              <span>${r.kcal_per_serving||'?'}kcal</span>
+              <span>₩${(r.cost_per_serving_krw||r.cost_krw||0).toLocaleString()}/인</span>
             </div>
             <div class="card-tags">${(r.tags||[]).slice(0,4).map(t => `<span class="tag">#${t}</span>`).join('')}</div>
             <div class="card-ing-check">${haveTxt}${missTxt}</div>
           </div>
           <div class="card-actions">
-            <a class="card-action-btn card-action-secondary" href="${r.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📖 레시피</a>
-            <button class="card-action-btn card-action-success" onclick="event.stopPropagation(); completeRecipe('${r.id}')">✅ 다 먹었어</button>
+            <a class="card-action-btn card-action-secondary" href="${r.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">레시피</a>
+            <button class="card-action-btn card-action-success" onclick="event.stopPropagation(); completeRecipe('${r.id}')">다 먹었어</button>
           </div>
         </div>`;
       }).join('');
       document.getElementById('cards').innerHTML = html;
     }
 
-    // --- 레시피 상세 ---
     function openRecipe(id) {
       const r = allRecipes.find(x => x.id === id);
       if (!r) return;
@@ -442,40 +426,39 @@
           <button class="close" onclick="closeModal()">✕</button>
         </div>
         <div class="card-meta">
-          <span>⏱ ${r.cook_time_min}분</span>
-          <span>👥 ${r.servings}인분</span>
-          <span>🔥 ${r.kcal_per_serving||'?'}kcal</span>
-          <span>💰 ₩${(r.cost_per_serving_krw||r.cost_krw||0).toLocaleString()}/인</span>
+          <span>${r.cook_time_min}분</span>
+          <span>${r.servings}인분</span>
+          <span>${r.kcal_per_serving||'?'}kcal</span>
+          <span>₩${(r.cost_per_serving_krw||r.cost_krw||0).toLocaleString()}/인</span>
         </div>
         <div class="section">
-          <h4>🏠 재료 체크 (${m.have.length}/${m.total})</h4>
-          ${m.have.length > 0 ? `<div class="ing-have" style="font-size:13px;line-height:1.7">🏠 있음: ${m.have.join(', ')}</div>` : ''}
-          ${m.missing.length > 0 ? `<div class="ing-miss" style="font-size:13px;line-height:1.7;margin-top:4px">🛒 사야함: ${m.missing.join(', ')}</div>` : ''}
+          <h4>재료 체크 (${m.have.length}/${m.total})</h4>
+          ${m.have.length > 0 ? `<div class="ing-have" style="font-size:13px;line-height:1.7">있음: ${m.have.join(', ')}</div>` : ''}
+          ${m.missing.length > 0 ? `<div class="ing-miss" style="font-size:13px;line-height:1.7;margin-top:4px">사야함: ${m.missing.join(', ')}</div>` : ''}
         </div>
         <div class="section">
-          <h4>📝 재료</h4>
+          <h4>재료</h4>
           <ul>${r.ingredients.map(ing => `<li>${ing.name} ${ing.amount}${ing.unit}</li>`).join('')}</ul>
         </div>
         <div class="section">
-          <h4>🍳 조리순서</h4>
+          <h4>조리순서</h4>
           <ul class="steps">${r.steps.map((s,i) => `<li><span class="step-num">${i+1}</span>${s}</li>`).join('')}</ul>
         </div>
         <div class="section">
-          <h4>💡 꿀팁</h4>
+          <h4>꿀팁</h4>
           <ul>${(r.tips||[]).map(t => `<li>${t}</li>`).join('')}</ul>
         </div>
         <div class="buttons" style="margin-top:12px">
-          <button class="btn btn-secondary" onclick="addMissingToShop('${r.id}')">🛒 부족 재료 장보기 추가</button>
-          <button class="btn btn-primary" onclick="completeRecipe('${r.id}'); closeModal()">✅ 다 먹었어</button>
+          <button class="btn btn-secondary" onclick="addMissingToShop('${r.id}')">부족 재료 장보기</button>
+          <button class="btn btn-primary" onclick="completeRecipe('${r.id}'); closeModal()">다 먹었어</button>
         </div>
-        <a class="url-btn" href="${r.url}" target="_blank">🔗 만개의레시피 원문 보기</a>
+        <a class="url-btn" href="${r.url}" target="_blank">만개의레시피 원문 보기</a>
       `;
       document.getElementById('modal').classList.add('show');
     }
 
     function closeModal() { document.getElementById('modal').classList.remove('show'); }
 
-    // --- 재료 소진 (요리 완성) ---
     function completeRecipe(id) {
       const r = allRecipes.find(x => x.id === id);
       if (!r) return;
@@ -494,17 +477,15 @@
       });
       savePantryLocal();
       saveHistory(r);
-      showToast(`✅ ${r.name} 완성! ${consumed.length}개 재료 차감`);
+      showToast(`완성: ${r.name} (${consumed.length}개 재료 차감)`);
 
-      // 소진된 재료는 자동으로 장보기 추가
       const nowOut = pantryLocal.ingredients.filter(i => i.qty === 0);
       if (nowOut.length > 0) {
-        setTimeout(() => showToast(`🔴 소진: ${nowOut.map(i => i.name).join(', ')} - 장보기에 자동 추가됨`), 2200);
+        setTimeout(() => showToast(`소진: ${nowOut.map(i => i.name).join(', ')} — 장보기 추가됨`), 2200);
         addOutToShop();
       }
     }
 
-    // --- Pantry 렌더 ---
     function renderPantry() {
       document.getElementById('pantryCount').textContent = pantryLocal.ingredients.length;
       const byCat = {};
@@ -514,9 +495,9 @@
         byCat[c].push(i);
       });
       const html = Object.keys(byCat).map(cat => {
-        const items = byCat[cat].map((i, idx) => {
+        const items = byCat[cat].map((i) => {
           const stClass = i.qty === 0 ? 'st-out' : i.qty <= 1 ? 'st-low' : i.qty >= 5 ? 'st-full' : 'st-mid';
-          const stText = i.qty === 0 ? '🔴 소진' : i.qty <= 1 ? '⚠️ 부족' : i.qty >= 5 ? '🟢 넉넉' : '🟡 보통';
+          const stText = i.qty === 0 ? '소진' : i.qty <= 1 ? '부족' : i.qty >= 5 ? '넉넉' : '보통';
           const rowClass = i.qty === 0 ? 'out' : i.qty <= 1 ? 'low' : '';
           return `
           <div class="pantry-row ${rowClass}">
@@ -545,29 +526,26 @@
       savePantryLocal();
       renderPantry();
       if (item.qty === 0 && oldQty > 0) {
-        showToast(`🔴 ${name} 소진! 장보기 리스트에 추가`);
+        showToast(`${name} 소진 — 장보기 추가됨`);
         addOutToShop();
       }
     }
 
     function resetPantryLocal() {
-      if (!confirm('pantry.json 원본 수량으로 복원할까요?\n(로컬 수정사항 모두 삭제)')) return;
+      if (!confirm('pantry.json 원본 수량으로 복원할까요? (로컬 수정사항 모두 삭제)')) return;
       pantryLocal = clonePantry();
       savePantryLocal();
       renderPantry();
-      showToast('🔄 원본 복원 완료');
+      showToast('원본 복원 완료');
     }
 
-    // --- 장보기 리스트 ---
     function renderShop() {
       let shop = loadShop();
-      // 자동: 소진된 pantry 재료 추가
       pantryLocal.ingredients.filter(i => i.qty === 0).forEach(i => {
         if (!shop.find(s => s.name === i.name)) {
-          shop.push({ name: i.name, reason: '🔴 재료 소진', source: 'pantry' });
+          shop.push({ name: i.name, reason: '재료 소진', source: 'pantry' });
         }
       });
-      // 자동: 매칭 50%+ 레시피 missing
       const missMap = {};
       allRecipes.forEach(r => {
         const m = matchPantry(r);
@@ -588,10 +566,10 @@
       const checked = loadChecked();
       document.getElementById('shopCount').textContent = shop.length;
       if (!shop.length) {
-        document.getElementById('shopList').innerHTML = '<div class="empty">살 재료가 없어요! 🎉</div>';
+        document.getElementById('shopList').innerHTML = '<div class="empty">살 재료가 없어요</div>';
         return;
       }
-      const html = shop.map((s, idx) => {
+      const html = shop.map((s) => {
         const isChecked = checked.includes(s.name);
         return `
         <div class="shop-item ${isChecked?'checked':''}" onclick="toggleShop('${s.name}')">
@@ -627,20 +605,19 @@
         }
       });
       saveShop(shop);
-      showToast(`🛒 ${m.missing.length}개 재료 장보기 추가`);
+      showToast(`${m.missing.length}개 재료 장보기 추가`);
     }
 
     function addOutToShop() {
       let shop = loadShop();
       pantryLocal.ingredients.filter(i => i.qty === 0).forEach(i => {
         if (!shop.find(s => s.name === i.name)) {
-          shop.push({ name: i.name, reason: '🔴 재료 소진', source: 'pantry' });
+          shop.push({ name: i.name, reason: '재료 소진', source: 'pantry' });
         }
       });
       saveShop(shop);
     }
 
-    // --- 히스토리 ---
     function saveHistory(r) {
       let hist = [];
       try { hist = JSON.parse(localStorage.getItem(LS_HISTORY)) || []; } catch(e) {}
@@ -662,7 +639,7 @@
         `<div class="history-item" onclick="window.open('${h.url||('https://www.10000recipe.com/recipe/'+h.id)}', '_blank')">
           <span class="h-date">${h.date}</span>
           <span class="h-name">${h.name}</span>
-          <span class="h-go">📖 바로가기 →</span>
+          <span class="h-go">바로가기 →</span>
         </div>`).join('');
     }
 
@@ -670,7 +647,7 @@
       if (!confirm('요리 기록 전부 지울까요?')) return;
       try { localStorage.removeItem(LS_HISTORY); } catch(e) {}
       renderLog();
-      showToast('🗑 기록 삭제됨');
+      showToast('기록 삭제됨');
     }
 
     function selectRecipe(id, skipClose) {
@@ -678,16 +655,15 @@
       if (!r) return;
       saveHistory(r);
       if (!skipClose) closeModal();
-      showToast(`✅ 선택: ${r.name}`);
+      showToast(`선택: ${r.name}`);
     }
 
-    // --- Slack 전송 (Claude에게 요청 유도) ---
     function syncPantryToSlack() {
       const txt = `[pantry.json 업데이트 요청]\n현재 재료 수량:\n` +
         pantryLocal.ingredients.map(i => `• ${i.name}: ${i.qty}${i.unit}`).join('\n') +
         '\n\n위 수량대로 pantry.json 업데이트해줘.';
       navigator.clipboard.writeText(txt).then(() => {
-        showToast('📋 클립보드 복사 완료! Claude에게 붙여넣기');
+        showToast('클립보드 복사 완료 — Claude에게 붙여넣기');
       }).catch(() => {
         prompt('이 메시지를 Claude에게 보내주세요:', txt);
       });
@@ -697,11 +673,11 @@
       const shop = loadShop();
       const checked = loadChecked();
       const notBought = shop.filter(s => !checked.includes(s.name));
-      if (!notBought.length) { showToast('살 재료가 없어요!'); return; }
-      const txt = `🛒 오늘 장보기 리스트 (${notBought.length}개):\n\n` +
+      if (!notBought.length) { showToast('살 재료가 없어요'); return; }
+      const txt = `오늘 장보기 리스트 (${notBought.length}개):\n\n` +
         notBought.map(s => `• ${s.name} (${s.reason})`).join('\n');
       navigator.clipboard.writeText(txt).then(() => {
-        showToast('📋 클립보드 복사! Slack에 붙여넣기');
+        showToast('클립보드 복사 — Slack에 붙여넣기');
       }).catch(() => {
         prompt('Slack에 보낼 메시지:', txt);
       });
@@ -716,7 +692,6 @@
       setTimeout(() => t.classList.remove('show'), 2200);
     }
 
-    // 필터 chip
     document.querySelectorAll('#filters .chip').forEach(chip => {
       chip.addEventListener('click', () => {
         document.querySelectorAll('#filters .chip').forEach(c => c.classList.remove('active'));
