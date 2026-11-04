@@ -292,10 +292,15 @@
         try { pantryLocal = JSON.parse(localStorage.getItem(LS_PANTRY)) || clonePantry(); }
         catch(e) { pantryLocal = clonePantry(); }
 
-        // URL 파라미터 처리
+        // URL 파라미터 처리 (Slack 봇 바로가기)
         const params = new URLSearchParams(window.location.search);
         const hash = window.location.hash.slice(1);
-        if (hash === 'shopping') switchTab('shop');
+        // tab=pick/pantry/shop/log 지원
+        const tabParam = params.get('tab') || (['pick','pantry','shop','log'].includes(hash) ? hash : null);
+        if (tabParam && ['pick','pantry','shop','log'].includes(tabParam)) {
+          setTimeout(() => switchTab(tabParam), 50);
+        }
+        if (hash === 'shopping' || tabParam === 'shop') setTimeout(() => switchTab('shop'), 50);
         if (params.get('filter') === 'pantry') {
           currentFilter = 'pantry';
           document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.filter === 'pantry'));
